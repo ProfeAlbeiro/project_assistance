@@ -1,7 +1,7 @@
 <?php ob_start();
-    session_start();
-    require_once "models/DataBase.php";
-    $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Landing";
+    session_start();    
+    require_once "models/DataBase.php";    
+    $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Login";
     $route_controller = "controllers/" . $controller . ".php";
     if (file_exists($route_controller)) {
         $view = $controller;

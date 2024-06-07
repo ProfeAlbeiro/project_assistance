@@ -10,6 +10,7 @@ INSERT INTO `roles` (`rol_code`, `rol_name`) VALUES
 -- Datos Usuario
 
 INSERT INTO `users` VALUES
+(1, 14785, 'Efren', 'efren@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
 (2, 65465, 'Julian', 'julian@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
 (3, 54564, 'Pepito', 'pepito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
 (3, 87897, 'Marinita', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
