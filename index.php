@@ -1,6 +1,5 @@
 <?php ob_start();
-    session_start();    
-    // session_destroy();    
+    session_start();
     require_once "models/DataBase.php";    
     $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Login";
     $route_controller = "controllers/" . $controller . ".php";

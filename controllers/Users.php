@@ -74,22 +74,20 @@
         public function userCreate(){
             if ($this->session == 'admin' || $this->session == 'seller') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    // $roles = new User;
-                    // $roles = $roles->read_roles();
+                    $roles = new User;
+                    $roles = $roles->read_roles();
                     require_once "views/modules/users/user_create.view.php";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
                     $user = new User(
-                        $_POST['rol_code'],
-                        null,
-                        $_POST['user_name'],
-                        $_POST['user_lastname'],
+                        $_POST['rol_code'],                        
                         $_POST['user_id'],
-                        $_POST['user_email'],
+                        $_POST['user_name'],                        
+                        $_POST['user_email'],                        
                         $_POST['user_pass'],
                         $_POST['user_state']
-                    );                
-                    $user->create_user();
+                    );                    
+                    $user = $user->create_user();                    
                     header("Location: ?c=Users&a=userRead");
                 }
             } else {

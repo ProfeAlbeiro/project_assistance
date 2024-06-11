@@ -34,6 +34,15 @@
         }
         
         # Constructor: Objeto 07 parámetros
+        public function __construct6($rol_code, $user_id, $user_name, $user_email, $user_pass, $user_state){            
+            $this->rol_code = $rol_code;            
+            $this->user_id = $user_id;
+            $this->user_name = $user_name;
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+            $this->user_state = $user_state;            
+        }
+        
         public function __construct7($rol_code, $rol_name, $user_id, $user_name, $user_email, $user_pass, $user_state){
             unset($this->dbh);
             $this->rol_code = $rol_code;
@@ -43,7 +52,7 @@
             $this->user_email = $user_email;
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;            
-        }        
+        }
 
         // 3ra Parte: Setter y Getters
         # Código Rol
@@ -219,8 +228,7 @@
                 $sql = 'INSERT INTO USERS VALUES (
                             :rolCode,
                             :userId,
-                            :userName,                            
-                            :userId,
+                            :userName,                                                        
                             :userEmail,
                             :userPass,
                             :userState
@@ -229,11 +237,11 @@
                 $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('userId', $this->getUserId());
                 $stmt->bindValue('userName', $this->getUserName());                
-                $stmt->bindValue('userId', $this->getUserId());
                 $stmt->bindValue('userEmail', $this->getUserEmail());
                 $stmt->bindValue('userPass', sha1($this->getUserPass()));
                 $stmt->bindValue('userState', $this->getUserState());
                 $stmt->execute();
+                return $stmt;
             } catch (Exception $e) {
                 die($e->getMessage());
             }
