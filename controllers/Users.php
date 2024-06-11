@@ -74,8 +74,8 @@
         public function userCreate(){
             if ($this->session == 'admin' || $this->session == 'seller') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $roles = new User;
-                    $roles = $roles->read_roles();
+                    // $roles = new User;
+                    // $roles = $roles->read_roles();
                     require_once "views/modules/users/user_create.view.php";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
@@ -101,8 +101,8 @@
         public function userRead(){
             if ($this->session == 'admin' || $this->session == 'seller') {
                 $state = ['Inactivo', 'Activo'];
-                $users = new User;
-                $users = $users->read_users();
+                // $users = new User;
+                // $users = $users->read_users();
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");

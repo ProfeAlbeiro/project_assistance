@@ -138,36 +138,36 @@
             }
         }
 
-        // # RF03_CU03 - Registrar Rol
-        // public function create_rol(){
-        //     try {
-        //         $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('rolCode', $this->getRolCode());
-        //         $stmt->bindValue('rolName', $this->getRolName());
-        //         $stmt->execute();
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        # RF03_CU03 - Registrar Rol
+        public function create_rol(){
+            try {
+                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
-        // # RF04_CU04 - Consultar Roles
-        // public function read_roles(){
-        //     try {
-        //         $rolList = [];
-        //         $sql = 'SELECT * FROM ROLES';
-        //         $stmt = $this->dbh->query($sql);
-        //         foreach ($stmt->fetchAll() as $rol) {
-        //             $rolObj = new User;
-        //             $rolObj->setRolCode($rol['rol_code']);
-        //             $rolObj->setRolName($rol['rol_name']);
-        //             array_push($rolList, $rolObj);
-        //         }
-        //         return $rolList;
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        # RF04_CU04 - Consultar Roles
+        public function read_roles(){
+            try {
+                $rolList = [];
+                $sql = 'SELECT * FROM ROLES';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $rol) {
+                    $rolObj = new User;
+                    $rolObj->setRolCode($rol['rol_code']);
+                    $rolObj->setRolName($rol['rol_name']);
+                    array_push($rolList, $rolObj);
+                }
+                return $rolList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
         // # RF05_CU05 - Obtener el Rol por el código
         // public function getrol_bycode($rolCode){
