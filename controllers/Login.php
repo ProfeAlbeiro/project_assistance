@@ -14,7 +14,7 @@ class Login
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {            
             $profile = new User(
-                $_POST['user_email'],
+                $_POST['user_id'],
                 $_POST['user_pass']
             );            
             $profile = $profile->login();            

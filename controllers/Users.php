@@ -32,7 +32,7 @@
         public function rolRead(){
             if ($this->session == 'admin') {
                 $roles = new User;
-                $roles = $roles->read_roles();            
+                $roles = $roles->read_roles();
                 require_once "views/modules/users/rol_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");

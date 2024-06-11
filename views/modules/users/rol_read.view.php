@@ -32,10 +32,10 @@
                       <td><?php echo $rol->getRolCode(); ?></td>
                       <td><?php echo $rol->getRolName(); ?></td>
                       <td class="text-center">
-                        <a href="#" class="btn btn-success p-0">
+                        <a href="?c=Users&a=rolUpdate&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="ri-edit-circle-fill"></i></h4>
                         </a>
-                        <a href="#" class="btn btn-warning p-0">
+                        <a href="?c=Users&a=rolDelete&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-danger p-0">
                           <h4 class="m-0"><i class="ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>                    

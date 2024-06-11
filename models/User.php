@@ -43,7 +43,6 @@
             $this->user_email = $user_email;
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;            
-            
         }        
 
         // 3ra Parte: Setter y Getters
@@ -169,78 +168,76 @@
             }
         }
 
-        // # RF05_CU05 - Obtener el Rol por el código
-        // public function getrol_bycode($rolCode){
-        //     try {
-        //         $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('rolCode', $rolCode);
-        //         $stmt->execute();
-        //         $rolDb = $stmt->fetch();
-        //         $rol = new User;
-        //         $rol->setRolCode($rolDb['rol_code']);
-        //         $rol->setRolName($rolDb['rol_name']);
-        //         return $rol;
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        # RF05_CU05 - Obtener el Rol por el código
+        public function getrol_bycode($rolCode){
+            try {
+                $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->execute();
+                $rolDb = $stmt->fetch();
+                $rol = new User;
+                $rol->setRolCode($rolDb['rol_code']);
+                $rol->setRolName($rolDb['rol_name']);
+                return $rol;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
-        // # RF06_CU06 - Actualizar Rol
-        // public function update_rol(){
-        //     try {
-        //         $sql = 'UPDATE ROLES SET
-        //                     rol_code = :rolCode,
-        //                     rol_name = :rolName
-        //                 WHERE rol_code = :rolCode';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('rolCode', $this->getRolCode());
-        //         $stmt->bindValue('rolName', $this->getRolName());
-        //         $stmt->execute();
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        # RF06_CU06 - Actualizar Rol
+        public function update_rol(){
+            try {
+                $sql = 'UPDATE ROLES SET
+                            rol_code = :rolCode,
+                            rol_name = :rolName
+                        WHERE rol_code = :rolCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
-        // # RF07_CU07 - Eliminar Rol
-        // public function delete_rol($rolCode){
-        //     try {
-        //         $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('rolCode', $rolCode);
-        //         $stmt->execute();
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        # RF07_CU07 - Eliminar Rol
+        public function delete_rol($rolCode){
+            try {
+                $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
-        // # RF08_CU08 - Registrar Usuario
-        // public function create_user(){
-        //     try {
-        //         $sql = 'INSERT INTO USERS VALUES (
-        //                     :rolCode,
-        //                     :userCode,
-        //                     :userName,
-        //                     :userLastName,
-        //                     :userId,
-        //                     :userEmail,
-        //                     :userPass,
-        //                     :userState
-        //                 )';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('rolCode', $this->getRolCode());
-        //         $stmt->bindValue('userCode', $this->getUserCode());
-        //         $stmt->bindValue('userName', $this->getUserName());
-        //         $stmt->bindValue('userLastName', $this->getUserLastName());
-        //         $stmt->bindValue('userId', $this->getUserId());
-        //         $stmt->bindValue('userEmail', $this->getUserEmail());
-        //         $stmt->bindValue('userPass', sha1($this->getUserPass()));
-        //         $stmt->bindValue('userState', $this->getUserState());
-        //         $stmt->execute();
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        # RF08_CU08 - Registrar Usuario
+        public function create_user(){
+            try {
+                $sql = 'INSERT INTO USERS VALUES (
+                            :rolCode,
+                            :userId,
+                            :userName,                            
+                            :userId,
+                            :userEmail,
+                            :userPass,
+                            :userState
+                        )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userName', $this->getUserName());                
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                $stmt->bindValue('userState', $this->getUserState());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
         // # RF09_CU09 - Consultar Usuarios
         // public function read_users(){
