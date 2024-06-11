@@ -1,5 +1,10 @@
+/* ************************************************************************************* */
+/* --------------------------------------- ROLES --------------------------------------- */
+/* ************************************************************************************* */
 
--- Datos Roles
+-- ------------------------------------------------------------------------------------- --
+-- 01. INSERTAR ROLES ------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------------------- --
 
 INSERT INTO `roles` (`rol_code`, `rol_name`) VALUES
 (1, 'admin'),
@@ -7,7 +12,19 @@ INSERT INTO `roles` (`rol_code`, `rol_name`) VALUES
 (3, 'estudiante'),
 (4, 'acudiente');
 
--- Datos Usuario
+SELECT * FROM ROLES;
+
+UPDATE ROLES SET 
+nombre_rol = 'person'
+WHERE codigo_rol = 2;
+
+UPDATE USUARIOS SET 
+codigo_user = 'admin-3'
+WHERE codigo_user = 'admin-2';
+
+-- ------------------------------------------------------------------------------------- --
+-- ROLES ------------------------------------------------------------------------------- --
+-- ------------------------------------------------------------------------------------- --
 
 INSERT INTO `users` VALUES
 (1, 14785, 'Efren', 'efren@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
@@ -18,6 +35,7 @@ INSERT INTO `users` VALUES
 (4, 78972, 'Pedro', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
 (4, 96325, 'Carlos', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 
+SELECT * FROM USERS;
 
 INSERT INTO `acudientes` VALUES
 (78972),
@@ -52,4 +70,8 @@ INSERT INTO `asistencia` VALUES
 INSERT INTO `justificaciones` VALUES
 (65465, 54564, 78972, 1, "Cita Médica", 1),
 (65465, 45648, 96325, 2, NULL, 0);
+
+
+
+
 
