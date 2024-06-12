@@ -97,10 +97,10 @@
 
         // Controlador Consultar Usuarios
         public function userRead(){
-            if ($this->session == 'admin' || $this->session == 'seller') {
+            if ($this->session == 'admin') {
                 $state = ['Inactivo', 'Activo'];
-                // $users = new User;
-                // $users = $users->read_users();
+                $users = new User;
+                $users = $users->read_users();                
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
@@ -109,7 +109,7 @@
 
         // Controlador Actualizar Usuario
         public function userUpdate(){
-            if ($this->session == 'admin' || $this->session == 'seller') {
+            if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     $state = ['Inactivo', 'Activo'];
                     $roles = new User;
@@ -120,11 +120,9 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $userUpdate = new User(
-                        $_POST['rol_code'],
-                        $_POST['user_code'],                    
-                        $_POST['user_name'],
-                        $_POST['user_lastname'],
+                        $_POST['rol_code'],                        
                         $_POST['user_id'],
+                        $_POST['user_name'],                        
                         $_POST['user_email'],
                         $_POST['user_pass'],
                         $_POST['user_state']

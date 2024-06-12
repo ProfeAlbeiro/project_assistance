@@ -248,120 +248,108 @@
         }
 
         // # RF09_CU09 - Consultar Usuarios
-        // public function read_users(){
-        //     try {
-        //         $userList = [];
-        //         $sql = 'SELECT
-        //                     r.rol_code,
-        //                     r.rol_name,
-        //                     user_code,
-        //                     user_name,
-        //                     user_lastname,
-        //                     user_id,
-        //                     user_email,
-        //                     user_pass,
-        //                     user_state
-        //                 FROM ROLES AS r
-        //                 INNER JOIN USERS AS u
-        //                 on r.rol_code = u.rol_code';
-        //         $stmt = $this->dbh->query($sql);
-        //         foreach ($stmt->fetchAll() as $user) {
-        //             $userObj = new User(
-        //                 $user['rol_code'],
-        //                 $user['rol_name'],
-        //                 $user['user_code'],
-        //                 $user['user_name'],
-        //                 $user['user_lastname'],
-        //                 $user['user_id'],
-        //                 $user['user_email'],
-        //                 $user['user_pass'],
-        //                 $user['user_state']
-        //             );
-        //             array_push($userList, $userObj);
-        //         }
-        //         return $userList;
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        public function read_users(){
+            try {
+                $userList = [];
+                $sql = 'SELECT
+                            r.rol_code,
+                            r.rol_name,
+                            user_id,                            
+                            user_name,                            
+                            user_email,
+                            user_pass,
+                            user_state
+                        FROM ROLES AS r
+                        INNER JOIN USERS AS u
+                        on r.rol_code = u.rol_code';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $user) {
+                    $userObj = new User(
+                        $user['rol_code'],
+                        $user['rol_name'],                        
+                        $user['user_id'],
+                        $user['user_name'],                        
+                        $user['user_email'],
+                        $user['user_pass'],
+                        $user['user_state']
+                    );
+                    array_push($userList, $userObj);
+                }
+                return $userList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
         // # RF10_CU10 - Obtener el Usuario por el código
-        // public function getuser_bycode($userCode){
-        //     try {
-        //         $sql = 'SELECT
-        //                     r.rol_code,
-        //                     r.rol_name,
-        //                     user_code,
-        //                     user_name,
-        //                     user_lastname,
-        //                     user_id,
-        //                     user_email,
-        //                     user_pass,
-        //                     user_state
-        //                 FROM ROLES AS r
-        //                 INNER JOIN USERS AS u
-        //                 on r.rol_code = u.rol_code
-        //                 WHERE user_code=:userCode';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('userCode', $userCode);
-        //         $stmt->execute();
-        //         $userDb = $stmt->fetch();
-        //         $user = new User(
-        //             $userDb['rol_code'],
-        //             $userDb['rol_name'],
-        //             $userDb['user_code'],
-        //             $userDb['user_name'],
-        //             $userDb['user_lastname'],
-        //             $userDb['user_id'],
-        //             $userDb['user_email'],
-        //             $userDb['user_pass'],
-        //             $userDb['user_state']
-        //         );
-        //         return $user;
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        public function getuser_bycode($userCode){
+            try {
+                $sql = 'SELECT
+                            r.rol_code,
+                            r.rol_name,                            
+                            user_id,
+                            user_name,                            
+                            user_email,
+                            user_pass,
+                            user_state
+                        FROM ROLES AS r
+                        INNER JOIN USERS AS u
+                        on r.rol_code = u.rol_code
+                        WHERE user_id=:userCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+                $userDb = $stmt->fetch();
+                $user = new User(
+                    $userDb['rol_code'],
+                    $userDb['rol_name'],                    
+                    $userDb['user_id'],
+                    $userDb['user_name'],                    
+                    $userDb['user_email'],
+                    $userDb['user_pass'],
+                    $userDb['user_state']
+                );
+                return $user;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
         //  # RF11_CU11 - Actualizar usuario
-        //  public function update_user(){
-        //     try {
-        //         $sql = 'UPDATE USERS SET
-        //                     rol_code = :rolCode,
-        //                     user_code = :userCode,
-        //                     user_name = :userName,
-        //                     user_lastname = :userLastName,
-        //                     user_id = :userId,
-        //                     user_email = :userEmail,
-        //                     user_pass = :userPass,
-        //                     user_state = :userState
-        //                 WHERE user_code = :userCode';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('rolCode', $this->getRolCode());
-        //         $stmt->bindValue('userCode', $this->getUserCode());
-        //         $stmt->bindValue('userName', $this->getUserName());
-        //         $stmt->bindValue('userLastName', $this->getUserLastName());
-        //         $stmt->bindValue('userId', $this->getUserId());
-        //         $stmt->bindValue('userEmail', $this->getUserEmail());
-        //         $stmt->bindValue('userPass', sha1($this->getUserPass()));
-        //         $stmt->bindValue('userState', $this->getUserState());
-        //         $stmt->execute();
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+         public function update_user(){
+            try {
+                $sql = 'UPDATE USERS SET
+                            rol_code = :rolCode,                            
+                            user_id = :userId,
+                            user_name = :userName,                            
+                            user_email = :userEmail,
+                            user_pass = :userPass,
+                            user_state = :userState
+                        WHERE user_id = :userId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userId', $this->getUserId());                
+                $stmt->bindValue('userName', $this->getUserName());                
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                $stmt->bindValue('userState', $this->getUserState());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
         // # RF12_CU12 - Eliminar Usuario
-        // public function delete_user($userCode){
-        //     try {
-        //         $sql = 'DELETE FROM USERS WHERE user_code = :userCode';
-        //         $stmt = $this->dbh->prepare($sql);
-        //         $stmt->bindValue('userCode', $userCode);
-        //         $stmt->execute();
-        //     } catch (Exception $e) {
-        //         die($e->getMessage());
-        //     }
-        // }
+        public function delete_user($userCode){
+            try {
+                $sql = 'DELETE FROM USERS WHERE user_id = :userCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     
     }
 
