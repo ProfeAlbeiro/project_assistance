@@ -1,4 +1,7 @@
 <?php
+    # NOTA_01 - Disparadores para los Roles
+    # NOTA_02 - Asociar Acudientes con Estudiantes
+
     class User{
         // 1ra Parte: Atributos
         private $dbh;
