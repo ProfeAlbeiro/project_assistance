@@ -104,6 +104,8 @@ INSERT INTO `estado` VALUES
 (2,"no asistencia"),
 (3,"llegada tarde");
 
+SELECT * FROM ESTADO;
+
 -- Insertar Inasistencia de Estudiantes
 INSERT INTO `asistencia`(`estudiante_id`, `estado_id`, `asistencia_fecha`) VALUES
 (54564, 2, "2024-06-06");

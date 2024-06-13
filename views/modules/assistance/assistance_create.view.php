@@ -24,16 +24,28 @@
                 <input type="text" name="estudiante_id" class="form-control">
               </div>
             </div>
+            
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Estado</label>
+              <div class="col-sm-10">
+                <select class="form-select" name="estado_id" aria-label="Default select example">                  
+                  <option value="1" selected>Asistencia</option>
+                  <option value="2">No Asistencia</option>
+                  <option value="3">Llegada Tarde</option>
+                </select>
+              </div>
+            </div>
+
             <div class="row mb-3">
               <label for="inputDate" class="col-sm-2 col-form-label">Fecha</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control">
+                <input type="date" name="asistencia_fecha" class="form-control">
               </div>
             </div>
             <div class="row mb-3">
               <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
               <div class="col-sm-10">
-                <input type="time" class="form-control">
+                <input type="time" name="asistencia_hora_inicio" class="form-control">
               </div>
             </div>
             <div class="row mb-3">                  

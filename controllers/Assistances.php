@@ -23,9 +23,8 @@
                         $_POST['estudiante_id'],
                         $_POST['asistencia_fecha'],
                         $_POST['asistencia_hora_inicio']
-                    );
-                    print_r($assistance);
-                    // $assistance->create_assistance();
+                    );                    
+                    $assistance->create_assistance();
                     // header("Location: ?c=Users&a=rolRead");
                 }                
             } else {

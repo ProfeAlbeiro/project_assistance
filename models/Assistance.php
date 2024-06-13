@@ -74,12 +74,16 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }
-        } 
+        }
+         
         # RF02 - Constular Asistencias                 
-                 // MultiFiltro. Controles txt, enviar                 
+                 // MultiFiltro. Controles txt, enviar
+                         
         # RF03 - Obtener Asistencias de un Estudiante
         # RF04 - Actualizar Asistencia por Estudiante
         # RF05 - Eliminar Registro
+
+
         # RF06 - Reportes en Excel y PDF
         # RF07 - Cantidad de Registros por: Asistencias, Inasistencias y Retardos
         # RF08 - Justificaciones por Inasistencia y por llegada tarde
