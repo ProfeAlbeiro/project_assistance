@@ -345,7 +345,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="?c=Assistances&a=assistanceRead">
               <i class="bi bi-circle"></i><span>Consultar Asistencias</span>
             </a>
           </li>

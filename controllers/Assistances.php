@@ -31,6 +31,19 @@
                 header("Location: ?c=Dashboard");
             }            
         }
+
+        // Controlador Consultar Asistencias
+        public function assistanceRead(){
+            if ($this->session == 'admin') {                
+                // $state = ['Inactivo', 'Activo'];
+                $assistances = new Assistance;
+                $assistances = $assistances->read_assistance();                
+                // print_r($assistances);
+                require_once "views/modules/assistance/assistance_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
     }
 
 ?>
