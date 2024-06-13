@@ -1,1 +1,1 @@
-<h1>Soy el Contenido admin</h1>
+<h1>Soy el Contenido Profesor</h1>

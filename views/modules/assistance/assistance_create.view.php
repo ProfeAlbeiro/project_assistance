@@ -37,15 +37,15 @@
             </div>
 
             <div class="row mb-3">
-              <label for="inputDate" class="col-sm-2 col-form-label">Fecha</label>
+              <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
               <div class="col-sm-10">
-                <input type="date" name="asistencia_fecha" class="form-control">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
-              <div class="col-sm-10">
-                <input type="time" name="asistencia_hora_inicio" class="form-control">
+                <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $fecha?></label>                
+                </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
+                  <div class="col-sm-10">
+                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $hora?></label>
               </div>
             </div>
             <div class="row mb-3">                  

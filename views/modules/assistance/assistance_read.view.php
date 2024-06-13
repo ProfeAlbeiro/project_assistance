@@ -18,7 +18,7 @@
               <h5 class="card-title">Consultar Asistencia</h5>
 
               <!-- Table with stripped rows -->
-               <div class="table-responsive">
+              <div class="table-responsive">
                 <table class="table datatable" id="example" style="width:100%">
                   <thead>
                     <tr>
