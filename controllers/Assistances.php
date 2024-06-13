@@ -12,7 +12,7 @@
         }
         
         // Controlador Crear Asistencia
-        public function AssistanceCreate(){
+        public function assistanceCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
                     require_once ("views/modules/assistance/assistance_create.view.php");
@@ -25,7 +25,7 @@
                         $_POST['asistencia_hora_inicio']
                     );                    
                     $assistance->create_assistance();
-                    // header("Location: ?c=Users&a=rolRead");
+                    header("Location: ?c=Assistances&a=assistanceCreate");
                 }                
             } else {
                 header("Location: ?c=Dashboard");
