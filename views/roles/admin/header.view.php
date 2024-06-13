@@ -26,6 +26,9 @@
   <link href="assets/dashboard/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/simple-datatables/style.css" rel="stylesheet">
 
+  <!-- DataTable -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"> -->
   <!-- Template Main CSS File -->
   <link href="assets/dashboard/css/style.css" rel="stylesheet">
 

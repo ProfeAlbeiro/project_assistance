@@ -100,8 +100,8 @@ SELECT * FROM USERS;
 
 -- Insertar Estado
 INSERT INTO `estado` VALUES
-(1,"asistencia"),
-(2,"no asistencia"),
+(1,"si asiste"),
+(2,"no asiste"),
 (3,"llegada tarde");
 
 SELECT * FROM ESTADO;
