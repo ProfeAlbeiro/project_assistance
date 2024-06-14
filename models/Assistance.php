@@ -177,11 +177,17 @@
             }
         }
 
+        # ✓ # CHECK - Disparadores de Users a Profesor, Estudiante y Acudiente.
+        # Incluir en la DB una tabla con Sedes, jornadas, cursos, etc
+        # Relacionar estudiantes con acudientes
+        # Consultas en DataTables (Presentación). Incluir los controles pdf, excel, etc.,
+        # Responsive de la tabla, traer fecha de js y tamaño de controles.
+        # Cierre de DB en PDO
+        # Validaciones de todos los formularios.
+        # Incluir las Alertas (SweetAlert)
+
         # RF04 - Actualizar Asistencia por Estudiante
-        # RF05 - Eliminar Registro
-
-
-        # RF06 - Reportes en Excel y PDF
+        # RF05 - Eliminar Registro de Asistencia        
         # RF07 - Cantidad de Registros por: Asistencias, Inasistencias y Retardos
         # RF08 - Justificaciones por Inasistencia y por llegada tarde
                  // El Profesor y el Acudiente pueden registrar una justificación
