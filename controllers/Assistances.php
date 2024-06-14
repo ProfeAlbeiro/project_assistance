@@ -14,26 +14,27 @@
         // Controlador Crear Asistencia
         public function assistanceCreate(){
             if ($this->session == 'admin') {
+                date_default_timezone_set('America/Bogota');
+                // Cómo mostrar fecha y hora dinámicamente
+                $fecha = date("Y-m-d");                    
+                $hora = date("H:i:s");
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor. 
-                    date_default_timezone_set('America/Bogota');
-                    $fecha = date("Y-m-d");                    
-                    $hora = date("H:i:s");
+                    $lastRecord = new Assistance;
                     require_once ("views/modules/assistance/assistance_create.view.php");
                 }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    date_default_timezone_set('America/Bogota');
-                    // Cómo mostrar fecha y hora dinámicamente
-                    $fecha = date("Y-m-d");                    
-                    $hora = date("H:i:s");
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
                     $assistance = new Assistance(
                         $_POST['estado_id'],
                         $_POST['estudiante_id'],
                         $fecha,
                         $hora                        
-                    );                    
+                    );
                     $assistance->create_assistance();
-                    header("Location: ?c=Assistances&a=assistanceCreate");
+                    $lastRecord = new Assistance;
+                    $lastRecord = $lastRecord->getassistance_bycode($_POST['estudiante_id'], $fecha);
+                    require_once ("views/modules/assistance/assistance_create.view.php");
+                    // header("Location: ?c=Assistances&a=assistanceCreate");
                 }                
             } else {
                 header("Location: ?c=Dashboard");

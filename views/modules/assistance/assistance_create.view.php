@@ -34,24 +34,34 @@
                   <option value="3">Llegada Tarde</option>
                 </select>
               </div>
-            </div>
-
-            <div class="row mb-3">
-              <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
-              <div class="col-sm-10">
-                <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $fecha?></label>                
-                </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
-                  <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $hora?></label>
-              </div>
-            </div>
+            </div>            
             <div class="row mb-3">                  
               <div class="col-sm-12 text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
               </div>
+            </div>
+            <h5 class="card-title">Último Registro</h5>
+            <div class="row mb-3">
+              <label for="inputDate" class="col-sm-2 col-form-label" >Nombre</label>
+                <div class="col-sm-10">
+                  <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
+                </div>
+              <label for="inputTime" class="col-sm-2 col-form-label">Identificación</label>
+              <div class="col-sm-10">
+                <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getEstudianteId() ?></label>
+              </div>
+              <label for="inputTime" class="col-sm-2 col-form-label">Curso</label>
+              <div class="col-sm-10">
+                <label for="inputTime" class="col-sm-2 col-form-label">601</label>
+              </div>
+              <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
+              <div class="col-sm-10">
+                <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $fecha?></label>
+              </div>
+              <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
+              <div class="col-sm-10">
+                <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $hora?></label>
+              </div>              
             </div>
           </form>
 

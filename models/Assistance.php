@@ -140,6 +140,43 @@
                 }
                          
         # RF03 - Obtener Asistencias de un Estudiante
+        // # RF10_CU10 - Obtener el Usuario por el código
+        public function getassistance_bycode($estudiante_id, $fecha){
+            try {
+                $sql = "SELECT
+                            e.estudiante_id,
+                            u.user_name,    
+                            a.estado_id,
+                            s.estado_nombre,
+                            a.asistencia_fecha,
+                            a.asistencia_hora_inicio
+                        FROM USERS AS u
+                        INNER JOIN ESTUDIANTES AS e
+                        on u.user_id = e.estudiante_id
+                        INNER JOIN ASISTENCIA AS a
+                        on e.estudiante_id = a.estudiante_id
+                        INNER JOIN ESTADO AS s
+                        on a.estado_id = s.estado_id
+                        WHERE e.estudiante_id = :estudianteId AND a.asistencia_fecha = :fechaInicio";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('estudianteId', $estudiante_id);
+                $stmt->bindValue('fechaInicio', $fecha);
+                $stmt->execute();
+                $assistanceDb = $stmt->fetch();
+                $assistance = new Assistance(
+                    $assistanceDb['estudiante_id'],
+                    $assistanceDb['user_name'],                        
+                    $assistanceDb['estado_id'],
+                    $assistanceDb['estado_nombre'],                        
+                    $assistanceDb['asistencia_fecha'],
+                    $assistanceDb['asistencia_hora_inicio']
+                );
+                return $assistance;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
         # RF04 - Actualizar Asistencia por Estudiante
         # RF05 - Eliminar Registro
 
