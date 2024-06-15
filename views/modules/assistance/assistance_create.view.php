@@ -56,11 +56,11 @@
               </div>
               <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
               <div class="col-sm-10">
-                <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $fecha?></label>
+                <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getAsistenciaFecha() ?></label>
               </div>
               <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
               <div class="col-sm-10">
-                <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $hora?></label>
+                <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getAsistenciaHoraInicio() ?></label>
               </div>              
             </div>
           </form>

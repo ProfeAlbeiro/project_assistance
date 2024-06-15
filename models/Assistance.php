@@ -141,26 +141,26 @@
                          
         # RF03 - Obtener Asistencias de un Estudiante
         // # RF10_CU10 - Obtener el Usuario por el código
-        public function getassistance_bycode($estudiante_id, $fecha){
+        public function getassistance_last(){
             try {
-                $sql = "SELECT
-                            e.estudiante_id,
-                            u.user_name,    
-                            a.estado_id,
-                            s.estado_nombre,
-                            a.asistencia_fecha,
-                            a.asistencia_hora_inicio
-                        FROM USERS AS u
-                        INNER JOIN ESTUDIANTES AS e
-                        on u.user_id = e.estudiante_id
-                        INNER JOIN ASISTENCIA AS a
-                        on e.estudiante_id = a.estudiante_id
-                        INNER JOIN ESTADO AS s
-                        on a.estado_id = s.estado_id
-                        WHERE e.estudiante_id = :estudianteId AND a.asistencia_fecha = :fechaInicio";
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('estudianteId', $estudiante_id);
-                $stmt->bindValue('fechaInicio', $fecha);
+                $sql = "SELECT	
+                    e.estudiante_id,
+                    u.rol_code,
+                    u.user_name,    
+                    a.estado_id,
+                    s.estado_nombre,
+                    a.asistencia_fecha,
+                    a.asistencia_hora_inicio
+                FROM USERS AS u
+                INNER JOIN ESTUDIANTES AS e
+                on u.user_id = e.estudiante_id
+                INNER JOIN ASISTENCIA AS a
+                on e.estudiante_id = a.estudiante_id
+                INNER JOIN ESTADO AS s
+                on a.estado_id = s.estado_id
+                WHERE u.rol_code = 3
+                ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC LIMIT 1";
+                $stmt = $this->dbh->prepare($sql);                
                 $stmt->execute();
                 $assistanceDb = $stmt->fetch();
                 $assistance = new Assistance(

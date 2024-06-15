@@ -21,6 +21,7 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor. 
                     $lastRecord = new Assistance;
+                    $lastRecord = $lastRecord->getassistance_last();                    
                     require_once ("views/modules/assistance/assistance_create.view.php");
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
@@ -32,7 +33,7 @@
                     );
                     $assistance->create_assistance();
                     $lastRecord = new Assistance;
-                    $lastRecord = $lastRecord->getassistance_bycode($_POST['estudiante_id'], $fecha);
+                    $lastRecord = $lastRecord->getassistance_last();
                     require_once ("views/modules/assistance/assistance_create.view.php");
                     // header("Location: ?c=Assistances&a=assistanceCreate");
                 }                
