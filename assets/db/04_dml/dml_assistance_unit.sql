@@ -149,13 +149,39 @@ INSERT INTO JUSTIFICATIONS VALUES
 UPDATE ROLES SET 
 rol_name = 'teacher'
 WHERE rol_id = 2;
+SELECT * FROM ROLES;
 
 -- ------------------------------------------------------------------------------------------------------ --
 -- 02.02. Actualizar Usuarios. -------------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------------------------ --
 UPDATE USERS SET 
 user_name = 'Jorge'
-WHERE user_id = '2';
+WHERE user_id = '65465';
+SELECT * FROM USERS;
+
+-- ------------------------------------------------------------------------------------------------------ --
+-- 02.02. Actualizar Estudiantes. -------------------------------------------------------------------------- --
+-- ------------------------------------------------------------------------------------------------------ --
+UPDATE STUDENTS SET 
+student_workdays = 'Mañana',
+student_grade = 'Primero',
+student_group = 'A'
+WHERE student_id = '45648';
+SELECT * FROM STUDENTS;
+
+UPDATE STUDENTS SET 
+student_workdays = 'Mañana',
+student_grade = 'Segundo',
+student_group = 'B'
+WHERE student_id = '54564';
+SELECT * FROM STUDENTS;
+
+UPDATE STUDENTS SET 
+student_workdays = 'Tarde',
+student_grade = 'Quinto',
+student_group = 'C'
+WHERE student_id = '87897';
+SELECT * FROM STUDENTS;
 
 -- ------------------------------------------------------------------------------------------------------ --
 -- 02.03. Actualizar Asistencia. ------------------------------------------------------------------------ --
