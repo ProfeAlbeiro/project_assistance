@@ -22,6 +22,7 @@
                 <table class="table datatable" id="example" style="width:100%">
                   <thead>
                     <tr>
+                      <th>Grupo</th>
                       <th>Cód Estud</th>
                       <th>Nombre</th>
                       <th>¿Asiste?</th>                    
@@ -33,11 +34,12 @@
                   <tbody>
                     <?php foreach ($assistances as $assistance) : ?>
                       <tr>
-                        <td><?php echo $assistance->getEstudianteId(); ?></td>
+                        <td><?php echo $assistance->getStudentGrade() . "-" . $assistance->getStudentGroup(); ?></td>                      
+                        <td><?php echo $assistance->getStudentId(); ?></td>
                         <td><?php echo $assistance->getUserName(); ?></td>
-                        <td><?php echo $assistance->getEstadoNombre(); ?></td>                      
-                        <td><?php echo $assistance->getAsistenciaFecha(); ?></td>
-                        <td><?php echo $assistance->getAsistenciaHoraInicio(); ?></td>                      
+                        <td><?php echo $assistance->getAssistanceAttends(); ?></td>
+                        <td><?php echo $assistance->getAssistanceDate(); ?></td>
+                        <td><?php echo $assistance->getAssistanceStartTime(); ?></td>                      
                         <td>                        
                         <a href="#" class="btn btn-success p-0">
                             <h4 class="m-0"><i class="ri-edit-circle-fill"></i></h4>

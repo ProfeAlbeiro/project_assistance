@@ -35,17 +35,17 @@ INSERT INTO `users` VALUES
 (96325, 4, 'Carlos', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
+-- Insertar Estudiantes
+INSERT INTO STUDENTS VALUES
+(54564, 'mañana', '6', 'A'),
+(87897, 'tarde', '7', 'B'),
+(45648, 'noche', '10', 'C');
+SELECT * FROM STUDENTS;
+
 -- Insertar Profesores
 INSERT INTO TEACHERS VALUES
 (65465);
 SELECT * FROM TEACHERS;
-
--- Insertar Estudiantes
-INSERT INTO STUDENTS VALUES
-(54564, '6', 'diurna'),
-(87897, '7', 'noche'),
-(45648, '8', 'diurno');
-SELECT * FROM STUDENTS;
 
 -- Insertar Acudientes
 INSERT INTO ATTENDANTS VALUES

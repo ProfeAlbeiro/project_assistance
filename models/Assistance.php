@@ -158,27 +158,28 @@
             try {
                 $assistanceList = [];
                 $sql = 'SELECT
-                            e.student_id,
-                            u.user_name,    
-                            a.estado_id,
-                            s.estado_nombre,
+                            s.student_id,    
+                            u.user_name,
+                            s.student_grade,
+                            s.student_group,
+                            a.assistance_attends,
                             a.assistance_date,
                             a.assistance_start_time
                         FROM USERS AS u
-                        INNER JOIN ESTUDIANTES AS e
-                        on u.user_id = e.student_id
-                        INNER JOIN ASISTENCIA AS a
-                        on e.student_id = a.student_id
-                        INNER JOIN ESTADO AS s
-                        on a.estado_id = s.estado_id
+                        INNER JOIN STUDENTS AS s
+                        on u.user_id = s.student_id
+                        INNER JOIN ASSISTANCES AS a
+                        on s.student_id = a.student_id
+                        WHERE u.rol_id = 3
                         ORDER BY a.assistance_date DESC, a.assistance_start_time DESC';
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $assistance) {
                     $assistanceObj = new Assistance(
                         $assistance['student_id'],
                         $assistance['user_name'],                        
-                        $assistance['estado_id'],
-                        $assistance['estado_nombre'],                        
+                        $assistance['student_grade'],
+                        $assistance['student_group'],
+                        $assistance['assistance_attends'],
                         $assistance['assistance_date'],
                         $assistance['assistance_start_time']
                     );
@@ -191,16 +192,20 @@
         }
 
         // PROBLEMAS A SOLUCIONAR SOBRE LA MARCHA
-        # ✓ # CHECK - Disparadores de Users a Profesor, Estudiante y Acudiente.
-        # Incluir en la DB una tabla con Sedes, jornadas, cursos, etc
-        # Revisar las relaciones Unique (Llave Primaria) con Users
+        # ✓ # Incluir en la DB una tabla con Jornadas, grados y grupos
+
+        # Disparadores de Users a Profesor, Estudiante y Acudiente.
+          // Revisar porque genera conflicto cuando se actualicen los datos
+
+        # Carga masiva de datos de acuerdo a la tabla de datos del colegio
         # Relacionar estudiantes con acudientes
-        # Consultas en DataTables (Presentación). Incluir los controles pdf, excel, etc.,
-        # Responsive de la tabla, traer fecha de js y tamaño de controles.
+        # Consultas en DataTables (Presentación). 
+          // Incluir los controles pdf, excel, etc.,
+          // Responsive de la tabla Datatables, traer fecha de js y tamaño de controles.
 
         // FUNCIONALIDADES
-        # RF04 - Actualizar Asistencia por Estudiante
-        # RF05 - Eliminar Registro de Asistencia        
+        # RF04 - Actualizar Asistencia
+        # RF05 - Eliminar Asistencia
         # RF07 - Cantidad de Registros por: Asistencias, Inasistencias y Retardos
         # RF08 - Justificaciones por Inasistencia y por llegada tarde
                  // El Profesor y el Acudiente pueden registrar una justificación

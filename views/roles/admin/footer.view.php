@@ -43,8 +43,8 @@
     $(document).ready(function(){
         var table = $('#example').DataTable({
           "order": [
-            [ 3, "desc" ],
             [ 4, "desc" ],
+            [ 5, "desc" ],
           ],
           orderCellsTop: true,
           fixedHeader: true 
