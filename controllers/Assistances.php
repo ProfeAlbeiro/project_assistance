@@ -16,8 +16,8 @@
             if ($this->session == 'admin') {
                 date_default_timezone_set('America/Bogota');
                 // Cómo mostrar fecha y hora dinámicamente
-                $fecha = date("Y-m-d");                    
-                $hora = date("H:i:s");
+                $date = date("Y-m-d");                    
+                $start_time = date("H:i:s");
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor.                                         
                     $lastRecord = new Assistance;
@@ -26,14 +26,14 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
                     $assistance = new Assistance(
-                        $_POST['estado_id'],
-                        $_POST['estudiante_id'],
-                        $fecha,
-                        $hora                        
+                        $_POST['student_id'],
+                        $_POST['assistance_attends'],
+                        $date,
+                        $start_time                        
                     );
                     $assistance->create_assistance();                    
                     $lastRecord = new Assistance;
-                    $lastRecord = $lastRecord->getassistance_last();
+                    $lastRecord = $lastRecord->getassistance_last();                    
                     require_once ("views/modules/assistance/assistance_create.view.php");
                     // header("Location: ?c=Assistances&a=assistanceCreate");
                 }                

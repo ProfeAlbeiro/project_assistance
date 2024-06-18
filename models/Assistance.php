@@ -2,13 +2,14 @@
 
     class Assistance{
 
-        private $dbh;
-        private $estado_id;
-        private $estudiante_id;        
+        private $dbh;        
+        private $student_id;        
         private $user_name;        
-        private $estado_nombre;        
-        private $asistencia_fecha;
-        private $asistencia_hora_inicio;        
+        private $student_grade;        
+        private $student_group;        
+        private $assistance_attends;
+        private $assistance_date;
+        private $assistance_start_time;        
 
         public function __construct(){
             try {
@@ -25,42 +26,29 @@
 
         public function __construct0(){}
 
-        public function __construct4($estado_id, $estudiante_id, $asistencia_fecha, $asistencia_hora_inicio){
-            $this->estado_id = $estado_id;
-            $this->estudiante_id = $estudiante_id;            
-            $this->asistencia_fecha = $asistencia_fecha;
-            $this->asistencia_hora_inicio = $asistencia_hora_inicio;
-        }
-        
-        public function __construct6($estudiante_id, $user_name, $estado_id, $estado_nombre, $asistencia_fecha, $asistencia_hora_inicio){
-            $this->estudiante_id = $estudiante_id;
-            $this->user_name = $user_name;
-            $this->estado_id = $estado_id;
-            $this->estado_nombre = $estado_nombre;
-            $this->asistencia_fecha = $asistencia_fecha;
-            $this->asistencia_hora_inicio = $asistencia_hora_inicio;
+        public function __construct4($student_id,$assistance_attends,$assistance_date,$assistance_start_time){
+            $this->student_id = $student_id;            
+            $this->assistance_attends = $assistance_attends;
+            $this->assistance_date = $assistance_date;            
+            $this->assistance_start_time = $assistance_start_time;
         }
 
-        # Estado Id
-        public function setEstadoId($estado_id){
-            $this->estado_id = $estado_id;
+        public function __construct7($student_id,$user_name,$student_grade,$student_group,$assistance_attends,$assistance_date,$assistance_start_time){
+            $this->student_id = $student_id;
+            $this->user_name = $user_name;
+            $this->student_grade = $student_grade;
+            $this->student_group = $student_group;
+            $this->assistance_attends = $assistance_attends;
+            $this->assistance_date = $assistance_date;            
+            $this->assistance_start_time = $assistance_start_time;
         }
-        public function getEstadoId(){
-            return $this->estado_id;
-        }
-        # Estado Nombre
-        public function setEstadoNombre($estado_nombre){
-            $this->estado_nombre = $estado_nombre;
-        }
-        public function getEstadoNombre(){
-            return $this->estado_nombre;
-        }
+        
         # Estudiante Id
-        public function setEstudianteId($estudiante_id){
-            $this->estudiante_id = $estudiante_id;
+        public function setStudentId($student_id){
+            $this->student_id = $student_id;
         }
-        public function getEstudianteId(){
-            return $this->estudiante_id;
+        public function getStudentId(){
+            return $this->student_id;
         }        
         # Nombre Usuario
         public function setUserName($user_name){
@@ -69,32 +57,94 @@
         public function getUserName(){
             return $this->user_name;
         }        
-        # Asistencia Fecha
-        public function setAsistenciaFecha($asistencia_fecha){
-            $this->asistencia_fecha = $asistencia_fecha;
+        # Grado
+        public function setStudentGrade($student_grade){
+            $this->student_grade = $student_grade;
         }
-        public function getAsistenciaFecha(){
-            return $this->asistencia_fecha;
+        public function getStudentGrade(){
+            return $this->student_grade;
+        }        
+        # Grupo
+        public function setStudentGroup($student_group){
+            $this->student_group = $student_group;
+        }
+        public function getStudentGroup(){
+            return $this->student_group;
+        }        
+        # ¿Asistió?
+        public function setAssistanceAttends($assistance_attends){
+            $this->assistance_attends = $assistance_attends;
+        }
+        public function getAssistanceAttends(){
+            return $this->assistance_attends;
+        }
+        # Asistencia Fecha
+        public function setAssistanceDate($assistance_date){
+            $this->assistance_date = $assistance_date;
+        }
+        public function getAssistanceDate(){
+            return $this->assistance_date;
         }
         # Asistencia Hora Inicio
-        public function setAsistenciaHoraInicio($asistencia_hora_inicio){
-            $this->asistencia_hora_inicio = $asistencia_hora_inicio;
+        public function setAssistanceStartTime($assistance_start_time){
+            $this->assistance_start_time = $assistance_start_time;
         }
-        public function getAsistenciaHoraInicio(){
-            return $this->asistencia_hora_inicio;
+        public function getAssistanceStartTime(){
+            return $this->assistance_start_time;
+        }
+        
+        # RF01 - Obtener Asistencias de un Estudiante
+        // # RF10_CU10 - Obtener el Usuario por el código
+        public function getassistance_last(){
+            try {
+                $sql = "SELECT
+                    s.student_id,    
+                    u.user_name,
+                    s.student_grade,
+                    s.student_group,
+                    a.assistance_attends,
+                    a.assistance_date,
+                    a.assistance_start_time
+                FROM USERS AS u
+                INNER JOIN STUDENTS AS s
+                on u.user_id = s.student_id
+                INNER JOIN ASSISTANCES AS a
+                on s.student_id = a.student_id
+                WHERE u.rol_id = 3
+                ORDER BY a.assistance_date DESC, a.assistance_start_time DESC LIMIT 1";
+                $stmt = $this->dbh->prepare($sql);                
+                $stmt->execute();
+                $assistanceDb = $stmt->fetch();
+                if ($assistanceDb) {
+                    $assistance = new Assistance(
+                        $assistanceDb['student_id'],
+                        $assistanceDb['user_name'],
+                        $assistanceDb['student_grade'],
+                        $assistanceDb['student_group'],
+                        $assistanceDb['assistance_attends'],                        
+                        $assistanceDb['assistance_date'],
+                        $assistanceDb['assistance_start_time']
+                    );
+                    return $assistance;
+                } else {
+                    return false;
+                }
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
         }
 
         # RF01 - Registrar Asistencia.        
-                 // Manual y por Código de Barras
+        // Manual y por Código de Barras
         public function create_assistance(){
             try {
-                $sql = 'INSERT INTO ASISTENCIA VALUES 
-                (:estadoId,:estudianteId,:asistenciaFecha,:asistenciaHoraInicio)';
+                $sql = 'INSERT INTO ASSISTANCES VALUES 
+                (:student_id,:assistance_attends,:assistance_date,:assistance_start_date)';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('estadoId', $this->getEstadoId());
-                $stmt->bindValue('estudianteId', $this->getEstudianteId());                
-                $stmt->bindValue('asistenciaFecha', $this->getAsistenciaFecha());
-                $stmt->bindValue('asistenciaHoraInicio', $this->getAsistenciaHoraInicio());
+                $stmt->bindValue('student_id', $this->getStudentId());
+                $stmt->bindValue('assistance_attends', $this->getAssistanceAttends());
+                $stmt->bindValue('assistance_date', $this->getAssistanceDate());
+                $stmt->bindValue('assistance_start_date', $this->getAssistanceStartTime());
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -102,81 +152,39 @@
         }
 
         # RF02 - Constular Asistencias                 
-                 // MultiFiltro. Controles txt, enviar.
-                 // Una columna con fecha final para el filtro
-                 public function read_assistance(){
-                    try {
-                        $assistanceList = [];
-                        $sql = 'SELECT
-                                    e.estudiante_id,
-                                    u.user_name,    
-                                    a.estado_id,
-                                    s.estado_nombre,
-                                    a.asistencia_fecha,
-                                    a.asistencia_hora_inicio
-                                FROM USERS AS u
-                                INNER JOIN ESTUDIANTES AS e
-                                on u.user_id = e.estudiante_id
-                                INNER JOIN ASISTENCIA AS a
-                                on e.estudiante_id = a.estudiante_id
-                                INNER JOIN ESTADO AS s
-                                on a.estado_id = s.estado_id
-                                ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC';
-                        $stmt = $this->dbh->query($sql);
-                        foreach ($stmt->fetchAll() as $assistance) {
-                            $assistanceObj = new Assistance(
-                                $assistance['estudiante_id'],
-                                $assistance['user_name'],                        
-                                $assistance['estado_id'],
-                                $assistance['estado_nombre'],                        
-                                $assistance['asistencia_fecha'],
-                                $assistance['asistencia_hora_inicio']
-                            );
-                            array_push($assistanceList, $assistanceObj);
-                        }
-                        return $assistanceList;
-                    } catch (Exception $e) {
-                        die($e->getMessage());
-                    }
-                }
-                         
-        # RF03 - Obtener Asistencias de un Estudiante
-        // # RF10_CU10 - Obtener el Usuario por el código
-        public function getassistance_last(){
+        // MultiFiltro. Controles txt, enviar.
+        // Una columna con fecha final para el filtro
+        public function read_assistance(){
             try {
-                $sql = "SELECT	
-                    e.estudiante_id,
-                    u.rol_code,
-                    u.user_name,    
-                    a.estado_id,
-                    s.estado_nombre,
-                    a.asistencia_fecha,
-                    a.asistencia_hora_inicio
-                FROM USERS AS u
-                INNER JOIN ESTUDIANTES AS e
-                on u.user_id = e.estudiante_id
-                INNER JOIN ASISTENCIA AS a
-                on e.estudiante_id = a.estudiante_id
-                INNER JOIN ESTADO AS s
-                on a.estado_id = s.estado_id
-                WHERE u.rol_code = 3
-                ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC LIMIT 1";
-                $stmt = $this->dbh->prepare($sql);                
-                $stmt->execute();
-                $assistanceDb = $stmt->fetch();
-                if ($assistanceDb) {
-                    $assistance = new Assistance(
-                        $assistanceDb['estudiante_id'],
-                        $assistanceDb['user_name'],                        
-                        $assistanceDb['estado_id'],
-                        $assistanceDb['estado_nombre'],                        
-                        $assistanceDb['asistencia_fecha'],
-                        $assistanceDb['asistencia_hora_inicio']
+                $assistanceList = [];
+                $sql = 'SELECT
+                            e.student_id,
+                            u.user_name,    
+                            a.estado_id,
+                            s.estado_nombre,
+                            a.assistance_date,
+                            a.assistance_start_time
+                        FROM USERS AS u
+                        INNER JOIN ESTUDIANTES AS e
+                        on u.user_id = e.student_id
+                        INNER JOIN ASISTENCIA AS a
+                        on e.student_id = a.student_id
+                        INNER JOIN ESTADO AS s
+                        on a.estado_id = s.estado_id
+                        ORDER BY a.assistance_date DESC, a.assistance_start_time DESC';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $assistance) {
+                    $assistanceObj = new Assistance(
+                        $assistance['student_id'],
+                        $assistance['user_name'],                        
+                        $assistance['estado_id'],
+                        $assistance['estado_nombre'],                        
+                        $assistance['assistance_date'],
+                        $assistance['assistance_start_time']
                     );
-                    return $assistance;
-                } else {
-                    return false;
+                    array_push($assistanceList, $assistanceObj);
                 }
+                return $assistanceList;
             } catch (Exception $e) {
                 die($e->getMessage());
             }

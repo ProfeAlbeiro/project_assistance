@@ -3,92 +3,59 @@
 /* ************************************************************************************* */
 
 -- ------------------------------------------------------------------------------------- --
--- 01.01. Consultar Usuarios y Roles. -------------------------------------------------- --
+-- 01.01. Consultar Roles y Usuarios. -------------------------------------------------- --
 -- ------------------------------------------------------------------------------------- --
-select 
-    r.rol_code,
+select    
+    r.rol_id,
     r.rol_name,
-    user_code,
-    user_name,
-    user_lastname,
-    user_id,
-    user_email,
-    user_pass,
-    user_state
+    u.user_id,
+    u.user_name,
+    u.user_email,
+    u.user_pass,
+    u.user_state
   from ROLES as r
   inner join USERS as u
-  on r.rol_code=u.rol_code
-  WHERE user_code=1;
-  
+  on r.rol_id = u.rol_id
+  WHERE user_id = 45648;
+
 /* ************************************************************************************* */
 /* --------------------------------- 02. ASISTENCIA ------------------------------------ */
 /* ************************************************************************************* */
 
 -- ------------------------------------------------------------------------------------- --
--- 02.01. Consultar Estudiantes. ------------------------------------------------------- --
+-- 02.01. Consultar Estudiante, asistencia y estado ------------------------------------ --
 -- ------------------------------------------------------------------------------------- --
 SELECT
+	s.student_id,    
 	u.user_name,
-    e.estudiante_id
+    s.student_grade,
+    s.student_group,
+    a.assistance_attends,
+    a.assistance_date,
+    a.assistance_start_time
 FROM USERS AS u
-INNER JOIN ESTUDIANTES AS e
-on u.user_id = e.estudiante_id;
+INNER JOIN STUDENTS AS s
+on u.user_id = s.student_id
+INNER JOIN ASSISTANCES AS a
+on s.student_id = a.student_id
+WHERE u.rol_id = 3
+ORDER BY a.assistance_date DESC, a.assistance_start_time DESC;
 
 -- ------------------------------------------------------------------------------------- --
--- 02.02. Consultar Estudiantes, asistencia y estado ----------------------------------- --
+-- 02.01. Consultar Estudiante, asistencia y estado ------------------------------------ --
 -- ------------------------------------------------------------------------------------- --
 SELECT
-	e.estudiante_id,
-    u.user_name,    
-    a.estado_id,
-    s.estado_nombre,
-    a.asistencia_fecha,
-    a.asistencia_hora_inicio
+	s.student_id,    
+	u.user_name,
+    s.student_grade,
+    s.student_group,
+    a.assistance_attends,
+    a.assistance_date,
+    a.assistance_start_time
 FROM USERS AS u
-INNER JOIN ESTUDIANTES AS e
-on u.user_id = e.estudiante_id
-INNER JOIN ASISTENCIA AS a
-on e.estudiante_id = a.estudiante_id
-INNER JOIN ESTADO AS s
-on a.estado_id = s.estado_id
-ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC;
-
--- ------------------------------------------------------------------------------------- --
--- 02.03. Consultar Estudiante, asistencia y estado ------------------------------------ --
--- ------------------------------------------------------------------------------------- --
-SELECT
-	e.estudiante_id,
-	u.user_name,    
-	a.estado_id,
-	s.estado_nombre,
-	a.asistencia_fecha,
-	a.asistencia_hora_inicio
-FROM USERS AS u
-INNER JOIN ESTUDIANTES AS e
-on u.user_id = e.estudiante_id
-INNER JOIN ASISTENCIA AS a
-on e.estudiante_id = a.estudiante_id
-INNER JOIN ESTADO AS s
-on a.estado_id = s.estado_id
-WHERE e.estudiante_id = 54564 AND a.asistencia_fecha = '2024-06-14';
-
--- ------------------------------------------------------------------------------------- --
--- 02.03. Consultar Estudiante, asistencia y estado ------------------------------------ --
--- ------------------------------------------------------------------------------------- --
-SELECT	
-	e.estudiante_id,
-    u.rol_code,
-	u.user_name,    
-	a.estado_id,
-	s.estado_nombre,
-	a.asistencia_fecha,
-	a.asistencia_hora_inicio
-FROM USERS AS u
-INNER JOIN ESTUDIANTES AS e
-on u.user_id = e.estudiante_id
-INNER JOIN ASISTENCIA AS a
-on e.estudiante_id = a.estudiante_id
-INNER JOIN ESTADO AS s
-on a.estado_id = s.estado_id
-WHERE u.rol_code = 3
-ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC LIMIT 1;
+INNER JOIN STUDENTS AS s
+on u.user_id = s.student_id
+INNER JOIN ASSISTANCES AS a
+on s.student_id = a.student_id
+WHERE u.rol_id = 3
+ORDER BY a.assistance_date DESC, a.assistance_start_time DESC LIMIT 1;

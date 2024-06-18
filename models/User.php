@@ -5,7 +5,7 @@
     class User{
         // 1ra Parte: Atributos
         private $dbh;
-        private $rol_code;
+        private $rol_id;
         private $rol_name;
         private $user_id;
         private $user_name;        
@@ -37,8 +37,8 @@
         }
         
         # Constructor: Objeto 07 parámetros
-        public function __construct6($rol_code, $user_id, $user_name, $user_email, $user_pass, $user_state){            
-            $this->rol_code = $rol_code;            
+        public function __construct6($rol_id, $user_id, $user_name, $user_email, $user_pass, $user_state){            
+            $this->rol_id = $rol_id;            
             $this->user_id = $user_id;
             $this->user_name = $user_name;
             $this->user_email = $user_email;
@@ -46,9 +46,9 @@
             $this->user_state = $user_state;            
         }
         
-        public function __construct7($rol_code, $rol_name, $user_id, $user_name, $user_email, $user_pass, $user_state){
+        public function __construct7($rol_id, $rol_name, $user_id, $user_name, $user_email, $user_pass, $user_state){
             unset($this->dbh);
-            $this->rol_code = $rol_code;
+            $this->rol_id = $rol_id;
             $this->rol_name = $rol_name;
             $this->user_id = $user_id;
             $this->user_name = $user_name;
@@ -59,11 +59,11 @@
 
         // 3ra Parte: Setter y Getters
         # Código Rol
-        public function setRolCode($rol_code){
-            $this->rol_code = $rol_code;
+        public function setRolCode($rol_id){
+            $this->rol_id = $rol_id;
         }
         public function getRolCode(){
-            return $this->rol_code;
+            return $this->rol_id;
         }
         # Nombre Rol
         public function setRolName($rol_name){
@@ -114,7 +114,7 @@
         public function login(){
             try {
                 $sql = 'SELECT
-                            r.rol_code,
+                            r.rol_id,
                             r.rol_name,
                             user_id,
                             user_name,                                                        
@@ -123,7 +123,7 @@
                             user_state
                         FROM ROLES AS r
                         INNER JOIN USERS AS u
-                        on r.rol_code = u.rol_code
+                        on r.rol_id = u.rol_id
                         WHERE user_id = :user_id AND user_pass = :userPass';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('user_id', $this->getUserId());
@@ -132,7 +132,7 @@
                 $userDb = $stmt->fetch();                
                 if ($userDb) {
                     $user = new User(
-                        $userDb['rol_code'],
+                        $userDb['rol_id'],
                         $userDb['rol_name'],
                         $userDb['user_id'],
                         $userDb['user_name'],
@@ -170,7 +170,7 @@
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $rol) {
                     $rolObj = new User;
-                    $rolObj->setRolCode($rol['rol_code']);
+                    $rolObj->setRolCode($rol['rol_id']);
                     $rolObj->setRolName($rol['rol_name']);
                     array_push($rolList, $rolObj);
                 }
@@ -183,13 +183,13 @@
         # RF05_CU05 - Obtener el Rol por el código
         public function getrol_bycode($rolCode){
             try {
-                $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
+                $sql = "SELECT * FROM ROLES WHERE rol_id=:rolCode";
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $rolCode);
                 $stmt->execute();
                 $rolDb = $stmt->fetch();
                 $rol = new User;
-                $rol->setRolCode($rolDb['rol_code']);
+                $rol->setRolCode($rolDb['rol_id']);
                 $rol->setRolName($rolDb['rol_name']);
                 return $rol;
             } catch (Exception $e) {
@@ -201,9 +201,9 @@
         public function update_rol(){
             try {
                 $sql = 'UPDATE ROLES SET
-                            rol_code = :rolCode,
+                            rol_id = :rolCode,
                             rol_name = :rolName
-                        WHERE rol_code = :rolCode';
+                        WHERE rol_id = :rolCode';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('rolName', $this->getRolName());
@@ -216,7 +216,7 @@
         # RF07_CU07 - Eliminar Rol
         public function delete_rol($rolCode){
             try {
-                $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
+                $sql = 'DELETE FROM ROLES WHERE rol_id = :rolCode';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $rolCode);
                 $stmt->execute();
@@ -255,7 +255,7 @@
             try {
                 $userList = [];
                 $sql = 'SELECT
-                            r.rol_code,
+                            r.rol_id,
                             r.rol_name,
                             user_id,                            
                             user_name,                            
@@ -264,11 +264,11 @@
                             user_state
                         FROM ROLES AS r
                         INNER JOIN USERS AS u
-                        on r.rol_code = u.rol_code';
+                        on r.rol_id = u.rol_id';
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $user) {
                     $userObj = new User(
-                        $user['rol_code'],
+                        $user['rol_id'],
                         $user['rol_name'],                        
                         $user['user_id'],
                         $user['user_name'],                        
@@ -288,7 +288,7 @@
         public function getuser_bycode($userCode){
             try {
                 $sql = 'SELECT
-                            r.rol_code,
+                            r.rol_id,
                             r.rol_name,                            
                             user_id,
                             user_name,                            
@@ -297,14 +297,14 @@
                             user_state
                         FROM ROLES AS r
                         INNER JOIN USERS AS u
-                        on r.rol_code = u.rol_code
+                        on r.rol_id = u.rol_id
                         WHERE user_id=:userCode';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('userCode', $userCode);
                 $stmt->execute();
                 $userDb = $stmt->fetch();
                 $user = new User(
-                    $userDb['rol_code'],
+                    $userDb['rol_id'],
                     $userDb['rol_name'],                    
                     $userDb['user_id'],
                     $userDb['user_name'],                    
@@ -322,7 +322,7 @@
          public function update_user(){
             try {
                 $sql = 'UPDATE USERS SET
-                            rol_code = :rolCode,                            
+                            rol_id = :rolCode,                            
                             user_id = :userId,
                             user_name = :userName,                            
                             user_email = :userEmail,
