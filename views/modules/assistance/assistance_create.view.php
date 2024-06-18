@@ -45,23 +45,23 @@
               <div class="row mb-3">
                 <label for="inputDate" class="col-sm-2 col-form-label" >Nombre</label>
                   <div class="col-sm-10">
-                    <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
+                    <label for="inputDate" class="col-sm-10 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
                   </div>
                 <label for="inputTime" class="col-sm-2 col-form-label">Identificación</label>
                 <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
+                  <label for="inputTime" class="col-sm-10 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
                 </div>
                 <label for="inputTime" class="col-sm-2 col-form-label">Grupo</label>
                 <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getStudentGrade() . $lastRecord->getStudentGroup() ?></label>
+                  <label for="inputTime" class="col-sm-10 col-form-label"><?php echo $lastRecord->getStudentGroup() ?></label>
                 </div>
                 <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
                 <div class="col-sm-10">
-                  <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getAssistanceDate() ?></label>
+                  <label for="inputDate" class="col-sm-10 col-form-label" ><?php echo $lastRecord->getAssistanceDate() ?></label>
                 </div>
                 <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
                 <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>
+                  <label for="inputTime" class="col-sm-10 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>
                 </div>              
               </div>
             <?php endif; ?>
