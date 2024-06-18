@@ -34,7 +34,7 @@
                   <tbody>
                     <?php foreach ($assistances as $assistance) : ?>
                       <tr>
-                        <td><?php echo $assistance->getStudentGrade() . "-" . $assistance->getStudentGroup(); ?></td>                      
+                        <td><?php echo $assistance->getStudentGrade() . $assistance->getStudentGroup(); ?></td>                      
                         <td><?php echo $assistance->getStudentId(); ?></td>
                         <td><?php echo $assistance->getUserName(); ?></td>
                         <td><?php echo $assistance->getAssistanceAttends(); ?></td>

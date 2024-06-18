@@ -22,7 +22,7 @@
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>
                   <div class="col-sm-9">
-                    <input type="number" name="user_id" class="form-control">
+                    <input type="text" name="user_id" class="form-control">
                   </div>
                 </div>
               

@@ -1,6 +1,4 @@
-<?php
-    # NOTA_01 - Disparadores para los Roles
-    # NOTA_02 - Asociar Acudientes con Estudiantes
+<?php    
 
     class User{
         // 1ra Parte: Atributos
@@ -353,6 +351,20 @@
                 die($e->getMessage());
             }
         }
+
+        // PROBLEMAS A SOLUCIONAR SOBRE LA MARCHA
+        # ✓ # Incluir en la DB una tabla con Jornadas, grados y grupos
+        
+        # Carga masiva de datos Usuarios - Estudiantes
+        # Disparadores de Users a Profesor, Estudiante y Acudiente.
+          // Revisar porque genera conflicto cuando se actualicen los datos
+
+        // VALIDACIONES
+        # Validaciones de todos los formularios.
+        # Cierre de DB en PDO
+        # Incluir las Alertas (SweetAlert)
+        # Pruebas Unitarias, Integración, Funcionales, Sistema
+
     
     }
 

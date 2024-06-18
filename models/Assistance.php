@@ -191,17 +191,12 @@
             }
         }
 
-        // PROBLEMAS A SOLUCIONAR SOBRE LA MARCHA
-        # ✓ # Incluir en la DB una tabla con Jornadas, grados y grupos
-
-        # Disparadores de Users a Profesor, Estudiante y Acudiente.
-          // Revisar porque genera conflicto cuando se actualicen los datos
-
-        # Carga masiva de datos de acuerdo a la tabla de datos del colegio
-        # Relacionar estudiantes con acudientes
+        // PROBLEMAS A SOLUCIONAR SOBRE LA MARCHA        
         # Consultas en DataTables (Presentación). 
           // Incluir los controles pdf, excel, etc.,
-          // Responsive de la tabla Datatables, traer fecha de js y tamaño de controles.
+          // Responsive de la tabla Datatables, traer fecha de js y tamaño de controles.        
+        # Carga masiva de datos de acuerdo a la tabla de datos del colegio
+        # Relacionar estudiantes con acudientes       
 
         // FUNCIONALIDADES
         # RF04 - Actualizar Asistencia
@@ -210,13 +205,6 @@
         # RF08 - Justificaciones por Inasistencia y por llegada tarde
                  // El Profesor y el Acudiente pueden registrar una justificación
                  // El Profesor y el Administrador pueden validar la justificación
-        
-        // VALIDACIONES
-        # Validaciones de todos los formularios.
-        # Cierre de DB en PDO
-        # Incluir las Alertas (SweetAlert)
-        # Pruebas Unitarias, Integración, Funcionales, Sistema
-
 
     }
 

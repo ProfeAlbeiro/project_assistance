@@ -53,7 +53,7 @@
                 </div>
                 <label for="inputTime" class="col-sm-2 col-form-label">Grupo</label>
                 <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getStudentGrade() . "_" . $lastRecord->getStudentGroup() ?></label>
+                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getStudentGrade() . $lastRecord->getStudentGroup() ?></label>
                 </div>
                 <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
                 <div class="col-sm-10">

@@ -20,51 +20,59 @@ SELECT * FROM ROLES;
 -- ------------------------------------------------------------------------------------------------------ --
 -- 01.02. Insertar Usuarios. ---------------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------------------------ --
--- Insertar Usuarios Administradores
+-- Insertar Administradores
 INSERT INTO USERS VALUES
-(14785, 1, 'Efren', 'efren@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+('14785', 1, 'Efren', 'efren@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
--- Insertar demás Usuarios
+-- Insertar Profesores
 INSERT INTO `users` VALUES
-(65465, 2, 'Julian', 'julian@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
-(54564, 3, 'Pepito', 'pepito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
-(87897, 3, 'Marinita', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
-(45648, 3, 'Josefito', 'josefito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
-(78972, 4, 'Pedro', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
-(96325, 4, 'Carlos', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+('65465', 2, 'Julian', 'julian@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
 -- Insertar Estudiantes
+INSERT INTO `users` VALUES
+('54564', 3, 'Pepito', 'pepito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+('87897', 3, 'Marinita', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+('45648', 3, 'Josefito', 'josefito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+SELECT * FROM USERS;
+
+-- Insertar Acudientes
+INSERT INTO `users` VALUES
+('78972', 4, 'Pedro', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+('96325', 4, 'Carlos', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+SELECT * FROM USERS;
+
+-- Relacionar Estudiantes con Jornada, grado y grupo
 INSERT INTO STUDENTS VALUES
-(54564, 'mañana', '6', 'A'),
-(87897, 'tarde', '7', 'B'),
-(45648, 'noche', '10', 'C');
+('54564', 'mañana', '6', '01'),
+('87897', 'tarde', '7', '02'),
+('45648', 'noche', '10', '03');
 SELECT * FROM STUDENTS;
 
 -- Insertar Profesores
 INSERT INTO TEACHERS VALUES
-(65465);
+('65465');
 SELECT * FROM TEACHERS;
 
 -- Insertar Acudientes
 INSERT INTO ATTENDANTS VALUES
-(78972),
-(96325);
+('78972'),
+('96325');
 SELECT * FROM ATTENDANTS;
 
 -- Asociar Acudientes con Estudiantes
 INSERT INTO ATTENDANTS_STUDENTS VALUES
-(54564, 78972),
-(87897, 78972),
-(45648, 96325);
+('54564', '78972'),
+('87897', '78972'),
+('45648', '96325');
 SELECT * FROM ATTENDANTS_STUDENTS;
 
 -- ------------------------------------------------------------------------------------------------------ --
 -- 01.03. Insertar Jornadas. ---------------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------------------------ --
 INSERT INTO WORKDAYS VALUES
-(0, 'Diurna'),
+(0, 'Mañana'),
 (1, 'Tarde'),
 (2, 'Noche');
 SELECT * FROM WORKDAYS;
@@ -120,8 +128,8 @@ SELECT * FROM ESTADO;
 -- ------------------------------------------------------------------------------------------------------ --
 -- Insertar Asistencia Estudiantes a tiempo y tarde
 INSERT INTO ASSISTANCES VALUES
-(87897, 1, "2024-06-06", "12:30"),
-(45648, 3, "2024-06-06", "12:50");
+('87897', 1, "2024-06-06", "12:30"),
+('45648', 3, "2024-06-06", "12:50");
 SELECT * FROM ASSISTANCES;
 
 -- Insertar Inasistencia de Estudiantes.
