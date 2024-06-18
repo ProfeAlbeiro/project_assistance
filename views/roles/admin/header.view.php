@@ -24,11 +24,11 @@
   <link href="assets/dashboard/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/dashboard/vendor/simple-datatables/style.css" rel="stylesheet">
-
+  
   <!-- DataTable -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-  <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"> -->
+  <!-- <link href="assets/dashboard/vendor/simple-datatables/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
   <!-- Template Main CSS File -->
   <link href="assets/dashboard/css/style.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/dashboard/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <span class="d-none d-lg-block">Colegio</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -278,7 +278,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="?c=Dashboard">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>

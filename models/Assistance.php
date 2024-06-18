@@ -120,7 +120,8 @@
                                 INNER JOIN ASISTENCIA AS a
                                 on e.estudiante_id = a.estudiante_id
                                 INNER JOIN ESTADO AS s
-                                on a.estado_id = s.estado_id';
+                                on a.estado_id = s.estado_id
+                                ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC';
                         $stmt = $this->dbh->query($sql);
                         foreach ($stmt->fetchAll() as $assistance) {
                             $assistanceObj = new Assistance(
@@ -163,35 +164,46 @@
                 $stmt = $this->dbh->prepare($sql);                
                 $stmt->execute();
                 $assistanceDb = $stmt->fetch();
-                $assistance = new Assistance(
-                    $assistanceDb['estudiante_id'],
-                    $assistanceDb['user_name'],                        
-                    $assistanceDb['estado_id'],
-                    $assistanceDb['estado_nombre'],                        
-                    $assistanceDb['asistencia_fecha'],
-                    $assistanceDb['asistencia_hora_inicio']
-                );
-                return $assistance;
+                if ($assistanceDb) {
+                    $assistance = new Assistance(
+                        $assistanceDb['estudiante_id'],
+                        $assistanceDb['user_name'],                        
+                        $assistanceDb['estado_id'],
+                        $assistanceDb['estado_nombre'],                        
+                        $assistanceDb['asistencia_fecha'],
+                        $assistanceDb['asistencia_hora_inicio']
+                    );
+                    return $assistance;
+                } else {
+                    return false;
+                }
             } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
 
+        // PROBLEMAS A SOLUCIONAR SOBRE LA MARCHA
         # ✓ # CHECK - Disparadores de Users a Profesor, Estudiante y Acudiente.
         # Incluir en la DB una tabla con Sedes, jornadas, cursos, etc
+        # Revisar las relaciones Unique (Llave Primaria) con Users
         # Relacionar estudiantes con acudientes
         # Consultas en DataTables (Presentación). Incluir los controles pdf, excel, etc.,
         # Responsive de la tabla, traer fecha de js y tamaño de controles.
-        # Cierre de DB en PDO
-        # Validaciones de todos los formularios.
-        # Incluir las Alertas (SweetAlert)
 
+        // FUNCIONALIDADES
         # RF04 - Actualizar Asistencia por Estudiante
         # RF05 - Eliminar Registro de Asistencia        
         # RF07 - Cantidad de Registros por: Asistencias, Inasistencias y Retardos
         # RF08 - Justificaciones por Inasistencia y por llegada tarde
                  // El Profesor y el Acudiente pueden registrar una justificación
                  // El Profesor y el Administrador pueden validar la justificación
+        
+        // VALIDACIONES
+        # Validaciones de todos los formularios.
+        # Cierre de DB en PDO
+        # Incluir las Alertas (SweetAlert)
+        # Pruebas Unitarias, Integración, Funcionales, Sistema
+
 
     }
 

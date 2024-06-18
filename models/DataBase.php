@@ -5,7 +5,7 @@
         public static function connection(){            
             $hostname = "server-colegios.mysql.database.azure.com";
             $port = "3306";
-            $database = "db_asistencia";
+            $database = "db_assistance";
             $username = "admin_colegio";
             $password = "colegio@123";
             $options = array(

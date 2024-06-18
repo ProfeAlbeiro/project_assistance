@@ -26,12 +26,12 @@
             </div>
             
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Estado</label>
+              <label class="col-sm-2 col-form-label">¿Asiste?</label>
               <div class="col-sm-10">
                 <select class="form-select" name="estado_id" aria-label="Default select example">                  
-                  <option value="1" selected>Asistencia</option>
-                  <option value="2">No Asistencia</option>
-                  <option value="3">Llegada Tarde</option>
+                  <option value="1" selected>Si</option>
+                  <option value="2">No</option>
+                  <option value="3">Tarde</option>
                 </select>
               </div>
             </div>            
@@ -40,29 +40,31 @@
                 <button type="submit" class="btn btn-primary">Enviar</button>
               </div>
             </div>
-            <h5 class="card-title">Último Registro</h5>
-            <div class="row mb-3">
-              <label for="inputDate" class="col-sm-2 col-form-label" >Nombre</label>
+            <?php if ($lastRecord) : ?>
+              <h5 class="card-title">Último Registro</h5>
+              <div class="row mb-3">
+                <label for="inputDate" class="col-sm-2 col-form-label" >Nombre</label>
+                  <div class="col-sm-10">
+                    <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
+                  </div>
+                <label for="inputTime" class="col-sm-2 col-form-label">Identificación</label>
                 <div class="col-sm-10">
-                  <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
+                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getEstudianteId() ?></label>
                 </div>
-              <label for="inputTime" class="col-sm-2 col-form-label">Identificación</label>
-              <div class="col-sm-10">
-                <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getEstudianteId() ?></label>
+                <label for="inputTime" class="col-sm-2 col-form-label">Curso</label>
+                <div class="col-sm-10">
+                  <label for="inputTime" class="col-sm-2 col-form-label">601</label>
+                </div>
+                <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
+                <div class="col-sm-10">
+                  <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getAsistenciaFecha() ?></label>
+                </div>
+                <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
+                <div class="col-sm-10">
+                  <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getAsistenciaHoraInicio() ?></label>
+                </div>              
               </div>
-              <label for="inputTime" class="col-sm-2 col-form-label">Curso</label>
-              <div class="col-sm-10">
-                <label for="inputTime" class="col-sm-2 col-form-label">601</label>
-              </div>
-              <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
-              <div class="col-sm-10">
-                <label for="inputDate" class="col-sm-2 col-form-label" ><?php echo $lastRecord->getAsistenciaFecha() ?></label>
-              </div>
-              <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
-              <div class="col-sm-10">
-                <label for="inputTime" class="col-sm-2 col-form-label"><?php echo $lastRecord->getAsistenciaHoraInicio() ?></label>
-              </div>              
-            </div>
+            <?php endif; ?>
           </form>
 
         </div>

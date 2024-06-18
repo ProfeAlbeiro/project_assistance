@@ -24,7 +24,7 @@
                     <tr>
                       <th>Cód Estud</th>
                       <th>Nombre</th>
-                      <th>Estado</th>                    
+                      <th>¿Asiste?</th>                    
                       <th>Fecha</th>
                       <th>Hora</th>
                       <th>Acciones</th>

@@ -19,10 +19,10 @@
                 $fecha = date("Y-m-d");                    
                 $hora = date("H:i:s");
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor. 
+                    // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor.                                         
                     $lastRecord = new Assistance;
-                    $lastRecord = $lastRecord->getassistance_last();                    
-                    require_once ("views/modules/assistance/assistance_create.view.php");
+                    $lastRecord = $lastRecord->getassistance_last();                        
+                    require_once ("views/modules/assistance/assistance_create.view.php");                                        
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
                     $assistance = new Assistance(
@@ -31,7 +31,7 @@
                         $fecha,
                         $hora                        
                     );
-                    $assistance->create_assistance();
+                    $assistance->create_assistance();                    
                     $lastRecord = new Assistance;
                     $lastRecord = $lastRecord->getassistance_last();
                     require_once ("views/modules/assistance/assistance_create.view.php");

@@ -50,7 +50,8 @@ on u.user_id = e.estudiante_id
 INNER JOIN ASISTENCIA AS a
 on e.estudiante_id = a.estudiante_id
 INNER JOIN ESTADO AS s
-on a.estado_id = s.estado_id;
+on a.estado_id = s.estado_id
+ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC;
 
 -- ------------------------------------------------------------------------------------- --
 -- 02.03. Consultar Estudiante, asistencia y estado ------------------------------------ --
@@ -91,4 +92,3 @@ INNER JOIN ESTADO AS s
 on a.estado_id = s.estado_id
 WHERE u.rol_code = 3
 ORDER BY a.asistencia_fecha DESC, a.asistencia_hora_inicio DESC LIMIT 1;
-
