@@ -24,11 +24,10 @@
             }
         }
 
-        public function __construct0(){}
-
-        public function __construct4($student_id,$assistance_attends,$assistance_date,$assistance_start_time){
-            $this->student_id = $student_id;            
-            $this->assistance_attends = $assistance_attends;
+        public function __construct0(){}        
+        
+        public function __construct3($student_id,$assistance_date,$assistance_start_time){
+            $this->student_id = $student_id;
             $this->assistance_date = $assistance_date;            
             $this->assistance_start_time = $assistance_start_time;
         }
@@ -136,19 +135,30 @@
 
         # RF01 - Registrar Asistencia.        
         // Manual y por Código de Barras
-        public function create_assistance(){
+        public function create_assistance($time_workday){
+            // Solucionar el problema cuando NO asiste, o llega después al colegio con excusa
             try {
-                $sql = 'INSERT INTO ASSISTANCES VALUES 
-                (:student_id,:assistance_attends,:assistance_date,:assistance_start_date)';
+                $sql = "INSERT INTO ASSISTANCES (student_id, assistance_attends, assistance_date, assistance_start_time) VALUES
+                            (:student_id, 
+                            IF(TIMESTAMPDIFF(MINUTE, CONCAT(CURDATE(),' ', :time_workday), NOW()) <= 10,
+                                'SI', 
+                                IF(TIMESTAMPDIFF(MINUTE, CONCAT(CURDATE(),' ', :time_workday), NOW()) > 10 
+                                    AND TIMESTAMPDIFF(MINUTE, CONCAT(CURDATE(),' ', :time_workday), NOW()) <= 360,
+                                    'TARDE',
+                                    'NO'
+                                )
+                            ),
+                            :assistance_date, :assistance_start_date
+                        )";
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('student_id', $this->getStudentId());
-                $stmt->bindValue('assistance_attends', $this->getAssistanceAttends());
+                $stmt->bindValue('time_workday', $time_workday);
+                $stmt->bindValue('student_id', $this->getStudentId());                
                 $stmt->bindValue('assistance_date', $this->getAssistanceDate());
                 $stmt->bindValue('assistance_start_date', $this->getAssistanceStartTime());
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
-            }
+            }            
         }
 
         # RF02 - Constular Asistencias                 

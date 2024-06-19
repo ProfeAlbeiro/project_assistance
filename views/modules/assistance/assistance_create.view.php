@@ -25,7 +25,7 @@
               </div>
             </div>
             
-            <div class="row mb-3">
+            <!-- <div class="row mb-3">
               <label class="col-sm-2 col-form-label">¿Asiste?</label>
               <div class="col-sm-10">
                 <select class="form-select" name="assistance_attends" aria-label="Default select example">                  
@@ -34,7 +34,7 @@
                   <option value="Tarde">Tarde</option>
                 </select>
               </div>
-            </div>            
+            </div>             -->
             <div class="row mb-3">                  
               <div class="col-sm-12 text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>

@@ -30,17 +30,17 @@ INSERT INTO `users` VALUES
 ('65465', 2, 'Julian', 'julian@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
+-- Insertar Acudientes
+INSERT INTO `users` VALUES
+('78972', 4, 'Pedro', 'pedro@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+('96325', 4, 'Carlos', 'carlos@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+SELECT * FROM USERS;
+
 -- Insertar Estudiantes
 INSERT INTO `users` VALUES
 ('54564', 3, 'Pepito', 'pepito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
 ('87897', 3, 'Marinita', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
 ('45648', 3, 'Josefito', 'josefito@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
-SELECT * FROM USERS;
-
--- Insertar Acudientes
-INSERT INTO `users` VALUES
-('78972', 4, 'Pedro', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1),
-('96325', 4, 'Carlos', 'marinita@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
 -- Relacionar Estudiantes con Jornada, grado y grupo

@@ -13,25 +13,28 @@
         
         // Controlador Crear Asistencia
         public function assistanceCreate(){
-            if ($this->session == 'admin') {
-                date_default_timezone_set('America/Bogota');
-                // Cómo mostrar fecha y hora dinámicamente
-                $date = date("Y-m-d");                    
-                $start_time = date("H:i:s");
+            if ($this->session == 'admin') {                
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor.                                         
                     $lastRecord = new Assistance;
                     $lastRecord = $lastRecord->getassistance_last();                        
                     require_once ("views/modules/assistance/assistance_create.view.php");                                        
                 }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    // Indagar si podemos capturar la fecha y hora del dispositivo y no del servidor.                                         
+                    // ¿Cómo mostrar fecha y hora dinámicamente?
+                    date_default_timezone_set('America/Bogota');
+                    $today = date("Y-m-d");                    
+                    $start_time = date("H:i:s");
+                    $assistance = new Assistance;
+                    // $assistance->setStudentId($_POST['student_id']);                    
                     $assistance = new Assistance(
-                        $_POST['student_id'],
-                        $_POST['assistance_attends'],
-                        $date,
+                        $_POST['student_id'],                        
+                        $today,
                         $start_time                        
                     );
-                    $assistance->create_assistance();                    
+                    // Cuando llega a la hora límite (30 minutos), se activa la notificación por correo
+                    $time_workday = "05:45:00";
+                    $assistance->create_assistance($time_workday);                    
                     $lastRecord = new Assistance;
                     $lastRecord = $lastRecord->getassistance_last();                    
                     require_once ("views/modules/assistance/assistance_create.view.php");
