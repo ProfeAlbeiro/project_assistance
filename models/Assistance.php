@@ -117,7 +117,7 @@
                 if ($assistanceDb) {
                     $assistance = new Assistance(
                         $assistanceDb['student_id'],
-                        $assistanceDb['user_name'],
+                        ucwords(strtolower($assistanceDb['user_name'])),
                         $assistanceDb['student_grade'],
                         $assistanceDb['student_group'],
                         $assistanceDb['assistance_attends'],                        
@@ -186,7 +186,7 @@
                 foreach ($stmt->fetchAll() as $assistance) {
                     $assistanceObj = new Assistance(
                         $assistance['student_id'],
-                        $assistance['user_name'],                        
+                        ucwords(strtolower($assistance['user_name'])),
                         $assistance['student_grade'],
                         $assistance['student_group'],
                         $assistance['assistance_attends'],

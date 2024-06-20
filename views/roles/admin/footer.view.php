@@ -1,16 +1,12 @@
-</main><!-- End #main -->
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>SisWebColegios</span></strong>. Todos los derechos reservados
     </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    <div class="credits">      
+      Diseñado por <a href="#">SisWebColegios</a>
     </div>
   </footer><!-- End Footer -->
 
@@ -33,41 +29,9 @@
   
   <!-- Template Main JS File -->
   <script src="assets/dashboard/js/main.js"></script>
-
-  <script>
-    let temp = $("#btn1").clone();
-    $("#btn1").click(function(){
-        $("#btn1").after(temp);
-    });
-
-    $(document).ready(function(){
-        var table = $('#example').DataTable({
-          "order": [
-            [ 4, "desc" ],
-            [ 5, "desc" ],
-          ],
-          orderCellsTop: true,
-          fixedHeader: true 
-        });
-
-        //Creamos una fila en el head de la tabla y lo clonamos para cada columna
-        $('#example thead tr').clone(true).appendTo( '#example thead' );
-
-        $('#example thead tr:eq(1) th').each( function (i) {
-            var title = $(this).text(); //es el nombre de la columna
-            $(this).html( '<input type="text" placeholder="Search...'+title+'" />' );
-    
-            $( 'input', this ).on( 'keyup change', function () {
-                if ( table.column(i).search() !== this.value ) {
-                    table
-                        .column(i)
-                        .search( this.value )
-                        .draw();
-                }
-            } );
-        } );   
-    });
-  </script>
+  
+  <!-- Scripts Personalizados -->
+  <script src="assets/dashboard/js/scripts.js"></script>
 
 </body>
 

@@ -264,12 +264,12 @@
                         INNER JOIN USERS AS u
                         on r.rol_id = u.rol_id';
                 $stmt = $this->dbh->query($sql);
-                foreach ($stmt->fetchAll() as $user) {
+                foreach ($stmt->fetchAll() as $user) {                    
                     $userObj = new User(
                         $user['rol_id'],
                         $user['rol_name'],                        
                         $user['user_id'],
-                        $user['user_name'],                        
+                        ucwords(strtolower($user['user_name'])),
                         $user['user_email'],
                         $user['user_pass'],
                         $user['user_state']

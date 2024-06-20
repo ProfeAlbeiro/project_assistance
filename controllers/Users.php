@@ -100,7 +100,7 @@
             if ($this->session == 'admin') {
                 $state = ['Inactivo', 'Activo'];
                 $users = new User;
-                $users = $users->read_users();                
+                $users = $users->read_users();                 
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");

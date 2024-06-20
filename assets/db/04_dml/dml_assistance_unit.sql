@@ -22,12 +22,12 @@ SELECT * FROM ROLES;
 -- ------------------------------------------------------------------------------------------------------ --
 -- Insertar Administradores
 INSERT INTO USERS VALUES
-('14785', 1, 'Efren', 'efren@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+('14785', 1, 'Julián Vargas', 'efren@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
 -- Insertar Profesores
 INSERT INTO `users` VALUES
-('65465', 2, 'Julian', 'julian@colegio.edu.co', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+('65465', 2, 'Albeiro Ramos', 'profealbeiro2020@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 1);
 SELECT * FROM USERS;
 
 -- Insertar Acudientes
@@ -146,7 +146,6 @@ INSERT INTO JUSTIFICATIONS VALUES
 (65465, 45648, 96325, 2, NULL, 0);
 
 
-
 /* ****************************************************************************************************** */
 /* ------------------------------------------- 02. ACTUALIZAR ------------------------------------------- */
 /* ****************************************************************************************************** */
@@ -163,7 +162,7 @@ SELECT * FROM ROLES;
 -- 02.02. Actualizar Usuarios. -------------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------------------------ --
 UPDATE USERS SET 
-user_name = 'Jorge'
+user_email = 'profealbeiro2020@gmail.com'
 WHERE user_id = '65465';
 SELECT * FROM USERS;
 

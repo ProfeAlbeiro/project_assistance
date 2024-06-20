@@ -34,7 +34,7 @@
                     <tr>
                       <td><?php echo $user->getRolName(); ?></td>
                       <td><?php echo $user->getUserId(); ?></td>
-                      <td><?php echo $user->getUserName(); ?></td>                      
+                      <td><?php echo $user->getUserName() ?></td>
                       <td><?php echo $user->getUserEmail(); ?></td>
                       <td><?php echo $state[$user->getUserState()]; ?></td>                      
                       <td>
