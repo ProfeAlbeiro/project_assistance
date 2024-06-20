@@ -141,11 +141,11 @@
                 $sql = "INSERT INTO ASSISTANCES (student_id, assistance_attends, assistance_date, assistance_start_time) VALUES
                             (:student_id, 
                             IF(TIMESTAMPDIFF(MINUTE, CONCAT(CURDATE(),' ', :time_workday), NOW()) <= 10,
-                                'SI', 
+                                'Si', 
                                 IF(TIMESTAMPDIFF(MINUTE, CONCAT(CURDATE(),' ', :time_workday), NOW()) > 10 
                                     AND TIMESTAMPDIFF(MINUTE, CONCAT(CURDATE(),' ', :time_workday), NOW()) <= 360,
-                                    'TARDE',
-                                    'NO'
+                                    'Tarde',
+                                    'No'
                                 )
                             ),
                             :assistance_date, :assistance_start_date

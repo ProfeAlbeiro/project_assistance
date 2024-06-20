@@ -23,9 +23,9 @@
                   <thead>
                     <tr>
                       <th>Grupo</th>
-                      <th>Nombre Completo</th>
-                      <th>Cód Estud</th>
+                      <th>Nombre</th>
                       <th>¿Asiste?</th>                    
+                      <th>Código/th>
                       <th>Fecha</th>
                       <th>Hora</th>
                       <th>Acciones</th>
@@ -36,8 +36,8 @@
                       <tr>
                         <td><?php echo $assistance->getStudentGroup(); ?></td>                      
                         <td><?php echo $assistance->getUserName(); ?></td>
-                        <td><?php echo $assistance->getStudentId(); ?></td>
                         <td><?php echo $assistance->getAssistanceAttends(); ?></td>
+                        <td><?php echo $assistance->getStudentId(); ?></td>
                         <td><?php echo $assistance->getAssistanceDate(); ?></td>
                         <td><?php echo $assistance->getAssistanceStartTime(); ?></td>                      
                         <td>                        
