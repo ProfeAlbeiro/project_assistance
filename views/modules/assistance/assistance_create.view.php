@@ -24,17 +24,6 @@
                 <input type="text" name="student_id" class="form-control">
               </div>
             </div>
-            
-            <!-- <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">¿Asiste?</label>
-              <div class="col-sm-10">
-                <select class="form-select" name="assistance_attends" aria-label="Default select example">                  
-                  <option value="Sí" selected>Si</option>
-                  <option value="No">No</option>
-                  <option value="Tarde">Tarde</option>
-                </select>
-              </div>
-            </div>             -->
             <div class="row mb-3">                  
               <div class="col-sm-12 text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -42,27 +31,25 @@
             </div>
             <?php if ($lastRecord) : ?>
               <h5 class="card-title">Último Registro</h5>
-              <div class="row mb-3">
-                <label for="inputDate" class="col-sm-2 col-form-label" >Nombre</label>
-                  <div class="col-sm-10">
-                    <label for="inputDate" class="col-sm-10 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
-                  </div>
-                <label for="inputTime" class="col-sm-2 col-form-label">Identificación</label>
-                <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-10 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
-                </div>
-                <label for="inputTime" class="col-sm-2 col-form-label">Grupo</label>
-                <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-10 col-form-label"><?php echo $lastRecord->getStudentGroup() ?></label>
-                </div>
-                <label for="inputDate" class="col-sm-2 col-form-label" >Fecha</label>
-                <div class="col-sm-10">
-                  <label for="inputDate" class="col-sm-10 col-form-label" ><?php echo $lastRecord->getAssistanceDate() ?></label>
-                </div>
-                <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
-                <div class="col-sm-10">
-                  <label for="inputTime" class="col-sm-10 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>
-                </div>              
+              <div class="row mb-1">
+                <label for="inputDate" class="col-5 col-sm-2 col-form-label" ><b>Nombre</b></label>
+                <label for="inputDate" class="col-7 col-sm-10 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
+              </div>
+              <div class="row mb-1">
+                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Identificación</b></label>
+                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
+              </div>
+              <div class="row mb-1">
+                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Grupo</b></label>                
+                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getStudentGroup() ?></label>
+              </div>              
+              <div class="row mb-1">
+                <label for="inputDate" class="col-5 col-sm-2 col-form-label" ><b>Fecha</b></label>
+                <label for="inputDate" class="col-7 col-sm-10 col-form-label" ><?php echo $lastRecord->getAssistanceDate() ?></label>
+              </div>
+              <div class="row mb-1">                
+                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Hora</b></label>
+                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>                
               </div>
             <?php endif; ?>
           </form>
