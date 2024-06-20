@@ -19,12 +19,12 @@
 
               <!-- Table with stripped rows -->
               <div class="table-responsive">
-                <table class="table datatable">
+                <table class="table datatable ajuste-tabla" id="ej-assistances" style="width:100%">
                   <thead>
                     <tr>
-                      <th>Grupo</th>
                       <th>Cód Estud</th>
-                      <th>Nombre</th>
+                      <th>Grupo</th>
+                      <th>Nombre Completo</th>
                       <th>¿Asiste?</th>                    
                       <th>Fecha</th>
                       <th>Hora</th>
@@ -34,8 +34,8 @@
                   <tbody>
                     <?php foreach ($assistances as $assistance) : ?>
                       <tr>
-                        <td><?php echo $assistance->getStudentGroup(); ?></td>                      
                         <td><?php echo $assistance->getStudentId(); ?></td>
+                        <td><?php echo $assistance->getStudentGroup(); ?></td>                      
                         <td><?php echo $assistance->getUserName(); ?></td>
                         <td><?php echo $assistance->getAssistanceAttends(); ?></td>
                         <td><?php echo $assistance->getAssistanceDate(); ?></td>

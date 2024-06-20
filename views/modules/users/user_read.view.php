@@ -18,12 +18,12 @@
               <h5 class="card-title">Consultar Usuarios</h5>
 
               <!-- Table with stripped rows -->
-              <table class="table datatable" id="ej-data-tables">
+              <table class="table datatable ajuste-tabla" id="ej-data-tables" style="width:100%">
                 <thead>
                   <tr>
                     <th>Identificación</th>
                     <th>Tipo Rol</th>
-                    <th>Nombre</th>                    
+                    <th>Nombre Completo</th>                    
                     <th>Correo</th>
                     <th>Estado</th>
                     <th>Acciones</th>
