@@ -21,23 +21,23 @@
               <table class="table datatable ajuste-tabla" id="ej-data-tables" style="width:100%">
                 <thead>
                   <tr>
-                    <th>Identificación</th>
-                    <th>Tipo Rol</th>
-                    <th>Nombre</th>                    
-                    <th>Correo</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
+                    <th class="text-center">Rol</th>
+                    <th class="text-center">Identificación</th>
+                    <th class="text-center">Nombre</th>                    
+                    <th class="text-center">Correo</th>
+                    <th class="text-center">Estado</th>
+                    <th class="text-center">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($users as $user) : ?>
                     <tr>
-                      <td><?php echo $user->getUserId(); ?></td>
                       <td><?php echo $user->getRolName(); ?></td>
+                      <td><?php echo $user->getUserId(); ?></td>
                       <td><?php echo $user->getUserName() ?></td>
                       <td><?php echo $user->getUserEmail(); ?></td>
-                      <td><?php echo $state[$user->getUserState()]; ?></td>                      
-                      <td>
+                      <td class="text-center"><?php echo $state[$user->getUserState()]; ?></td>                      
+                      <td class="text-center">
                       <a href="?c=Users&a=userUpdate&idUser=<?php echo $user->getUserId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>

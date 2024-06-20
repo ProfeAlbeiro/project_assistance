@@ -5,6 +5,10 @@
 $(document).ready(function () {
     var table = $('#ej-data-tables').DataTable({
         dom: 'Bfrtip',
+        "order": [
+            [ 0, "desc" ],
+            [ 4, "asc" ],
+        ],
         buttons: [
             'copy',
             'csv',
@@ -21,9 +25,9 @@ $(document).ready(function () {
             }
         ],
         select: true,
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
+        // rowReorder: {
+        //     selector: 'td:nth-child(2)'
+        // },
         responsive: true,
         language: {
             search: 'Buscar',
