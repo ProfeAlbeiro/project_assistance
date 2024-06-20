@@ -49,7 +49,7 @@
         public function assistanceRead(){
             if ($this->session == 'admin') {
                 $assistances = new Assistance;
-                $assistances = $assistances->read_assistance();                                
+                $assistances = $assistances->read_assistance();
                 require_once "views/modules/assistance/assistance_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");

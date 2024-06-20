@@ -19,7 +19,7 @@
 
               <!-- Table with stripped rows -->
               <div class="table-responsive">
-                <table class="table datatable" id="example" style="width:100%">
+                <table class="table datatable">
                   <thead>
                     <tr>
                       <th>Grupo</th>

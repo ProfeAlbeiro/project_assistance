@@ -18,11 +18,11 @@
               <h5 class="card-title">Consultar Usuarios</h5>
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable" id="ej-data-tables">
                 <thead>
                   <tr>
-                    <th>Tipo Rol</th>
                     <th>Identificación</th>
+                    <th>Tipo Rol</th>
                     <th>Nombre</th>                    
                     <th>Correo</th>
                     <th>Estado</th>
@@ -32,8 +32,8 @@
                 <tbody>
                   <?php foreach ($users as $user) : ?>
                     <tr>
-                      <td><?php echo $user->getRolName(); ?></td>
                       <td><?php echo $user->getUserId(); ?></td>
+                      <td><?php echo $user->getRolName(); ?></td>
                       <td><?php echo $user->getUserName() ?></td>
                       <td><?php echo $user->getUserEmail(); ?></td>
                       <td><?php echo $state[$user->getUserState()]; ?></td>                      
