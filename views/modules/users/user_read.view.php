@@ -2,7 +2,7 @@
       <h1>Consultar Usuarios</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
           <li class="breadcrumb-item">Usuarios</li>
           <li class="breadcrumb-item active">Consultar Usuarios</li>
         </ol>
@@ -39,10 +39,10 @@
                       <td><?php echo $state[$user->getUserState()]; ?></td>                      
                       <td>
                       <a href="?c=Users&a=userUpdate&idUser=<?php echo $user->getUserId(); ?>" class="btn btn-success p-0">
-                          <h4 class="m-0"><i class="ri-edit-circle-fill"></i></h4>
+                          <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
                         <a href="?c=Users&a=userDelete&idUser=<?php echo $user->getUserId(); ?>" class="btn btn-danger p-0">
-                          <h4 class="m-0"><i class="ri-delete-bin-5-line"></i></h4>
+                          <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>                      
                     </tr> 

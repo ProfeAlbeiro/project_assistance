@@ -240,7 +240,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-gear"></i>
                 <span>Configuración</span>
               </a>
@@ -250,7 +250,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-question-circle"></i>
                 <span>¿Ayuda?</span>
               </a>
@@ -307,12 +307,7 @@
             <a href="?c=Users&a=rolRead">
               <i class="bi bi-circle"></i><span>Consultar Roles</span>
             </a>
-          </li>          
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Buscar Rol</span>
-            </a>
-          </li>          
+          </li>
         </ul>
       </li><!-- End Components Nav -->
 
@@ -330,12 +325,7 @@
             <a href="?c=Users&a=userRead">
               <i class="bi bi-circle"></i><span>Consultar Usuarios</span>
             </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Buscar Usuario</span>
-            </a>
-          </li>
+          </li>          
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -353,12 +343,7 @@
             <a href="?c=Assistances&a=assistanceRead">
               <i class="bi bi-circle"></i><span>Consultar Asistencias</span>
             </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Buscar Asistencia</span>
-            </a>
-          </li>
+          </li>          
         </ul>
       </li><!-- End Tables Nav -->
 
@@ -369,7 +354,10 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="#">
-              <i class="bi bi-circle"></i><span>En construcción</span>
+              <i class="bi bi-circle"></i><span>Crear Reporte General</span>              
+            </a>
+            <a href="#">              
+              <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
             </a>
           </li>          
         </ul>
@@ -382,7 +370,10 @@
         <ul id="print-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="#">
-              <i class="bi bi-circle"></i><span>En construcción</span>
+              <i class="bi bi-circle"></i><span>Crear Reporte General</span>              
+            </a>
+            <a href="#">              
+              <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
             </a>
           </li>          
         </ul>

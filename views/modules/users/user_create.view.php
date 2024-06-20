@@ -2,7 +2,7 @@
       <h1>Usuarios</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
           <li class="breadcrumb-item">Usuarios</li>
           <li class="breadcrumb-item active">Registrar Usuario</li>
         </ol>
