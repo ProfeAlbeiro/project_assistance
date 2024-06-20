@@ -1,14 +1,21 @@
 .reducir-texto{    
     font-size: 1.5em!important;    
 }
-.logo img{    
-    max-height: 35px;
-    margin: 0px 15px 0 5px;
+.logo .logo-ingreso{    
+    max-height: 80px;
+}
+.logo img{
+    max-height: 40px;        
+    margin: 0px 15px 0 5px;    
 }
 @media (max-width: 767px) {
     .ajuste-tabla{
         white-space: wrap;
         overflow-x: auto;
         font-size: 0.9em;
+    }
+    .logo img{
+        max-height: 40px;        
+        margin: 0;
     }
 }

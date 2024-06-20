@@ -3,11 +3,11 @@
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="d-flex justify-content-center mb-3">
-                <a href="#" class="logo d-flex align-items-end w-auto">
-                  <img src="assets/dashboard/img/logo.png" alt="">
-                  <span class="reducir-texto d-none d-lg-block">Asistencia Colegio</span>
+              <div class="text-center mb-3">
+                <a href="#" class="logo d-flex justify-content-center align-items-center">
+                  <img class="logo-ingreso" src="assets/dashboard/img/logo.png" alt="">
                 </a>
+                <span class="reducir-texto card-title">Asistencia Colegios</span>
               </div><!-- End Logo -->
 
               <div class="card mb-3">
