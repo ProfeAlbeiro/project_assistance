@@ -37,13 +37,11 @@
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>  -->
   <!-- <script src="assets/dashboard/vendor/simple-datatables/simple-datatables.js"></script> -->
+  <!-- <script src="assets/dashboard/js/scripts.js"></script> -->
   
   <!-- Template Main JS File -->
   <script src="assets/dashboard/js/main.js"></script>
   
-  <!-- Scripts Personalizados -->
-  <!-- <script src="assets/dashboard/js/scripts.js"></script> -->
-
 </body>
 
 </html>

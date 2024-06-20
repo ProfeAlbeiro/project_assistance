@@ -230,7 +230,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?c=Dashboard">
                 <i class="bi bi-person"></i>
                 <span>Perfil</span>
               </a>
@@ -240,7 +240,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?c=Dashboard">
                 <i class="bi bi-gear"></i>
                 <span>Configuración</span>
               </a>
@@ -250,7 +250,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="?c=Dashboard">
                 <i class="bi bi-question-circle"></i>
                 <span>¿Ayuda?</span>
               </a>
@@ -287,7 +287,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="?c=Dashboard">
           <i class="bi bi-person"></i>
           <span>Perfil</span>
         </a>
@@ -353,10 +353,10 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="?c=Dashboard">
               <i class="bi bi-circle"></i><span>Crear Reporte General</span>              
             </a>
-            <a href="#">              
+            <a href="?c=Dashboard">              
               <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
             </a>
           </li>          
@@ -369,10 +369,10 @@
         </a>
         <ul id="print-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="?c=Dashboard">
               <i class="bi bi-circle"></i><span>Crear Reporte General</span>              
             </a>
-            <a href="#">              
+            <a href="?c=Dashboard">              
               <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
             </a>
           </li>          
