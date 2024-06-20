@@ -80,13 +80,13 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
                     $user = new User(
-                        $_POST['rol_code'],                        
                         $_POST['user_id'],
+                        $_POST['rol_code'],                        
                         $_POST['user_name'],                        
                         $_POST['user_email'],                        
                         $_POST['user_pass'],
                         $_POST['user_state']
-                    );                    
+                    );
                     $user = $user->create_user();                    
                     header("Location: ?c=Users&a=userRead");
                 }
@@ -120,8 +120,8 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $userUpdate = new User(
-                        $_POST['rol_code'],                        
                         $_POST['user_id'],
+                        $_POST['rol_id'],                        
                         $_POST['user_name'],                        
                         $_POST['user_email'],
                         $_POST['user_pass'],

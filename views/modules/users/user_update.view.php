@@ -29,7 +29,7 @@
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label">Rol</label>
                   <div class="col-sm-9">
-                  <select class="form-select" name="rol_code">                                            											
+                  <select class="form-select" name="rol_id">                                            											
 											<?php foreach ($roles as $rol) : ?>
                             <?php if ($rol->getRolCode() == $user->getRolCode()) : ?>
                                 <option selected="" value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>

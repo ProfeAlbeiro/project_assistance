@@ -35,9 +35,9 @@
         }
         
         # Constructor: Objeto 07 parámetros
-        public function __construct6($rol_id, $user_id, $user_name, $user_email, $user_pass, $user_state){            
-            $this->rol_id = $rol_id;            
+        public function __construct6($user_id, $rol_id, $user_name, $user_email, $user_pass, $user_state){            
             $this->user_id = $user_id;
+            $this->rol_id = $rol_id;            
             $this->user_name = $user_name;
             $this->user_email = $user_email;
             $this->user_pass = $user_pass;
@@ -227,8 +227,8 @@
         public function create_user(){
             try {
                 $sql = 'INSERT INTO USERS VALUES (
-                            :rolCode,
                             :userId,
+                            :rolCode,
                             :userName,                                                        
                             :userEmail,
                             :userPass,
@@ -320,8 +320,8 @@
          public function update_user(){
             try {
                 $sql = 'UPDATE USERS SET
-                            rol_id = :rolCode,                            
                             user_id = :userId,
+                            rol_id = :rolCode,                            
                             user_name = :userName,                            
                             user_email = :userEmail,
                             user_pass = :userPass,
