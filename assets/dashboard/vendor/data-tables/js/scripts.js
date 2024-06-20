@@ -43,6 +43,10 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     var table = $('#ej-assistances').DataTable({
+        "order": [
+            [ 4, "desc" ],
+            [ 5, "desc" ],
+        ],
         dom: 'Bfrtip',
         buttons: [
             'copy',
@@ -60,9 +64,9 @@ $(document).ready(function () {
             }
         ],
         select: true,
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
+        // rowReorder: {
+        //     selector: 'td:nth-child(2)'
+        // },
         responsive: true,
         language: {
             search: 'Buscar',

@@ -5,8 +5,10 @@
     max-height: 35px;
     margin: 0px 15px 0 5px;
 }
-.ajuste-tabla{
-    white-space: nowrap;
-    overflow-x: auto;
-    font-size: 0.9em;
+@media (max-width: 767px) {
+    .ajuste-tabla{
+        white-space: wrap;
+        overflow-x: auto;
+        font-size: 0.9em;
+    }
 }

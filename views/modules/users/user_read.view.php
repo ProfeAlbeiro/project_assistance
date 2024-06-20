@@ -23,7 +23,7 @@
                   <tr>
                     <th>Identificación</th>
                     <th>Tipo Rol</th>
-                    <th>Nombre Completo</th>                    
+                    <th>Nombre</th>                    
                     <th>Correo</th>
                     <th>Estado</th>
                     <th>Acciones</th>
