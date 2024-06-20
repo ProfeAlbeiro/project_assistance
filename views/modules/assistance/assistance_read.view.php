@@ -22,25 +22,25 @@
                 <table class="table datatable ajuste-tabla" id="ej-assistances" style="width:100%">
                   <thead>
                     <tr>
-                      <th>Grupo</th>
-                      <th>Nombre</th>
-                      <th>¿Asiste?</th>                    
-                      <th>Código/th>
-                      <th>Fecha</th>
-                      <th>Hora</th>
-                      <th>Acciones</th>
+                      <th class="text-center">Fecha</th>
+                      <th class="text-center">Nombre</th>
+                      <th class="text-center">¿Asiste?</th>                    
+                      <th class="text-center">Hora</th>
+                      <th class="text-center">Grupo</th>
+                      <th class="text-center">Código</th>
+                      <th class="text-center">Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($assistances as $assistance) : ?>
                       <tr>
-                        <td><?php echo $assistance->getStudentGroup(); ?></td>                      
-                        <td><?php echo $assistance->getUserName(); ?></td>
-                        <td><?php echo $assistance->getAssistanceAttends(); ?></td>
-                        <td><?php echo $assistance->getStudentId(); ?></td>
                         <td><?php echo $assistance->getAssistanceDate(); ?></td>
-                        <td><?php echo $assistance->getAssistanceStartTime(); ?></td>                      
-                        <td>                        
+                        <td><?php echo $assistance->getUserName(); ?></td>
+                        <td class="text-center"><?php echo $assistance->getAssistanceAttends(); ?></td>
+                        <td class="text-center"><?php echo $assistance->getAssistanceStartTime(); ?></td>                      
+                        <td class="text-center"><?php echo $assistance->getStudentGroup(); ?></td>                      
+                        <td class="text-center"><?php echo $assistance->getStudentId(); ?></td>
+                        <td class="text-center">                        
                         <a href="#" class="btn btn-success p-0">
                             <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                           </a>

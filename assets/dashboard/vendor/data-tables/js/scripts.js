@@ -44,8 +44,8 @@ $(document).ready(function () {
 $(document).ready(function () {
     var table = $('#ej-assistances').DataTable({
         "order": [
-            [ 4, "desc" ],
-            [ 5, "desc" ],
+            [ 0, "desc" ],
+            [ 3, "desc" ],
         ],
         dom: 'Bfrtip',
         buttons: [
