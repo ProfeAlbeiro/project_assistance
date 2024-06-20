@@ -1,1 +1,1 @@
-<h1>Página del Colegio si no tiene</h1>
+<h1>Página del Colegio si tiene</h1>

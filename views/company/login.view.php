@@ -3,10 +3,10 @@
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
+              <div class="d-flex justify-content-center mb-3">
+                <a href="#" class="logo d-flex align-items-end w-auto">
                   <img src="assets/dashboard/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">Colegio</span>
+                  <span class="reducir-texto d-none d-lg-block">Asistencia Colegio</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -43,7 +43,7 @@
                       <button class="btn btn-primary w-100" type="submit">Iniciar Sesión</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">No ha creado una cuenta? <a href="pages-register.html">Crear una cuenta</a></p>
+                      <p class="small mb-0">No ha creado una cuenta? <a href="#">Crear una cuenta</a></p>
                     </div>
                     <div class="text-center"><b><?php echo $message ?></b></div>
                   </form>
