@@ -26,11 +26,11 @@
   <link href="assets/dashboard/vendor/remixicon/remixicon.css" rel="stylesheet">
   
   <!-- DataTable -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+  <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/select.dataTables.min.css">
+  <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/rowReorder.dataTables.min.css">
+  <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/responsive.dataTables.min.css">
   <!-- <link href="assets/dashboard/vendor/simple-datatables/style.css" rel="stylesheet"> -->
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"> -->
@@ -49,7 +49,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-end">
+      <a href="?c=Dashboard" class="logo d-flex align-items-end">
         <img src="assets/dashboard/img/logo.png" alt="">
         <span class="d-none d-lg-block">Colegio</span>
       </a>
