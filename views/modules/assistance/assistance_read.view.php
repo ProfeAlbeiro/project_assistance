@@ -24,8 +24,9 @@
                     <tr>
                       <th class="text-center">Fecha</th>
                       <th class="text-center">Nombre</th>
-                      <th class="text-center">¿Asiste?</th>                    
+                      <th class="text-center">¿Asistencia?</th>                    
                       <th class="text-center">Hora</th>
+                      <th class="text-center">Jornada</th>
                       <th class="text-center">Grupo</th>
                       <th class="text-center">Código</th>
                       <th class="text-center">Acciones</th>
@@ -36,9 +37,10 @@
                       <tr>
                         <td><?php echo $assistance->getAssistanceDate(); ?></td>
                         <td><?php echo $assistance->getUserName(); ?></td>
-                        <td class="text-center"><?php echo $assistance->getAssistanceAttends(); ?></td>
-                        <td class="text-center"><?php echo $assistance->getAssistanceStartTime(); ?></td>                      
-                        <td class="text-center"><?php echo $assistance->getStudentGroup(); ?></td>                      
+                        <td class="text-center"><?php echo $assistance->getAttendState(); ?></td>
+                        <td class="text-center"><?php echo $assistance->getAssistanceStartTime(); ?></td>
+                        <td class="text-center"><?php echo $assistance->getJourneName(); ?></td>
+                        <td class="text-center"><?php echo $assistance->getGradeId() . $assistance->getCourseName(); ?></td>                      
                         <td class="text-center"><?php echo $assistance->getStudentId(); ?></td>
                         <td class="text-center">                        
                         <a href="#" class="btn btn-success p-0">

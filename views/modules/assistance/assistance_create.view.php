@@ -40,8 +40,16 @@
                 <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
               </div>
               <div class="row mb-1">
+                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Jornada</b></label>
+                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getJourneName() ?></label>
+              </div>
+              <div class="row mb-1">
                 <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Grupo</b></label>                
-                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getStudentGroup() ?></label>
+                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getGradeId() . $lastRecord->getCourseName() ?></label>
+              </div>
+              <div class="row mb-1">                
+                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>¿Asistencia?</b></label>
+                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAttendState() ?></label>                
               </div>              
               <div class="row mb-1">
                 <label for="inputDate" class="col-5 col-sm-2 col-form-label" ><b>Fecha</b></label>
@@ -50,7 +58,7 @@
               <div class="row mb-1">                
                 <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Hora</b></label>
                 <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>                
-              </div>
+              </div>              
             <?php endif; ?>
           </form>
 

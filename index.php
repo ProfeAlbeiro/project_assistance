@@ -1,5 +1,6 @@
 <?php ob_start();
     session_start();
+    date_default_timezone_set('America/Bogota');
     require_once "models/DataBase.php";    
     $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Login";
     $route_controller = "controllers/" . $controller . ".php";

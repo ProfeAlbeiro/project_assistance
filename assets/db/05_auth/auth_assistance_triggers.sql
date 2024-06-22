@@ -15,7 +15,7 @@ BEGIN
 		(NEW.user_id);
 	ELSEIF (NEW.rol_id = 3) THEN
 		INSERT INTO STUDENTS VALUES
-		(NEW.user_id, "jornada", "grado", "grupo");
+		(NEW.user_id);
 	ELSEIF (NEW.rol_id = 4) THEN
 		INSERT INTO ATTENDANTS VALUES
 		(NEW.user_id);
