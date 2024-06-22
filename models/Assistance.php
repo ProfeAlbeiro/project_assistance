@@ -141,12 +141,14 @@
             $diff_journal_min = ($end_time - $start_time) / 60;
             $diff_min = intval(($entry_time_min - $start_time) / 60);
             
-            if ($diff_min <= 10) {
+            if ($diff_min <= 10 AND $diff_min >= -20) {
                 $attend_id = 1;
             } elseif ($diff_min > 10 AND $diff_min <= $diff_journal_min) {
                 $attend_id = 2;
+            } elseif ($diff_min > $diff_journal_min) {
+                $attend_id = 3;
             } else {
-                $attend_id = 3;                        
+                $attend_id = 4;
             }
             return $attend_id;
         }

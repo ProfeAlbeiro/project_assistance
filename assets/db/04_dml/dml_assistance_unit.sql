@@ -130,7 +130,8 @@ SELECT * FROM JOURNES_GRADES_COURSES;
 INSERT INTO ATTENDS VALUES
 (1, 'Normal'),
 (2, 'Tardía'),
-(3, 'No Asiste');
+(3, 'No Asiste'),
+(4, 'Social');
 SELECT * FROM ATTENDS;
 
 -- ------------------------------------------------------------------------------------------------------ --
