@@ -35,7 +35,7 @@ jobs:
         run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: php-app
           path: release.zip
@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: php-app
 
@@ -59,14 +59,14 @@ jobs:
         run: unzip release.zip
       
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BC3A9EEFD035487FACD5D889EC1DAE6F }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1323373B40CC41FC9CE47C5A7C545139 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1109A402E4D44DD9AF6EB564F6A4F830 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_4DCEDE6AE4614DC5B9444BBBA730886F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0DF4BAEF581D483BACBD1E9108BA24A9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8D4DD054C42243FC828D82ED975EF49F }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'asistencia-colegios'
