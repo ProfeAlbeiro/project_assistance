@@ -1,7 +1,9 @@
-<?php ob_start();
+<?php 
+    ob_start();
     session_start();
     date_default_timezone_set('America/Bogota');
     require_once "models/DataBase.php";    
+    require_once "models/Email.php";    
     $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Login";
     $route_controller = "controllers/" . $controller . ".php";
     if (file_exists($route_controller)) {
@@ -9,7 +11,7 @@
         require_once $route_controller;
         $controller = new $controller;
         $action = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'main';
-        if ($view === 'Landing' || $view === 'Login') {
+        if ($view === 'Landing' || $view === 'Login') {            
             require_once "views/company/header.view.php";
             call_user_func(array($controller, $action));
             require_once "views/company/footer.view.php";

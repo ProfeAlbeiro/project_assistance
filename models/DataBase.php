@@ -9,7 +9,7 @@
             $username = "admin_colegio";
             $password = "colegio@123";
             $options = array(
-                PDO::MYSQL_ATTR_SSL_CA => 'assets/db/DigiCertGlobalRootCA.crt.pem'
+                PDO::MYSQL_ATTR_SSL_CA => 'assets/database/DigiCertGlobalRootCA.crt.pem'
             );
 			$pdo = new PDO("mysql:host=$hostname;port=$port;dbname=$database;charset=utf8",$username,$password,$options);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

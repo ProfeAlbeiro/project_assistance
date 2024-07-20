@@ -1,6 +1,6 @@
-<?php
-    
+<?php    
     require_once "models/Assistance.php";
+    require_once "models/Notification.php";
 
     class Assistances{
         private $session;
@@ -19,7 +19,7 @@
                     $lastRecord = $lastRecord->getassistance_last();                    
                     require_once ("views/modules/assistance/assistance_create.view.php");                                        
                 }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $today = date("Y-m-d");                    
                     $entry_time = date("H:i:s");
                     $attend_id = new Assistance;                    
@@ -33,9 +33,16 @@
                     );                    
                     $assistance->create_assistance();
                     
+                    // Método que tome una hora y dispare (Opc: Botón) 
+                    // el llenado de la no asistencia de ese día
+
                     $lastRecord = new Assistance;
-                    $lastRecord = $lastRecord->getassistance_last();                    
+                    $lastRecord = $lastRecord->getassistance_last();
                     require_once ("views/modules/assistance/assistance_create.view.php");                    
+                    if ($attend_id == 2 OR $attend_id == 3) {
+                        $notifications = new Notification;
+                        $notifications = $notifications->create_notification($lastRecord->getStudentId());                        
+                    }                    
                 }                
             } else {
                 header("Location: ?c=Dashboard");

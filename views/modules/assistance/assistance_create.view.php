@@ -31,33 +31,37 @@
             </div>
             <?php if ($lastRecord) : ?>
               <h5 class="card-title">Último Registro</h5>
-              <div class="row mb-1">
-                <label for="inputDate" class="col-5 col-sm-2 col-form-label" ><b>Nombre</b></label>
-                <label for="inputDate" class="col-7 col-sm-10 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
+              <div class="row">                
+                <label for="inputTime" class="py-1 col-5 col-sm-2 col-form-label"><b>¿Asistencia?</b></label>
+                <label for="inputTime" class="py-1 col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAttendState() ?></label>                
               </div>
-              <div class="row mb-1">
-                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Identificación</b></label>
-                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
+              <div class="row">
+                <label for="inputDate" class="py-1 col-5 col-sm-2 col-form-label" ><b>Nombre</b></label>
+                <label for="inputDate" class="py-1 col-7 col-sm-10 col-form-label" ><?php echo $lastRecord->getUserName() ?></label>
               </div>
-              <div class="row mb-1">
-                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Jornada</b></label>
-                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getJourneName() ?></label>
-              </div>
-              <div class="row mb-1">
-                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Grupo</b></label>                
-                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getGradeId() . $lastRecord->getCourseName() ?></label>
-              </div>
-              <div class="row mb-1">                
-                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>¿Asistencia?</b></label>
-                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAttendState() ?></label>                
+              <div class="row">
+                <label for="inputTime" class="py-1 col-5 col-sm-2 col-form-label"><b>Identificación</b></label>
+                <label for="inputTime" class="py-1 col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getStudentId() ?></label>
               </div>              
-              <div class="row mb-1">
-                <label for="inputDate" class="col-5 col-sm-2 col-form-label" ><b>Fecha</b></label>
-                <label for="inputDate" class="col-7 col-sm-10 col-form-label" ><?php echo $lastRecord->getAssistanceDate() ?></label>
+              <div class="row">
+                <label for="inputTime" class="py-1 col-5 col-sm-2 col-form-label"><b>Jornada</b></label>
+                <label for="inputTime" class="py-1 col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getJourneName() ?></label>
               </div>
-              <div class="row mb-1">                
-                <label for="inputTime" class="col-5 col-sm-2 col-form-label"><b>Hora</b></label>
-                <label for="inputTime" class="col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>                
+              <div class="row">
+                <label for="inputTime" class="py-1 col-5 col-sm-2 col-form-label"><b>Grupo</b></label>                
+                <label for="inputTime" class="py-1 col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getGradeId() . $lastRecord->getCourseName() ?></label>
+              </div>
+              <div class="row">
+                <label for="inputTime" class="py-1 col-5 col-sm-2 col-form-label"><b>Celular</b></label>
+                <label for="inputTime" class="py-1 col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getUserPhone() ?></label>
+              </div>              
+              <div class="row">
+                <label for="inputDate" class="py-1 col-5 col-sm-2 col-form-label" ><b>Fecha</b></label>
+                <label for="inputDate" class="py-1 col-7 col-sm-10 col-form-label" ><?php echo $lastRecord->getAssistanceDate() ?></label>
+              </div>
+              <div class="row">                
+                <label for="inputTime" class="py-1 col-5 col-sm-2 col-form-label"><b>Hora</b></label>
+                <label for="inputTime" class="py-1 col-7 col-sm-10 col-form-label"><?php echo $lastRecord->getAssistanceStartTime() ?></label>                
               </div>              
             <?php endif; ?>
           </form>

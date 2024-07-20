@@ -5,6 +5,7 @@
         private $dbh;        
         private $student_id;        
         private $user_name;        
+        private $user_phone;        
         private $journe_name;
         private $journe_start_time;
         private $journe_end_time;
@@ -42,9 +43,10 @@
             $this->assistance_start_time = $assistance_start_time;
         }
 
-        public function __construct8($student_id,$user_name,$journe_name,$grade_id,$course_name,$attend_state,$assistance_date,$assistance_start_time){
+        public function __construct9($student_id,$user_name,$user_phone,$journe_name,$grade_id,$course_name,$attend_state,$assistance_date,$assistance_start_time){
             $this->student_id = $student_id;
             $this->user_name = $user_name;
+            $this->user_phone = $user_phone;
             $this->journe_name = $journe_name;
             $this->grade_id = $grade_id;
             $this->course_name = $course_name;
@@ -66,6 +68,13 @@
         }
         public function getUserName(){
             return $this->user_name;
+        }        
+        # Celular Usuario
+        public function setUserPhone($user_phone){
+            $this->user_phone = $user_phone;
+        }
+        public function getUserPhone(){
+            return $this->user_phone;
         }        
         # Nombre Jornada
         public function setJourneName($journe_name){
@@ -131,25 +140,30 @@
             return $this->assistance_start_time;
         }
 
-        public function calculateAttendState($journe_start_time, $journe_end_time){            
+        private function calculateAttendState($journe_start_time, $journe_end_time){            
             $entry_time = date("H:i:s");
-            $entry_time_min = strtotime(date("H:i:s"));
-
+            $entry_time_min = strtotime($entry_time);
+        
             $start_time = strtotime($journe_start_time);
             $end_time = strtotime($journe_end_time);
-
+        
             $diff_journal_min = ($end_time - $start_time) / 60;
             $diff_min = intval(($entry_time_min - $start_time) / 60);
             
             if ($diff_min <= 10 AND $diff_min >= -20) {
                 $attend_id = 1;
-            } elseif ($diff_min > 10 AND $diff_min <= $diff_journal_min) {
-                $attend_id = 2;
+            } elseif ($diff_min > 10 AND $diff_min <= $diff_journal_min) {                
+                if ($diff_min <= 60) {
+                    $attend_id = 2;
+                } 
+                else {
+                    $attend_id = 3;
+                }
             } elseif ($diff_min > $diff_journal_min) {
                 $attend_id = 3;
             } else {
                 $attend_id = 4;
-            }
+            }        
             return $attend_id;
         }
         
@@ -190,6 +204,7 @@
                 $sql = "SELECT
                     s.student_id,    
                     u.user_name,    
+                    u.user_phone,    
                     j.journe_name,
                     g.grade_id,
                     c.course_name,    
@@ -219,6 +234,7 @@
                     $assistance = new Assistance(
                         $assistanceDb['student_id'],
                         ucwords(strtolower($assistanceDb['user_name'])),
+                        $assistanceDb['user_phone'],
                         $assistanceDb['journe_name'],
                         $assistanceDb['grade_id'],
                         $assistanceDb['course_name'],
@@ -265,7 +281,8 @@
                 $assistanceList = [];
                 $sql = 'SELECT
                             s.student_id,    
-                            u.user_name,    
+                            u.user_name,
+                            u.user_phone,
                             j.journe_name,
                             g.grade_id,
                             c.course_name,    
@@ -292,6 +309,7 @@
                     $assistanceObj = new Assistance(
                         $assistance['student_id'],
                         ucwords(strtolower($assistance['user_name'])),
+                        $assistance['user_phone'],
                         $assistance['journe_name'],
                         $assistance['grade_id'],
                         $assistance['course_name'],

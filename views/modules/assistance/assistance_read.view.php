@@ -29,6 +29,7 @@
                       <th class="text-center">Jornada</th>
                       <th class="text-center">Grupo</th>
                       <th class="text-center">Código</th>
+                      <th class="text-center">Celular</th>
                       <th class="text-center">Acciones</th>
                     </tr>
                   </thead>
@@ -42,6 +43,7 @@
                         <td class="text-center"><?php echo $assistance->getJourneName(); ?></td>
                         <td class="text-center"><?php echo $assistance->getGradeId() . $assistance->getCourseName(); ?></td>                      
                         <td class="text-center"><?php echo $assistance->getStudentId(); ?></td>
+                        <td class="text-center"><?php echo $assistance->getUserPhone(); ?></td>
                         <td class="text-center">                        
                         <a href="#" class="btn btn-success p-0">
                             <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>

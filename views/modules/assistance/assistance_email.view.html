@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Send Email</title>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body style="box-sizing:border-box;font-family:'Roboto',sans-serif;font-weight:400;font-style:normal;">
+  <div>
+    <div style="background:#0D6EFD;font-size:1.5em;color:#fff;text-align:center;padding:10px;margin:0;border-radius:10px 10px 0 0;">
+      Asistencia Colegios</div>
+    <div style="background:#F6F9FF;padding:10px;border:1px solid #ddd;color:#000">
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>¿Asistencia? :</b></div>
+        <div>
+          '.$notification['attend_state'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Nombre :</b></div>
+        <div>
+          '.$notification['student_name'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Identificación :</b></div>
+        <div>
+          '.$notification['student_id'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Jornada :</b></div>
+        <div>
+          '.$notification['journe_name'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Grupo :</b></div>
+        <div>
+          '.$notification['grade_id'].$notification['course_name'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Celular :</b></div>
+        <div>
+          '.$notification['student_phone'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Fecha :</b></div>
+        <div>
+          '.$notification['assistance_date'].'
+        </div>
+      </div>
+      <div style="padding:5px 10px;height:20px;">
+        <div style="width:50%;float:left;text-align:right;padding-right:10px;"><b>Hora :</b></div>
+        <div>
+          '.$notification['assistance_start_time'].'
+        </div>
+      </div>
+    </div>
+    <div style="background:#0D6EFD;font-size:0.6em;color:#fff;text-align:center;padding:10px;margin:0;border-radius:0 0 10px 10px;">
+      <div>&copy; Copyright <strong><span>SisWebColegios</span></strong>.</div>
+      <div>Todos los derechos reservados. Diseñado por <b><a href="#" style="color:#222;">SisWebColegios</a></b></div>
+    </div>    
+  </div>
+</body>
+
+</html>

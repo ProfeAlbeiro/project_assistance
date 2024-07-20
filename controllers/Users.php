@@ -84,6 +84,7 @@
                         $_POST['rol_code'],                        
                         $_POST['user_name'],                        
                         $_POST['user_email'],                        
+                        $_POST['user_phone'],                        
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );
@@ -100,7 +101,7 @@
             if ($this->session == 'admin') {
                 $state = ['Inactivo', 'Activo'];
                 $users = new User;
-                $users = $users->read_users();                 
+                $users = $users->read_users();                
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
@@ -124,6 +125,7 @@
                         $_POST['rol_id'],                        
                         $_POST['user_name'],                        
                         $_POST['user_email'],
+                        $_POST['user_phone'],
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );

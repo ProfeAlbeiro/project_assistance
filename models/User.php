@@ -8,6 +8,7 @@
         private $user_id;
         private $user_name;        
         private $user_email;
+        private $user_phone;
         private $user_pass;
         private $user_state;
 
@@ -35,22 +36,24 @@
         }
         
         # Constructor: Objeto 07 parámetros
-        public function __construct6($user_id, $rol_id, $user_name, $user_email, $user_pass, $user_state){            
+        public function __construct7($user_id, $rol_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){            
             $this->user_id = $user_id;
             $this->rol_id = $rol_id;            
             $this->user_name = $user_name;
             $this->user_email = $user_email;
+            $this->user_phone = $user_phone;
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;            
         }
         
-        public function __construct7($rol_id, $rol_name, $user_id, $user_name, $user_email, $user_pass, $user_state){
+        public function __construct8($rol_id, $rol_name, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){
             unset($this->dbh);
             $this->rol_id = $rol_id;
             $this->rol_name = $rol_name;
             $this->user_id = $user_id;
             $this->user_name = $user_name;
             $this->user_email = $user_email;
+            $this->user_phone = $user_phone;
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;            
         }
@@ -91,6 +94,13 @@
         public function getUserEmail(){
             return $this->user_email;
         }
+        # Celular Usuario
+        public function setUserPhone($user_phone){
+            $this->user_phone = $user_phone;
+        }
+        public function getUserPhone(){
+            return $this->user_phone;
+        }
         # Contraseña Usuario
         public function setUserPass($user_pass){
             $this->user_pass = $user_pass;
@@ -117,6 +127,7 @@
                             user_id,
                             user_name,                                                        
                             user_email,
+                            user_phone,
                             user_pass,
                             user_state
                         FROM ROLES AS r
@@ -135,6 +146,7 @@
                         $userDb['user_id'],
                         $userDb['user_name'],
                         $userDb['user_email'],
+                        $userDb['user_phone'],
                         $userDb['user_pass'],
                         $userDb['user_state']
                     );
@@ -231,6 +243,7 @@
                             :rolCode,
                             :userName,                                                        
                             :userEmail,
+                            :userPhone,
                             :userPass,
                             :userState
                         )';
@@ -239,6 +252,7 @@
                 $stmt->bindValue('userId', $this->getUserId());
                 $stmt->bindValue('userName', $this->getUserName());                
                 $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPhone', $this->getUserPhone());
                 $stmt->bindValue('userPass', sha1($this->getUserPass()));
                 $stmt->bindValue('userState', $this->getUserState());
                 $stmt->execute();
@@ -258,6 +272,7 @@
                             user_id,                            
                             user_name,                            
                             user_email,
+                            user_phone,
                             user_pass,
                             user_state
                         FROM ROLES AS r
@@ -271,6 +286,7 @@
                         $user['user_id'],
                         ucwords(strtolower($user['user_name'])),
                         $user['user_email'],
+                        $user['user_phone'],
                         $user['user_pass'],
                         $user['user_state']
                     );
@@ -291,6 +307,7 @@
                             user_id,
                             user_name,                            
                             user_email,
+                            user_phone,
                             user_pass,
                             user_state
                         FROM ROLES AS r
@@ -307,6 +324,7 @@
                     $userDb['user_id'],
                     $userDb['user_name'],                    
                     $userDb['user_email'],
+                    $userDb['user_phone'],
                     $userDb['user_pass'],
                     $userDb['user_state']
                 );
@@ -324,6 +342,7 @@
                             rol_id = :rolCode,                            
                             user_name = :userName,                            
                             user_email = :userEmail,
+                            user_phone = :userPhone,
                             user_pass = :userPass,
                             user_state = :userState
                         WHERE user_id = :userId';
@@ -332,6 +351,7 @@
                 $stmt->bindValue('userId', $this->getUserId());                
                 $stmt->bindValue('userName', $this->getUserName());                
                 $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPhone', $this->getUserPhone());
                 $stmt->bindValue('userPass', sha1($this->getUserPass()));
                 $stmt->bindValue('userState', $this->getUserState());
                 $stmt->execute();

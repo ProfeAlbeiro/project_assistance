@@ -5,7 +5,7 @@
 
               <div class="text-center mb-3">
                 <a href="#" class="logo d-flex justify-content-center align-items-center">
-                  <img class="logo-ingreso" src="assets/dashboard/img/logo.png" alt="">
+                  <img class="logo-ingreso" src="assets/landing/img/logo.png" alt="">
                 </a>
                 <span class="reducir-texto card-title">Asistencia Colegios</span>
               </div><!-- End Logo -->
