@@ -2,9 +2,9 @@
     font-size: 1.5em!important;    
 }
 .ajuste-tabla{
-    white-space: nowrap;
-    overflow-x: auto;
-    font-size: 0.7em;
+    white-space: nowrap!important;
+    overflow-x: auto!important;
+    font-size: 0.8em!important;
 }
 .logo .logo-ingreso{    
     max-height: 70px;
@@ -18,9 +18,9 @@
 }
 @media (max-width: 767px) {
     .ajuste-tabla{
-        white-space: wrap;
-        overflow-x: auto;
-        font-size: 0.9em;
+        white-space: wrap!important;
+        overflow-x: auto!important;
+        font-size: 0.9em!important;
     }
     .logo img{
         max-height: 40px;        

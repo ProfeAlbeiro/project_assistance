@@ -295,17 +295,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Roles</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bank2"></i><span>Colegio</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="?c=Users&a=rolCreate">
-              <i class="bi bi-circle"></i><span>Registrar Rol</span>
+            <a href="?c=Colleges&a=collegeCreate">
+              <i class="bi bi-circle"></i><span>Registrar Colegio</span>
             </a>
           </li>          
           <li>
-            <a href="?c=Users&a=rolRead">
-              <i class="bi bi-circle"></i><span>Consultar Roles</span>
+            <a href="?c=Dashboard">
+              <i class="bi bi-circle"></i><span>Editar Colegio</span>
             </a>
           </li>
         </ul>
@@ -317,8 +317,17 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
+            <a href="?c=Users&a=rolCreate">
+              <i class="bi bi-circle"></i><span>Registrar Rol</span>
+            </a>
+          </li>          <li>
             <a href="?c=Users&a=userCreate">
               <i class="bi bi-circle"></i><span>Registrar Usuario</span>
+            </a>
+          </li>
+          <li>
+            <a href="?c=Users&a=rolRead">
+              <i class="bi bi-circle"></i><span>Consultar Roles</span>
             </a>
           </li>
           <li>
