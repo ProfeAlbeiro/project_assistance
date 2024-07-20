@@ -4,7 +4,7 @@
 .ajuste-tabla{
     white-space: nowrap!important;
     overflow-x: auto!important;
-    font-size: 0.8em!important;
+    font-size: 13px!important;
 }
 .logo .logo-ingreso{    
     max-height: 70px;
@@ -20,7 +20,7 @@
     .ajuste-tabla{
         white-space: wrap!important;
         overflow-x: auto!important;
-        font-size: 0.9em!important;
+        font-size: 12px!important;
     }
     .logo img{
         max-height: 40px;        
