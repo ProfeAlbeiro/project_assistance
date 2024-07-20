@@ -25,17 +25,15 @@ $(document).ready(function () {
             }
         ],
         select: true,
-        // rowReorder: {
-        //     selector: 'td:nth-child(2)'
-        // },
         responsive: true,
+        pageLength: 5,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
             info: "Mostrando _START_ de _END_ de _TOTAL_ Registros.",
             infoFiltered: "(Filtrados de _MAX_ Registros.)",
-            paginate: {
+            paginate: {                
                 first: 'Primero',
                 previous: 'Anterior',
                 next: 'Siguiente',
@@ -68,10 +66,8 @@ $(document).ready(function () {
             }
         ],
         select: true,
-        // rowReorder: {
-        //     selector: 'td:nth-child(2)'
-        // },
         responsive: true,
+        pageLength: 5,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',

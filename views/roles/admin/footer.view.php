@@ -1,7 +1,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <footer id="footer" class="footer p-2">
     <div class="copyright">
       &copy; Copyright <strong><span>SisWebColegios</span></strong>. 
       <p class="m-0">Todos los derechos reservados. Diseñado por <a href="#">SisWebColegios</a></p>
