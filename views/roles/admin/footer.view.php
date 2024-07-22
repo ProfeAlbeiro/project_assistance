@@ -41,6 +41,7 @@
   
   <!-- Template Main JS File -->
   <script src="assets/dashboard/js/main.js"></script>
+  <script src="assets/dashboard/js/scripts.js"></script>
   
 </body>
 

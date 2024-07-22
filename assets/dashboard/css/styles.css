@@ -1,3 +1,14 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+form,h5{
+    font-family: "Poppins", sans-serif;
+}
+ol a, ol li, ul li>ul li span{
+    font-family: "Nunito", sans-serif;
+}
+
 .reducir-texto{    
     font-size: 1.5em!important;    
 }

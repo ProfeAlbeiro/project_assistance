@@ -299,13 +299,28 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="?c=Colleges&a=collegeCreate">
-              <i class="bi bi-circle"></i><span>Registrar Colegio</span>
+            <a href="?c=Colleges&a=collegeRead">
+              <i class="bi bi-circle"></i><span>Colegio</span>
             </a>
-          </li>          
+          </li>
           <li>
-            <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Editar Colegio</span>
+            <a href="?c=Colleges&a=journeCreate">
+              <i class="bi bi-circle"></i><span>Jornadas</span>
+            </a>
+          </li>
+          <li>
+            <a href="?c=Colleges&a=gradeCreate">
+              <i class="bi bi-circle"></i><span>Grados</span>
+            </a>
+          </li>
+          <li>
+            <a href="?c=Colleges&a=courseCreate">
+              <i class="bi bi-circle"></i><span>Grupos</span>
+            </a>
+          </li>
+          <li>
+            <a href="?c=Colleges&a=collegeCreate">
+              <i class="bi bi-circle"></i><span>Consultar Colegio</span>
             </a>
           </li>
         </ul>
@@ -313,7 +328,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Usuarios</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-people-fill"></i><span>Usuarios</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
