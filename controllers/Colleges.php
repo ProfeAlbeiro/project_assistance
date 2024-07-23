@@ -38,7 +38,7 @@
             } else {                
                 header("Location: ?c=Dashboard");
             }
-        }
+        }        
 
         # Colegio: Consultar
         public function collegeRead(){
@@ -82,6 +82,45 @@
                 header("Location: ?c=Dashboard");
             }
         }
+
+        # Jornada: Actualizar
+        public function journeUpdate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
+                    // $journe = new Journe;
+                    // $journe = $journe->getjourne_bycode($_GET['idJourne']);
+                    $journes = new Journe;
+                    $journes = $journes->read_journe();
+                    require_once "views/modules/college/journe_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";                    
+                    echo "<script>editJourne();</script>";                
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    // $rolUpdate = new User;
+                    // $rolUpdate->setRolCode($_POST['rol_code']);
+                    // $rolUpdate->setRolName($_POST['rol_name']);
+                    // $rolUpdate->update_rol();
+                    // require_once "views/modules/users/rol_update.view.php";                
+                    // header("Location: ?c=Users&a=rolRead");
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Controlador Eliminar Rol
+        public function journeDelete(){
+            if ($this->session == 'admin') {
+                $rol = new Journe;
+                $rol->delete_journe($_GET['idJourne']);
+                header("Location: ?c=Colleges&a=journeRead");
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        
 
         # Grado: Registrar
         public function gradeCreate(){

@@ -98,6 +98,18 @@
             }
         }
 
+         # Jornada: Eliminar
+         public function delete_journe($id_journe){
+            try {
+                $sql = 'DELETE FROM JOURNES WHERE journe_id = :journeId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('journeId', $id_journe);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
     }
 
 ?>

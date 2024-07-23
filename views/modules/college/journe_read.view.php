@@ -16,11 +16,11 @@
           <div class="card">
             <div class="card-body">
               <div class ="d-flex">
-                <h5 class="card-title flex-grow-1">Consultar Jornadas</h5>                
+                <h5 class="card-title flex-grow-1">Jornadas</h5>                
+                <!-- Modal Crear Jornada -->
                 <button type="button" class="btn btn-primary btn-sm my-3 mx-2" data-bs-toggle="modal" data-bs-target="#createJourne">
                   Crear Jornada
-                </button>
-                <!-- Modal Crear Jornada -->
+                </button>                
                 <div class="modal fade" id="createJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
@@ -57,15 +57,52 @@
                     </div>
                   </div>
                 </div>
+                <!-- Modal Crear Jornada -->
+                <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Crear Jornada</h5>
+                        <a href="?c=Colleges&a=journeRead" class="btn-close" aria-label="Close"></a>
+                      </div>
+                      <div class="modal-body">                        
+                          <form action="?c=Colleges&a=journeCreate" method="POST">
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="journe_name" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputTime" class="col-sm-3 col-form-label">Hora Inicio</label>
+                              <div class="col-sm-9">
+                                <input type="time" name="journe_start_time" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputTime" class="col-sm-3 col-form-label">Hora Fin</label>
+                              <div class="col-sm-9">
+                                <input type="time" name="journe_end_time" class="form-control">
+                              </div>
+                            </div>                            
+                            <div class="modal-footer pb-0 px-0 mt-4">
+                              <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>                            
+                              <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>                          
+                          </form>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <table class="table datatable ajuste-tabla" style="width:100%">
+              <table class="table datatable ajuste-tabla" id="ej-journe" style="width:100%">
                 <thead>
-                  <tr class="text-center">                    
-                    <th scope="col">Código</th>                    
-                    <th>Nombre</th>                    
-                    <th>Hora Inicio</th>                    
-                    <th>Hora Fin</th>                    
-                    <th>Acciones</th>                    
+                  <tr>                    
+                    <th class="text-center">Código</th>                    
+                    <th class="text-center">Nombre</th>                    
+                    <th class="text-center">Hora Inicio</th>                    
+                    <th class="text-center">Hora Fin</th>                    
+                    <th class="text-center">Acciones</th>                    
                   </tr>
                 </thead>
                 <tbody>
