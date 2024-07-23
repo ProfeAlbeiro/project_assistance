@@ -32,6 +32,9 @@ ol a, ol li, ul li>ul li span{
     padding: 10px 10px 10px 100px;
 }
 @media (max-width: 767px) {
+    .main{
+        padding: 10px!important;
+    }
     .ajuste-tabla{
         white-space: wrap!important;
         overflow-x: auto!important;
