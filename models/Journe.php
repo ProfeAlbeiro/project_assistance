@@ -98,8 +98,49 @@
             }
         }
 
-         # Jornada: Eliminar
-         public function delete_journe($id_journe){
+         # Jornada: Obtener Registro
+         public function getjourne_bycode($college_id){
+            try {
+                $sql = 'SELECT * FROM JOURNES
+                        WHERE journe_id=:journeId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('journeId', $college_id);
+                $stmt->execute();
+                $journeDb = $stmt->fetch();
+                $journe = new Journe(                    
+                    $journeDb['journe_id'],                    
+                    $journeDb['journe_name'],                    
+                    $journeDb['journe_start_time'],
+                    $journeDb['journe_end_time']
+                );
+                return $journe;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+         # Jornada: Actualizar
+         public function update_journe(){
+            try {
+                $sql = 'UPDATE JOURNES SET                            
+                            journe_id = :journeId,
+                            journe_name = :journeName,                            
+                            journe_start_time = :journeStartTime,                            
+                            journe_end_time = :journeEndTime
+                        WHERE journe_id = :journeId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('journeId', $this->getJourneId());                
+                $stmt->bindValue('journeName', $this->getJourneName());                
+                $stmt->bindValue('journeStartTime', $this->getJourneStartTime());                
+                $stmt->bindValue('journeEndTime', $this->getJourneEndTime());                
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Jornada: Eliminar
+        public function delete_journe($id_journe){
             try {
                 $sql = 'DELETE FROM JOURNES WHERE journe_id = :journeId';
                 $stmt = $this->dbh->prepare($sql);

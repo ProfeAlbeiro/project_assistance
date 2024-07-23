@@ -64,13 +64,13 @@
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('collegeId', $college_id);
                 $stmt->execute();
-                $userDb = $stmt->fetch();
-                $user = new College(                    
-                    $userDb['college_name'],                    
-                    $userDb['college_address'],
-                    $userDb['college_phone']
+                $collegeDb = $stmt->fetch();
+                $college = new College(                    
+                    $collegeDb['college_name'],                    
+                    $collegeDb['college_address'],
+                    $collegeDb['college_phone']
                 );
-                return $user;
+                return $college;
             } catch (Exception $e) {
                 die($e->getMessage());
             }

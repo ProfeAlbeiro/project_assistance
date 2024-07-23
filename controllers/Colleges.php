@@ -21,9 +21,7 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
                     $colleges = new College;
                     $colleges = $colleges->read_college();
-                    require_once "views/modules/college/college_read.view.php";
-                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
-                    echo "<script src='assets/dashboard/js/scripts.js'></script>";                    
+                    require_once "views/modules/college/college_read.view.php";                    
                     echo "<script>editCollege();</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -87,22 +85,22 @@
         public function journeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
-                    // $journe = new Journe;
-                    // $journe = $journe->getjourne_bycode($_GET['idJourne']);
+                    $journeId = new Journe;
+                    $journeId = $journeId->getjourne_bycode($_GET['idJourne']);
                     $journes = new Journe;
                     $journes = $journes->read_journe();
-                    require_once "views/modules/college/journe_read.view.php";
-                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
-                    echo "<script src='assets/dashboard/js/scripts.js'></script>";                    
+                    require_once "views/modules/college/journe_read.view.php";                    
                     echo "<script>editJourne();</script>";                
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    // $rolUpdate = new User;
-                    // $rolUpdate->setRolCode($_POST['rol_code']);
-                    // $rolUpdate->setRolName($_POST['rol_name']);
-                    // $rolUpdate->update_rol();
-                    // require_once "views/modules/users/rol_update.view.php";                
-                    // header("Location: ?c=Users&a=rolRead");
+                    $journe = new Journe(
+                        $_POST['journe_id'],                        
+                        $_POST['journe_name'],                        
+                        $_POST['journe_start_time'],
+                        $_POST['journe_end_time']
+                    );
+                    $journe->update_journe();
+                    header("Location: ?c=Colleges&a=journeRead");
                 }
             } else {
                 header("Location: ?c=Dashboard");

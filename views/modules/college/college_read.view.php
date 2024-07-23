@@ -19,7 +19,7 @@
                 <!-- Modal Editar Colegio -->
                 <a href="?c=Colleges&a=collegeUpdate" class="btn btn-primary btn-sm my-3 mx-2">Editar Colegio</a>
                 <div class="modal fade" id="editCollege" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Editar Colegio</h5>
@@ -79,4 +79,6 @@
           </div>
         </div>
       </div>
-    </section>    
+    </section>
+    <script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>;
+    <script src='assets/dashboard/js/scripts.js'></script>;
