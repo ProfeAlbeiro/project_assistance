@@ -7,7 +7,7 @@
                 <a href="#" class="logo d-flex justify-content-center align-items-center">
                   <img class="logo-ingreso" src="assets/landing/img/logo.png" alt="">
                 </a>
-                <span class="reducir-texto card-title py-1">Colegio <?php echo $collegeName->getCollegeName() ?></span>
+                <span class="reducir-texto card-title py-1">Asistencia <?php echo $collegeName->getCollegeName() ?></span>
               </div>
 
               <div class="card mb-3">

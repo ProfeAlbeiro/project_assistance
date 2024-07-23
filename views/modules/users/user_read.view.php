@@ -33,12 +33,12 @@
                 <tbody>
                   <?php foreach ($users as $user) : ?>
                     <tr>
-                      <td><?php echo $user->getRolName(); ?></td>
-                      <td><?php echo $user->getUserId(); ?></td>
-                      <td><?php echo $user->getUserName() ?></td>
-                      <td><?php echo $user->getUserEmail(); ?></td>
-                      <td><?php echo $user->getUserPhone(); ?></td>
-                      <td class="text-center"><?php echo $state[$user->getUserState()]; ?></td>                      
+                      <td class="pt-3"><?php echo $user->getRolName(); ?></td>
+                      <td class="pt-3"><?php echo $user->getUserId(); ?></td>
+                      <td class="pt-3"><?php echo $user->getUserName() ?></td>
+                      <td class="pt-3"><?php echo $user->getUserEmail(); ?></td>
+                      <td class="pt-3"><?php echo $user->getUserPhone(); ?></td>
+                      <td class="text-center pt-3"><?php echo $state[$user->getUserState()]; ?></td>                      
                       <td class="text-center">
                       <a href="?c=Users&a=userUpdate&idUser=<?php echo $user->getUserId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>

@@ -14,9 +14,9 @@
 
           <div class="card">
             <div class="card-body">
-              <div class ="d-flex">
+              <div class ="d-flex pr-5">
                 <h5 class="card-title flex-grow-1">Colegio</h5>
-                <a href="?c=Colleges&a=collegeUpdate" class="btn btn-primary btn-sm my-3 mx-1">Editar Colegio</a>                                
+                <a href="?c=Colleges&a=collegeUpdate" class="btn btn-primary btn-sm my-3 mx-2">Editar Colegio</a>
                 <!-- Modal Editar Colegio -->
                 <div class="modal fade" id="editCollege" tabindex="-1">
                   <div class="modal-dialog modal-dialog-scrollable">
@@ -59,7 +59,7 @@
               </div>
               <table class="table datatable">
                 <thead>
-                  <tr>                    
+                  <tr class="text-center">                    
                     <th>Nombre</th>                    
                     <th>Dirección</th>                    
                     <th>Teléfono</th>                    
@@ -67,7 +67,7 @@
                 </thead>
                 <tbody>
                   <?php foreach ($colleges as $college) : ?>
-                    <tr>                      
+                    <tr class="text-center">
                       <td><?php echo $college->getCollegeName(); ?></td>                      
                       <td><?php echo $college->getCollegeAddress(); ?></td>                      
                       <td><?php echo $college->getCollegePhone(); ?></td>                      

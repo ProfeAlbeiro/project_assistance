@@ -4,14 +4,18 @@
     require_once "models/Grade.php";
     require_once "models/Course.php";
     class Colleges{
+
         private $session;
+
         public function __construct(){
             $this->session = $_SESSION['session'];
         }
+
         public function main(){
             header("Location: ?c=Dashboard");
         }
-        # Colegio: Crear
+
+        # Colegio: Registrar
         public function collegeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
@@ -20,7 +24,7 @@
                     require_once "views/modules/college/college_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";                    
-                    echo "<script>loadModalUpdate();</script>";
+                    echo "<script>editCollege();</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $college = new College(                        
@@ -35,6 +39,7 @@
                 header("Location: ?c=Dashboard");
             }
         }
+
         # Colegio: Consultar
         public function collegeRead(){
             if ($this->session == 'admin') {
@@ -45,25 +50,40 @@
                 header("Location: ?c=Dashboard");
             }
         }
+
+        # Jornada: Registrar
         public function journeCreate(){
             if ($this->session == 'admin') {
-                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    require_once "views/modules/college/journe_create.view.php";
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
+                    header("Location: ?c=Colleges&a=journeRead");
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
                     $journe = new Journe(
-                        123,
+                        null,
                         $_POST['journe_name'],                        
                         $_POST['journe_start_time'],                        
                         $_POST['journe_end_time']
                     );
-                    print_r($journe);
-                    // header("Location: ?c=Dashboard");
+                    $journe->create_journe();
+                    header("Location: ?c=Colleges&a=journeRead");
                 }
             } else {                
                 header("Location: ?c=Dashboard");
             }
         }
+
+         # Jornada: Consultar
+         public function journeRead(){
+            if ($this->session == 'admin') {
+                $journes = new Journe;
+                $journes = $journes->read_journe();
+                require_once "views/modules/college/journe_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Grado: Registrar
         public function gradeCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -81,6 +101,8 @@
                 header("Location: ?c=Dashboard");
             }
         }
+        
+        # Grupo: Registrar
         public function courseCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {

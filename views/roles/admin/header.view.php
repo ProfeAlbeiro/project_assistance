@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Asistencia Colegios</title>
+  <title>Asistencia <?php echo $collegeName->getCollegeName() ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -304,7 +304,7 @@
             </a>
           </li>
           <li>
-            <a href="?c=Colleges&a=journeCreate">
+            <a href="?c=Colleges&a=journeRead">
               <i class="bi bi-circle"></i><span>Jornadas</span>
             </a>
           </li>

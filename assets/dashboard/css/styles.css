@@ -15,7 +15,7 @@ ol a, ol li, ul li>ul li span{
 .ajuste-tabla{
     white-space: nowrap!important;
     overflow-x: auto!important;
-    font-size: 13px!important;
+    font-size: 13px!important;    
 }
 .logo .logo-ingreso{    
     max-height: 70px;

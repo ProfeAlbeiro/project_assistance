@@ -18,9 +18,9 @@
               <h5 class="card-title">Consultar Roles</h5>
               <!-- Hola -->
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable ajuste-tabla">
                 <thead>
-                  <tr>
+                  <tr class="text-center">
                     <th>Código</th>
                     <th>Tipo Rol</th>                    
                     <th class="text-center">Acciones</th>
@@ -28,9 +28,9 @@
                 </thead>
                 <tbody>
                   <?php foreach ($roles as $rol) : ?>
-                    <tr>
-                      <td><?php echo $rol->getRolCode(); ?></td>
-                      <td><?php echo $rol->getRolName(); ?></td>
+                    <tr class="text-center">
+                      <td class="pt-3"><?php echo $rol->getRolCode(); ?></td>
+                      <td class="pt-3"><?php echo $rol->getRolName(); ?></td>
                       <td class="text-center">
                         <a href="?c=Users&a=rolUpdate&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
@@ -38,7 +38,7 @@
                         <a href="?c=Users&a=rolDelete&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-danger p-0">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
-                      </td>                    
+                      </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

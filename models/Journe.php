@@ -55,7 +55,49 @@
         }
         public function getJourneEndTime(){
             return $this->journe_end_time;
-        }        
+        }
+
+        # Jornada: Crear
+        public function create_journe(){
+            try {
+                $sql = 'INSERT INTO JOURNES VALUES (
+                            :journeId,
+                            :journeName,
+                            :journeStartTime,
+                            :journeEndTime
+                        )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('journeId', $this->getJourneId());
+                $stmt->bindValue('journeName', $this->getJourneName());
+                $stmt->bindValue('journeStartTime', $this->getJourneStartTime());
+                $stmt->bindValue('journeEndTime', $this->getJourneEndTime());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Jornada: Consultar
+        public function read_journe(){
+            try {
+                $journeList = [];
+                $sql = 'SELECT * FROM JOURNES';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $journe) {
+                    $journeObj = new Journe(                        
+                        $journe['journe_id'],                        
+                        $journe['journe_name'],                        
+                        $journe['journe_start_time'],
+                        $journe['journe_end_time']
+                    );
+                    array_push($journeList, $journeObj);
+                }
+                return $journeList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
     }
 
 ?>
