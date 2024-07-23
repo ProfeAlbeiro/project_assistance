@@ -11,12 +11,15 @@
         require_once $route_controller;
         $controller = new $controller;
         $action = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'main';
-        if ($view === 'Landing' || $view === 'Login') {            
-            require_once "views/company/header.view.php";
+        require_once "models/College.php";
+        $collegeName = new College();
+        $collegeName = $collegeName->getcollege_bycode(1);
+        if ($view === 'Landing' || $view === 'Login') {
+            require_once "views/company/header.view.php";            
             call_user_func(array($controller, $action));
             require_once "views/company/footer.view.php";
         } elseif (!empty($_SESSION['session'])) {
-            require_once "models/User.php";
+            require_once "models/User.php";            
             $profile = unserialize($_SESSION['profile']);
             $session = $_SESSION['session'];            
             require_once "views/roles/".$session."/header.view.php";            

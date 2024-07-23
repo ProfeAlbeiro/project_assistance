@@ -51,7 +51,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="?c=Dashboard" class="logo d-flex align-items-end">
         <img src="assets/dashboard/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Colegio</span>
+        <span class="d-none d-lg-block"><?php echo $collegeName->getCollegeName() ?></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->

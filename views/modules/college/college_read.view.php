@@ -1,10 +1,9 @@
 	<div class="pagetitle">
-      <h1>Consultar Colegio</h1>
+      <h1>Colegio</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
-          <li class="breadcrumb-item">Colegio</li>
-          <li class="breadcrumb-item active">Consultar Colegio</li>
+          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>          
+          <li class="breadcrumb-item active">Colegio</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -16,7 +15,7 @@
           <div class="card">
             <div class="card-body">
               <div class ="d-flex">
-                <h5 class="card-title flex-grow-1">Consultar Colegio</h5>
+                <h5 class="card-title flex-grow-1">Colegio</h5>
                 <a href="?c=Colleges&a=collegeUpdate" class="btn btn-primary btn-sm my-3 mx-1">Editar Colegio</a>                                
                 <!-- Modal Editar Colegio -->
                 <div class="modal fade" id="editCollege" tabindex="-1">

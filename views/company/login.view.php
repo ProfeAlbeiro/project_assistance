@@ -3,12 +3,12 @@
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="text-center mb-3">
+              <div class="text-center mb-2 d-flex flex-column align-items-center">
                 <a href="#" class="logo d-flex justify-content-center align-items-center">
                   <img class="logo-ingreso" src="assets/landing/img/logo.png" alt="">
                 </a>
-                <span class="reducir-texto card-title">Asistencia Colegios</span>
-              </div><!-- End Logo -->
+                <span class="reducir-texto card-title py-1">Colegio <?php echo $collegeName->getCollegeName() ?></span>
+              </div>
 
               <div class="card mb-3">
 

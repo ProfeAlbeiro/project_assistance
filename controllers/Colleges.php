@@ -14,9 +14,7 @@
         # Colegio: Crear
         public function collegeUpdate(){
             if ($this->session == 'admin') {
-                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $college = new College;
-                    $college = $college->getcollege_bycode(1);
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
                     $colleges = new College;
                     $colleges = $colleges->read_college();
                     require_once "views/modules/college/college_read.view.php";

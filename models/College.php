@@ -59,7 +59,7 @@
         # Obtener Datos del Colegio
         public function getcollege_bycode($college_id){
             try {
-                $sql = 'SELECT * FROM COLLEGE                       
+                $sql = 'SELECT * FROM COLLEGE
                         WHERE college_id=:collegeId';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('collegeId', $college_id);

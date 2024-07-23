@@ -10,7 +10,7 @@ ol a, ol li, ul li>ul li span{
 }
 
 .reducir-texto{    
-    font-size: 1.5em!important;    
+    font-size: 1.5em!important;
 }
 .ajuste-tabla{
     white-space: nowrap!important;
@@ -23,6 +23,10 @@ ol a, ol li, ul li>ul li span{
 .logo img{
     max-height: 40px;        
     margin: 0px 15px 0 5px;    
+}
+.logo span{
+    text-wrap: balance;
+    font-size: 100%;
 }
 .card-body-cutom{
     padding: 10px 10px 10px 100px;
