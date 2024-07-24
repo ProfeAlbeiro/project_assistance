@@ -38,6 +38,54 @@
         public function getGradeName(){
             return $this->grade_name;
         }
+
+        # Grado: Crear
+        public function create_grade(){
+            try {
+                $sql = 'INSERT INTO GRADES VALUES (
+                            :gradeId,
+                            :gradeName                            
+                        )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('gradeId', $this->getGradeId());
+                $stmt->bindValue('gradeName', $this->getGradeName());                
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Grado: Consultar
+        public function read_grade(){
+            try {
+                $gradeList = [];
+                $sql = 'SELECT * FROM GRADES';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $grade) {
+                    $gradeObj = new Grade(                        
+                        $grade['grade_id'],
+                        $grade['grade_name']
+                    );
+                    array_push($gradeList, $gradeObj);
+                }
+                return $gradeList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Grado: Eliminar
+        public function delete_grade($id_grade){
+            try {
+                $sql = 'DELETE FROM GRADES WHERE grade_id = :gradeId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('gradeId', $id_grade);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
     }
 
 ?>

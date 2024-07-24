@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
           <li class="breadcrumb-item">Colegio</li>
-          <li class="breadcrumb-item active">Jornadas</li>
+          <li class="breadcrumb-item active">Grados</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -16,40 +16,28 @@
           <div class="card">
             <div class="card-body">
               <div class ="d-flex">
-                <h5 class="card-title flex-grow-1">Jornadas</h5>                
-                <!-- Modal Crear Jornada -->
-                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createJourne">
-                  Crear Jornada
+                <h5 class="card-title flex-grow-1">Grados</h5>                
+                <!-- Modal Crear Grado -->
+                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createGrade">
+                  Crear Grado
                 </button>                
-                <div class="modal fade" id="createJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                <div class="modal fade" id="createGrade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Crear Jornada</h5>
-                        <a href="?c=Colleges&a=journeRead" class="btn-close" aria-label="Close"></a>
+                        <h5 class="modal-title">Crear Grado</h5>
+                        <a href="?c=Colleges&a=gradeRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">                        
-                          <form action="?c=Colleges&a=journeCreate" method="POST">
+                          <form action="?c=Colleges&a=gradeCreate" method="POST">
                             <div class="row mb-3">
                               <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
                               <div class="col-sm-9">
-                                <input type="text" name="journe_name" class="form-control">
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <label for="inputTime" class="col-sm-3 col-form-label">Hora Inicio</label>
-                              <div class="col-sm-9">
-                                <input type="time" name="journe_start_time" class="form-control">
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <label for="inputTime" class="col-sm-3 col-form-label">Hora Fin</label>
-                              <div class="col-sm-9">
-                                <input type="time" name="journe_end_time" class="form-control">
+                                <input type="text" name="grade_name" class="form-control">
                               </div>
                             </div>                            
                             <div class="modal-footer pb-0 px-0 mt-4">
-                              <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>                            
+                              <a href="?c=Colleges&a=gradeRead" class="btn btn-secondary">Cerrar</a>                            
                               <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>                          
                           </form>                        
@@ -57,8 +45,8 @@
                     </div>
                   </div>
                 </div>
-                <!-- Modal Actualizar Jornada -->
-                <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                <!-- Modal Actualizar Grado -->
+                <!-- <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -100,28 +88,26 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
-              <table class="table datatable ajuste-tabla" id="ej-journe" style="width:100%">
+              <table class="table datatable ajuste-tabla" id="ej-grade" style="width:100%">
                 <thead>
                   <tr>
-                    <th class="text-center">Jornada</th>                    
-                    <th class="text-center">Hora Inicio</th>                    
-                    <th class="text-center">Hora Fin</th>                    
+                    <th class="text-center">Código</th>                    
+                    <th class="text-center">Grado</th>
                     <th class="text-center">Acciones</th>                    
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($journes as $journe) : ?>
+                  <?php foreach ($grades as $grade) : ?>
                     <tr class="text-center">
-                      <td class="pt-3"><?php echo $journe->getJourneName(); ?></td>                      
-                      <td class="pt-3"><?php echo $journe->getJourneStartTime(); ?></td>
-                      <td class="pt-3"><?php echo $journe->getJourneEndTime(); ?></td>
+                      <td class="pt-3"><?php echo $grade->getGradeId(); ?></td>                      
+                      <td class="pt-3"><?php echo $grade->getGradeName(); ?></td>                      
                       <td class="text-center pt-2">
-                        <a href="?c=Colleges&a=journeUpdate&idjourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-success p-0">
+                        <a href="?c=Colleges&a=gradeUpdate&idgrade=<?php echo $grade->getGradeId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
-                        </a>                        
-                        <a href="#" onclick="deleteRegister(<?php echo $journe->getJourneId(); ?>,'journe')" class="btn btn-danger p-0 ms-1">
+                        </a>
+                        <a href="#" onclick="deleteRegister(<?php echo $grade->getGradeId(); ?>, 'grade')" class="btn btn-danger p-0 ms-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>

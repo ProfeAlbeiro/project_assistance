@@ -309,7 +309,7 @@
             </a>
           </li>
           <li>
-            <a href="?c=Colleges&a=gradeCreate">
+            <a href="?c=Colleges&a=gradeRead">
               <i class="bi bi-circle"></i><span>Grados</span>
             </a>
           </li>

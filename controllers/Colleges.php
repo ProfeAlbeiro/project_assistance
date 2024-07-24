@@ -15,6 +15,17 @@
             header("Location: ?c=Dashboard");
         }
 
+        # Colegio: Consultar
+        public function collegeRead(){
+            if ($this->session == 'admin') {
+                $colleges = new College;
+                $colleges = $colleges->read_college();
+                require_once "views/modules/college/college_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
         # Colegio: Actualizar
         public function collegeUpdate(){
             if ($this->session == 'admin') {
@@ -36,17 +47,6 @@
                     header("Location: ?c=Colleges&a=collegeRead");                
                 }
             } else {                
-                header("Location: ?c=Dashboard");
-            }
-        }        
-
-        # Colegio: Consultar
-        public function collegeRead(){
-            if ($this->session == 'admin') {
-                $colleges = new College;
-                $colleges = $colleges->read_college();
-                require_once "views/modules/college/college_read.view.php";
-            } else {
                 header("Location: ?c=Dashboard");
             }
         }
@@ -72,7 +72,7 @@
             }
         }
 
-         # Jornada: Consultar
+        # Jornada: Consultar
          public function journeRead(){
             if ($this->session == 'admin') {
                 $journes = new Journe;
@@ -111,11 +111,11 @@
             }
         }
 
-        # Controlador Eliminar Rol
+        # Jornada: Eliminar
         public function journeDelete(){
             if ($this->session == 'admin') {
                 $journe = new Journe;
-                $journe->delete_journe($_GET['idJourne']);
+                $journe->delete_journe($_GET['idjourne']);
                 header("Location: ?c=Colleges&a=journeRead");
             } else {
                 header("Location: ?c=Dashboard");
@@ -126,17 +126,39 @@
         public function gradeCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    require_once "views/modules/college/grade_create.view.php";
+                    header("Location: ?c=Colleges&a=gradeRead");
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
                     $grade = new Grade(
-                        123,
+                        null,
                         $_POST['grade_name']                        
                     );
-                    print_r($grade);
-                    // header("Location: ?c=Dashboard");
+                    $grade->create_grade();
+                    header("Location: ?c=Colleges&a=gradeRead");
                 }
             } else {                
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Grado: Consultar
+        public function gradeRead(){
+            if ($this->session == 'admin') {
+                $grades = new Grade;
+                $grades = $grades->read_grade();                
+                require_once "views/modules/college/grade_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Grado: Eliminar
+        public function gradeDelete(){
+            if ($this->session == 'admin') {                
+                $grade = new Grade;
+                $grade->delete_grade($_GET['idgrade']);
+                header("Location: ?c=Colleges&a=gradeRead");
+            } else {
                 header("Location: ?c=Dashboard");
             }
         }

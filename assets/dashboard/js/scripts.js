@@ -1,6 +1,6 @@
-function journeDelete(journeId){
+function deleteRegister(registerId, nameConst){        
     swal({
-        title: "Está seguro de eliminar el registro: " + journeId,
+        title: "Está seguro de eliminar el registro: " + registerId,
         text: "Si elimina el registro, ya no podrá recuperarlo de la memoria!",
         icon: "warning",
         buttons: [true, "Aceptar"],
@@ -10,8 +10,8 @@ function journeDelete(journeId){
         if (willDelete) {            
             swal("El registro ha sido eliminado!", {
                 icon: "success",                
-            }).then((result) => {
-                window.location = '?c=Colleges&a=journeDelete&idJourne=' + journeId;                
+            }).then((result) => {                
+                window.location = '?c=Colleges&a='+nameConst+'Delete&id'+nameConst+'=' + registerId;                
             });
         } else {
             swal("El registro se ha conservado en la Base de Datos");            

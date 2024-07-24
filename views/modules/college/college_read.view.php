@@ -18,7 +18,7 @@
               <div class ="d-flex pr-5">
                 <h5 class="card-title flex-grow-1">Colegio</h5>
                 <!-- Modal Editar Colegio -->
-                <a href="?c=Colleges&a=collegeUpdate" class="btn btn-primary btn-sm my-3 mx-2">Editar Colegio</a>
+                <a href="?c=Colleges&a=collegeUpdate" class="btn btn-primary btn-sm my-3">Editar Colegio</a>
                 <div class="modal fade" id="editCollege" tabindex="-1">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
