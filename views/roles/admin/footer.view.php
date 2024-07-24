@@ -39,6 +39,9 @@
   <!-- <script src="assets/dashboard/vendor/simple-datatables/simple-datatables.js"></script> -->
   <!-- <script src="assets/dashboard/js/scripts.js"></script> -->
   
+  <!-- Alertas -->
+  <script src='assets/dashboard/vendor/sweetAlert/sweetalert.min.js'></script>
+
   <!-- Template Main JS File -->
   <script src="assets/dashboard/js/main.js"></script>
   <script src="assets/dashboard/js/scripts.js"></script>

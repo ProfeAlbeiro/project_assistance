@@ -87,7 +87,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var table = $('#ej-journe').DataTable({
         "order": [
-            [ 0, "asc" ],            
+            [ 1, "asc" ],            
         ],
         dom: 'Bfrtip',
         buttons: [

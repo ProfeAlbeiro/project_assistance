@@ -2,7 +2,8 @@
       <h1>Colegio</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>          
+          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li> 
+          <li class="breadcrumb-item">Colegio</li>         
           <li class="breadcrumb-item active">Colegio</li>
         </ol>
       </nav>
@@ -79,6 +80,4 @@
           </div>
         </div>
       </div>
-    </section>
-    <script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>;
-    <script src='assets/dashboard/js/scripts.js'></script>;
+    </section>    

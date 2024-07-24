@@ -71,6 +71,7 @@ capturaEnfoque.forEach(captura1 => {
 
 // Llama las demás funciones
 function capturaIdMet() {
+    event.preventDefault();
     id = event.target.getAttribute("id");
     if (id === "btn-menu-lateral") {
         btnMenuLateral();
@@ -97,7 +98,7 @@ function capturaIdMet() {
             button: "Aceptar",
         })
             .then((value) => {
-                // document.formUserCreate.submit();            
+                // document.formUserCreate.submit();
                 window.location = '../1_users/user_read.html';
             });
     } else if (id === "submit-user-update-cancel") {

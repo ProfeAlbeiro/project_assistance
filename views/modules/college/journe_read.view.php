@@ -3,8 +3,8 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
-          <li class="breadcrumb-item">Colegios</li>
-          <li class="breadcrumb-item active">Consultar Jornadas</li>
+          <li class="breadcrumb-item">Colegio</li>
+          <li class="breadcrumb-item active">Jornadas</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -104,9 +104,8 @@
               </div>
               <table class="table datatable ajuste-tabla" id="ej-journe" style="width:100%">
                 <thead>
-                  <tr>                    
-                    <th class="text-center">Código</th>                    
-                    <th class="text-center">Nombre</th>                    
+                  <tr>
+                    <th class="text-center">Jornada</th>                    
                     <th class="text-center">Hora Inicio</th>                    
                     <th class="text-center">Hora Fin</th>                    
                     <th class="text-center">Acciones</th>                    
@@ -114,16 +113,15 @@
                 </thead>
                 <tbody>
                   <?php foreach ($journes as $journe) : ?>
-                    <tr class="text-center">                      
-                      <td class="pt-3"><?php echo $journe->getJourneId(); ?></td>                      
+                    <tr class="text-center">
                       <td class="pt-3"><?php echo $journe->getJourneName(); ?></td>                      
                       <td class="pt-3"><?php echo $journe->getJourneStartTime(); ?></td>
                       <td class="pt-3"><?php echo $journe->getJourneEndTime(); ?></td>
-                      <td>
+                      <td class="d-flex justify-content-center ">
                         <a href="?c=Colleges&a=journeUpdate&idJourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
-                        </a>
-                        <a href="?c=Colleges&a=journeDelete&idJourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-danger p-0">
+                        </a>                        
+                        <a href="#" onclick="journeDelete(<?php echo $journe->getJourneId(); ?>)" class="btn btn-danger p-0 mx-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>
@@ -135,6 +133,4 @@
           </div>
         </div>
       </div>
-    </section>
-    <script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
-    <script src='assets/dashboard/js/scripts.js'></script>
+    </section>    

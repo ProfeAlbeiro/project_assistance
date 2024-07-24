@@ -15,13 +15,15 @@
             header("Location: ?c=Dashboard");
         }
 
-        # Colegio: Registrar
+        # Colegio: Actualizar
         public function collegeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
                     $colleges = new College;
                     $colleges = $colleges->read_college();
-                    require_once "views/modules/college/college_read.view.php";                    
+                    require_once "views/modules/college/college_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
                     echo "<script>editCollege();</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -89,8 +91,10 @@
                     $journeId = $journeId->getjourne_bycode($_GET['idJourne']);
                     $journes = new Journe;
                     $journes = $journes->read_journe();
-                    require_once "views/modules/college/journe_read.view.php";                    
-                    echo "<script>editJourne();</script>";                
+                    require_once "views/modules/college/journe_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editJourne();</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $journe = new Journe(
@@ -100,7 +104,7 @@
                         $_POST['journe_end_time']
                     );
                     $journe->update_journe();
-                    header("Location: ?c=Colleges&a=journeRead");
+                    header("Location: ?c=Colleges&a=journeRead");                    
                 }
             } else {
                 header("Location: ?c=Dashboard");
@@ -110,15 +114,13 @@
         # Controlador Eliminar Rol
         public function journeDelete(){
             if ($this->session == 'admin') {
-                $rol = new Journe;
-                $rol->delete_journe($_GET['idJourne']);
+                $journe = new Journe;
+                $journe->delete_journe($_GET['idJourne']);
                 header("Location: ?c=Colleges&a=journeRead");
             } else {
                 header("Location: ?c=Dashboard");
             }
         }
-
-        
 
         # Grado: Registrar
         public function gradeCreate(){
