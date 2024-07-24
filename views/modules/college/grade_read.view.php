@@ -46,41 +46,29 @@
                   </div>
                 </div>
                 <!-- Modal Actualizar Grado -->
-                <!-- <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                <div class="modal fade" id="editGrade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Editar Jornada</h5>
-                        <a href="?c=Colleges&a=journeRead" class="btn-close" aria-label="Close"></a>
+                        <h5 class="modal-title">Editar Grado</h5>
+                        <a href="?c=Colleges&a=gradeRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">
-                          <form action="?c=Colleges&a=journeUpdate" method="POST">
-                            <?php if ($journeId) : ?>
+                          <form action="?c=Colleges&a=gradeUpdate" method="POST">
+                            <?php if ($gradeId) : ?>
                               <div class="row">                              
                                 <div class="col-sm-9">                                
-                                  <input type="hidden" name="journe_id" class="form-control" value="<?php echo $journeId->getJourneId() ?>">
+                                  <input type="hidden" name="grade_id" class="form-control" value="<?php echo $gradeId->getGradeId() ?>">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
                                 <div class="col-sm-9">
-                                  <input type="text" name="journe_name" class="form-control" value="<?php echo $journeId->getJourneName() ?>">
+                                  <input type="text" name="grade_name" class="form-control" value="<?php echo $gradeId->getGradeName() ?>">
                                 </div>
                               </div>
-                              <div class="row mb-3">
-                                <label for="inputTime" class="col-sm-3 col-form-label">Hora Inicio</label>
-                                <div class="col-sm-9">
-                                  <input type="time" name="journe_start_time" class="form-control" value="<?php echo $journeId->getJourneStartTime() ?>">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputTime" class="col-sm-3 col-form-label">Hora Fin</label>
-                                <div class="col-sm-9">
-                                  <input type="time" name="journe_end_time" class="form-control" value="<?php echo $journeId->getJourneEndTime() ?>">
-                                </div>
-                              </div>                            
                               <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>                            
+                                <a href="?c=Colleges&a=gradeRead" class="btn btn-secondary">Cerrar</a>                            
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                               </div>
                             <?php endif; ?>                          
@@ -88,7 +76,7 @@
                       </div>
                     </div>
                   </div>
-                </div> -->
+                </div>
               </div>
               <table class="table datatable ajuste-tabla" id="ej-grade" style="width:100%">
                 <thead>

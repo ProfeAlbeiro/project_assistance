@@ -88,6 +88,41 @@
             }
         }
 
+        # Grado: Obtener Registro
+        public function getgrade_bycode($grade_id){
+            try {
+                $sql = 'SELECT * FROM GRADES
+                        WHERE grade_id=:gradeId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('gradeId', $grade_id);
+                $stmt->execute();
+                $gradeDb = $stmt->fetch();
+                $grade = new Grade(
+                    $gradeDb['grade_id'],                    
+                    $gradeDb['grade_name']                    
+                );
+                return $grade;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Grado: Actualizar
+        public function update_grade(){
+            try {
+                $sql = 'UPDATE GRADES SET
+                            grade_id = :gradeId,
+                            grade_name = :gradeName                            
+                        WHERE grade_id = :gradeId';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('gradeId', $this->getGradeId());                
+                $stmt->bindValue('gradeName', $this->getGradeName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
         # Grado: Eliminar
         public function delete_grade($id_grade){
             try {

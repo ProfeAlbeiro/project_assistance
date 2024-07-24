@@ -34,3 +34,11 @@ function editJourne(){
     });
     myModal.show();
 }
+
+function editGrade(){
+    var myModal = new bootstrap.Modal(document.getElementById('editGrade'), {
+        keyboard: false,
+        backdrop: 'static'
+    });
+    myModal.show();
+}

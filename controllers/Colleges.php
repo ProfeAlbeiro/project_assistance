@@ -154,6 +154,32 @@
             }
         }
 
+         # Grado: Actualizar
+         public function gradeUpdate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
+                    $gradeId = new Grade;
+                    $gradeId = $gradeId->getgrade_bycode($_GET['idgrade']);
+                    $grades = new Grade;
+                    $grades = $grades->read_grade();
+                    require_once "views/modules/college/grade_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editGrade();</script>";
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $journe = new Grade(
+                        $_POST['grade_id'],                        
+                        $_POST['grade_name']                        
+                    );
+                    $journe->update_grade();
+                    header("Location: ?c=Colleges&a=gradeRead");                    
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
         # Grado: Eliminar
         public function gradeDelete(){
             if ($this->session == 'admin') {                
