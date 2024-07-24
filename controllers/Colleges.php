@@ -35,7 +35,7 @@
                     require_once "views/modules/college/college_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editCollege();</script>";
+                    echo "<script>editCollege('editCollege');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $college = new College(                        
@@ -94,7 +94,7 @@
                     require_once "views/modules/college/journe_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editJourne();</script>";
+                    echo "<script>editCollege('editJourne');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $journe = new Journe(
@@ -165,7 +165,7 @@
                     require_once "views/modules/college/grade_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editGrade();</script>";
+                    echo "<script>editCollege('editGrade');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $journe = new Grade(

@@ -1,3 +1,11 @@
+function editCollege(editRegister){
+    var myModal = new bootstrap.Modal(document.getElementById(editRegister), {
+        keyboard: false,
+        backdrop: 'static'
+    });
+    myModal.show();
+}
+
 function deleteRegister(registerId, nameConst){        
     swal({
         title: "Está seguro de eliminar el registro: " + registerId,
@@ -8,7 +16,7 @@ function deleteRegister(registerId, nameConst){
     })
     .then((willDelete) => {
         if (willDelete) {            
-            swal("El registro ha sido eliminado!", {
+            swal("El registro será eliminado!", {
                 icon: "success",                
             }).then((result) => {                
                 window.location = '?c=Colleges&a='+nameConst+'Delete&id'+nameConst+'=' + registerId;                
@@ -17,28 +25,4 @@ function deleteRegister(registerId, nameConst){
             swal("El registro se ha conservado en la Base de Datos");            
         }
     });    
-}
-
-function editCollege(){    
-    var myModal = new bootstrap.Modal(document.getElementById('editCollege'), {
-        keyboard: false,
-        backdrop: 'static'
-    });
-    myModal.show();
-}
-
-function editJourne(){    
-    var myModal = new bootstrap.Modal(document.getElementById('editJourne'), {
-        keyboard: false,
-        backdrop: 'static'
-    });
-    myModal.show();
-}
-
-function editGrade(){
-    var myModal = new bootstrap.Modal(document.getElementById('editGrade'), {
-        keyboard: false,
-        backdrop: 'static'
-    });
-    myModal.show();
 }
