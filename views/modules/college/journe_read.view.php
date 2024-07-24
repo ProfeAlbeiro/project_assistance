@@ -18,7 +18,7 @@
               <div class ="d-flex">
                 <h5 class="card-title flex-grow-1">Jornadas</h5>                
                 <!-- Modal Crear Jornada -->
-                <button type="button" class="btn btn-primary btn-sm my-3 mx-2" data-bs-toggle="modal" data-bs-target="#createJourne">
+                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createJourne">
                   Crear Jornada
                 </button>                
                 <div class="modal fade" id="createJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
@@ -117,11 +117,11 @@
                       <td class="pt-3"><?php echo $journe->getJourneName(); ?></td>                      
                       <td class="pt-3"><?php echo $journe->getJourneStartTime(); ?></td>
                       <td class="pt-3"><?php echo $journe->getJourneEndTime(); ?></td>
-                      <td class="d-flex justify-content-center ">
+                      <td class="text-center pt-2">
                         <a href="?c=Colleges&a=journeUpdate&idJourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>                        
-                        <a href="#" onclick="journeDelete(<?php echo $journe->getJourneId(); ?>)" class="btn btn-danger p-0 mx-1">
+                        <a href="#" onclick="journeDelete(<?php echo $journe->getJourneId(); ?>)" class="btn btn-danger p-0 ms-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>

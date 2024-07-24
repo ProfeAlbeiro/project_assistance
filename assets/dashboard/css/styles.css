@@ -31,6 +31,9 @@ ol a, ol li, ul li>ul li span{
 .card-body-cutom{
     padding: 10px 10px 10px 100px;
 }
+.swal-modal .swal-text {
+    text-align: center;
+}
 @media (max-width: 767px) {
     .main{
         padding: 10px!important;
