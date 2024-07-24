@@ -88,7 +88,7 @@
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
                     $journeId = new Journe;
-                    $journeId = $journeId->getjourne_bycode($_GET['idJourne']);
+                    $journeId = $journeId->getjourne_bycode($_GET['idjourne']);
                     $journes = new Journe;
                     $journes = $journes->read_journe();
                     require_once "views/modules/college/journe_read.view.php";
@@ -128,9 +128,11 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     header("Location: ?c=Colleges&a=gradeRead");
                 }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $end_grade = new Grade;
+                    $end_grade = $end_grade->getgrade_endbycode() + 1;
                     $grade = new Grade(
-                        null,
+                        $end_grade,
                         $_POST['grade_name']                        
                     );
                     $grade->create_grade();

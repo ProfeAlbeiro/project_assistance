@@ -117,6 +117,8 @@ INSERT INTO GRADES VALUES
 (25, 'vigesimoquinto'),
 (26, 'vigesimosexto');
 SELECT * FROM GRADES;
+SELECT * FROM GRADES
+ORDER BY grade_id DESC LIMIT 1;
 
 -- ------------------------------------------------------------------------------------------------------ --
 -- 01.06. Insertar Grupos. ------------------------------------------------------------------------------ --

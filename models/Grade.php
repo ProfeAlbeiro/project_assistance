@@ -74,6 +74,20 @@
             }
         }
 
+        # Grado: Obtener Último Registro
+        public function getgrade_endbycode(){
+            try {
+                $sql = 'SELECT * FROM GRADES
+                        ORDER BY grade_id DESC LIMIT 1';
+                $stmt = $this->dbh->prepare($sql);                
+                $stmt->execute();
+                $gradeDb = $stmt->fetch();                
+                return $gradeDb['grade_id'];
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
         # Grado: Eliminar
         public function delete_grade($id_grade){
             try {

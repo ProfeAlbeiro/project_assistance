@@ -98,13 +98,13 @@
             }
         }
 
-         # Jornada: Obtener Registro
-         public function getjourne_bycode($college_id){
+        # Jornada: Obtener Registro
+        public function getjourne_bycode($journe_id){
             try {
                 $sql = 'SELECT * FROM JOURNES
                         WHERE journe_id=:journeId';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('journeId', $college_id);
+                $stmt->bindValue('journeId', $journe_id);
                 $stmt->execute();
                 $journeDb = $stmt->fetch();
                 $journe = new Journe(                    
@@ -117,10 +117,10 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }
-        }
+        }        
 
-         # Jornada: Actualizar
-         public function update_journe(){
+        # Jornada: Actualizar
+        public function update_journe(){
             try {
                 $sql = 'UPDATE JOURNES SET                            
                             journe_id = :journeId,
