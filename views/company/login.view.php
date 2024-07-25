@@ -7,7 +7,7 @@
                 <a href="#" class="logo d-flex justify-content-center align-items-center">
                   <img class="logo-ingreso" src="assets/landing/img/logo.png" alt="">
                 </a>
-                <span class="reducir-texto card-title py-1">Asistencia <?php echo $collegeName->getCollegeName() ?></span>
+                <span class="reducir-texto card-title py-1">Asistencia <?php echo $_SESSION['collegeName'] ?></span>
               </div>
 
               <div class="card mb-3">
@@ -26,7 +26,7 @@
                       <input type="text" name="user_id" class="form-control" id="user_id" required>
                       <div class="invalid-feedback">Ingrese su documento de Identidad</div>
                     </div>
-                    
+
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Contraseña</label>
                       <input type="password" name="user_pass" class="form-control" id="yourPassword" required>

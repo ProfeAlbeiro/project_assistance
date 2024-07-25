@@ -314,8 +314,8 @@
             </a>
           </li>
           <li>
-            <a href="?c=Colleges&a=courseCreate">
-              <i class="bi bi-circle"></i><span>Grupos</span>
+            <a href="?c=Colleges&a=courseRead">
+              <i class="bi bi-circle"></i><span>Cursos</span>
             </a>
           </li>
           <li>
