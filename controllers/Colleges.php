@@ -128,12 +128,10 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     header("Location: ?c=Colleges&a=gradeRead");
                 }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $end_grade = new Grade;
-                    $end_grade = $end_grade->getgrade_endbycode() + 1;
-                    $grade = new Grade(
-                        $end_grade,
-                        $_POST['grade_name']                        
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {                    
+                    $grade = new Grade(                        
+                        $_POST['grade_id'],
+                        $_POST['grade_name'],
                     );
                     $grade->create_grade();
                     header("Location: ?c=Colleges&a=gradeRead");
@@ -146,8 +144,11 @@
         # Grado: Consultar
         public function gradeRead(){
             if ($this->session == 'admin') {
+                $end_grade = new Grade;
+                $end_grade = $end_grade->getgrade_endbycode();
+                $gradeCode = $end_grade != 0 ? $end_grade + 1 : (is_null($end_grade) ? 0 : 1);
                 $grades = new Grade;
-                $grades = $grades->read_grade();                
+                $grades = $grades->read_grade();
                 require_once "views/modules/college/grade_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");

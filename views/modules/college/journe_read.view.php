@@ -1,4 +1,5 @@
-	<div class="pagetitle">
+	<!-- Migas de Pan -->
+  <div class="pagetitle">
       <h1>Colegio</h1>
       <nav>
         <ol class="breadcrumb">
@@ -7,8 +8,9 @@
           <li class="breadcrumb-item active">Jornadas</li>
         </ol>
       </nav>
-    </div><!-- End Page Title -->
+    </div>
 
+    <!-- Sección -->
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
@@ -16,7 +18,8 @@
           <div class="card">
             <div class="card-body">
               <div class ="d-flex">
-                <h5 class="card-title flex-grow-1">Jornadas</h5>                
+                <h5 class="card-title flex-grow-1">Jornadas</h5>
+
                 <!-- Modal Crear Jornada -->
                 <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createJourne">
                   Crear Jornada
@@ -29,7 +32,7 @@
                         <a href="?c=Colleges&a=journeRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">                        
-                          <form action="?c=Colleges&a=journeCreate" method="POST">
+                          <form action="?c=Colleges&a=journeCreate" method="POST">                            
                             <div class="row mb-3">
                               <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
                               <div class="col-sm-9">
@@ -57,6 +60,7 @@
                     </div>
                   </div>
                 </div>
+
                 <!-- Modal Actualizar Jornada -->
                 <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
@@ -102,6 +106,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Tabla de Datos -->
               <table class="table datatable ajuste-tabla" id="ej-journe" style="width:100%">
                 <thead>
                   <tr>
@@ -129,6 +135,7 @@
                   <?php endforeach; ?>
                 </tbody>
               </table>
+
             </div>
           </div>
         </div>
