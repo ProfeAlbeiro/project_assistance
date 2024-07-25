@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Asistencia <?php echo $collegeName->getCollegeName() ?></title>
+  <title>Asistencia <?php echo $_SESSION['collegeName'] ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -24,7 +24,7 @@
   <link href="assets/dashboard/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/dashboard/vendor/remixicon/remixicon.css" rel="stylesheet">
-  
+
   <!-- DataTable -->
   <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/buttons.dataTables.min.css">
@@ -37,10 +37,10 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/dashboard/css/style.css" rel="stylesheet">
-  
+
   <!-- Estilos Personalizados -->
   <link href="assets/dashboard/css/styles.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -51,7 +51,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="?c=Dashboard" class="logo d-flex align-items-end">
         <img src="assets/dashboard/img/logo.png" alt="">
-        <span class="d-none d-lg-block"><?php echo $collegeName->getCollegeName() ?></span>
+        <span class="d-none d-lg-block"><?php echo $_SESSION['collegeName'] ?></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -349,7 +349,7 @@
             <a href="?c=Users&a=userRead">
               <i class="bi bi-circle"></i><span>Consultar Usuarios</span>
             </a>
-          </li>          
+          </li>
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -367,7 +367,7 @@
             <a href="?c=Assistances&a=assistanceRead">
               <i class="bi bi-circle"></i><span>Consultar Asistencias</span>
             </a>
-          </li>          
+          </li>
         </ul>
       </li><!-- End Tables Nav -->
 
@@ -378,15 +378,15 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Crear Reporte General</span>              
+              <i class="bi bi-circle"></i><span>Crear Reporte General</span>
             </a>
-            <a href="?c=Dashboard">              
+            <a href="?c=Dashboard">
               <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
             </a>
-          </li>          
+          </li>
         </ul>
       </li><!-- End Charts Nav -->
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#print-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-file-earmark"></i><span>Reportes Impresos</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -394,12 +394,12 @@
         <ul id="print-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Crear Reporte General</span>              
+              <i class="bi bi-circle"></i><span>Crear Reporte General</span>
             </a>
-            <a href="?c=Dashboard">              
+            <a href="?c=Dashboard">
               <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
             </a>
-          </li>          
+          </li>
         </ul>
       </li><!-- End Charts Nav -->
 

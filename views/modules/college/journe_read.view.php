@@ -1,6 +1,6 @@
 	<!-- Migas de Pan -->
   <div class="pagetitle">
-      <h1>Colegio</h1>
+      <h1><?php echo $_SESSION['collegeName'] ?></h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
@@ -23,7 +23,7 @@
                 <!-- Modal Crear Jornada -->
                 <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createJourne">
                   Crear Jornada
-                </button>                
+                </button>
                 <div class="modal fade" id="createJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
@@ -31,8 +31,8 @@
                         <h5 class="modal-title">Crear Jornada</h5>
                         <a href="?c=Colleges&a=journeRead" class="btn-close" aria-label="Close"></a>
                       </div>
-                      <div class="modal-body">                        
-                          <form action="?c=Colleges&a=journeCreate" method="POST">                            
+                      <div class="modal-body">
+                          <form action="?c=Colleges&a=journeCreate" method="POST">
                             <div class="row mb-3">
                               <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
                               <div class="col-sm-9">
@@ -50,12 +50,12 @@
                               <div class="col-sm-9">
                                 <input type="time" name="journe_end_time" class="form-control">
                               </div>
-                            </div>                            
+                            </div>
                             <div class="modal-footer pb-0 px-0 mt-4">
-                              <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>                            
+                              <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>
                               <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>                          
-                          </form>                        
+                            </div>
+                          </form>
                       </div>
                     </div>
                   </div>
@@ -72,8 +72,8 @@
                       <div class="modal-body">
                           <form action="?c=Colleges&a=journeUpdate" method="POST">
                             <?php if ($journeId) : ?>
-                              <div class="row">                              
-                                <div class="col-sm-9">                                
+                              <div class="row">
+                                <div class="col-sm-9">
                                   <input type="hidden" name="journe_id" class="form-control" value="<?php echo $journeId->getJourneId() ?>">
                                 </div>
                               </div>
@@ -94,13 +94,13 @@
                                 <div class="col-sm-9">
                                   <input type="time" name="journe_end_time" class="form-control" value="<?php echo $journeId->getJourneEndTime() ?>">
                                 </div>
-                              </div>                            
+                              </div>
                               <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>                            
+                                <a href="?c=Colleges&a=journeRead" class="btn btn-secondary">Cerrar</a>
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                               </div>
-                            <?php endif; ?>                          
-                          </form>                        
+                            <?php endif; ?>
+                          </form>
                       </div>
                     </div>
                   </div>
@@ -111,22 +111,22 @@
               <table class="table datatable ajuste-tabla" id="ej-journe" style="width:100%">
                 <thead>
                   <tr>
-                    <th class="text-center">Jornada</th>                    
-                    <th class="text-center">Hora Inicio</th>                    
-                    <th class="text-center">Hora Fin</th>                    
-                    <th class="text-center">Acciones</th>                    
+                    <th class="text-center">Jornada</th>
+                    <th class="text-center">Hora Inicio</th>
+                    <th class="text-center">Hora Fin</th>
+                    <th class="text-center">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($journes as $journe) : ?>
                     <tr class="text-center">
-                      <td class="pt-3"><?php echo $journe->getJourneName(); ?></td>                      
+                      <td class="pt-3"><?php echo $journe->getJourneName(); ?></td>
                       <td class="pt-3"><?php echo $journe->getJourneStartTime(); ?></td>
                       <td class="pt-3"><?php echo $journe->getJourneEndTime(); ?></td>
                       <td class="text-center pt-2">
                         <a href="?c=Colleges&a=journeUpdate&idjourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
-                        </a>                        
+                        </a>
                         <a href="#" onclick="deleteRegister(<?php echo $journe->getJourneId(); ?>,'journe')" class="btn btn-danger p-0 ms-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
@@ -140,4 +140,4 @@
           </div>
         </div>
       </div>
-    </section>    
+    </section>

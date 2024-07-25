@@ -1,9 +1,9 @@
 	<div class="pagetitle">
-      <h1>Colegio</h1>
+      <h1><?php echo $_SESSION['collegeName'] ?></h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li> 
-          <li class="breadcrumb-item">Colegio</li>         
+          <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
+          <li class="breadcrumb-item">Colegio</li>
           <li class="breadcrumb-item active">Colegio</li>
         </ol>
       </nav>
@@ -46,11 +46,11 @@
                               <div class="col-sm-9">
                                 <input type="text" name="college_phone" class="form-control" value="<?php echo $college->getCollegePhone(); ?>">
                               </div>
-                            </div>                            
+                            </div>
                             <div class="modal-footer pb-0 px-0 mt-4">
-                              <a href="?c=Colleges&a=collegeRead" class="btn btn-secondary">Cerrar</a>                            
+                              <a href="?c=Colleges&a=collegeRead" class="btn btn-secondary">Cerrar</a>
                               <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>                          
+                            </div>
                           </form>
                         <?php endforeach; ?>
                       </div>
@@ -60,18 +60,18 @@
               </div>
               <table class="table datatable">
                 <thead>
-                  <tr class="text-center">                    
-                    <th>Nombre</th>                    
-                    <th>Dirección</th>                    
-                    <th>Teléfono</th>                    
+                  <tr class="text-center">
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($colleges as $college) : ?>
                     <tr class="text-center">
-                      <td><?php echo $college->getCollegeName(); ?></td>                      
-                      <td><?php echo $college->getCollegeAddress(); ?></td>                      
-                      <td><?php echo $college->getCollegePhone(); ?></td>                      
+                      <td><?php echo $college->getCollegeName(); ?></td>
+                      <td><?php echo $college->getCollegeAddress(); ?></td>
+                      <td><?php echo $college->getCollegePhone(); ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -80,4 +80,4 @@
           </div>
         </div>
       </div>
-    </section>    
+    </section>
