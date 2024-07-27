@@ -98,15 +98,6 @@ SELECT * FROM JOURNES;
 -- 01.05. Insertar Grados. ------------------------------------------------------------------------------ --
 -- ------------------------------------------------------------------------------------------------------ --
 INSERT INTO GRADES VALUES
-(0, 'PreEscolar');
-SELECT * FROM GRADES;
-
-DELETE FROM GRADES
-WHERE grade_id = '0';
-SELECT * FROM GRADES;
-
-
-INSERT INTO GRADES VALUES
 (0, 'PreEscolar'),
 (1, 'Primero'),
 (2, 'Segundo'),
