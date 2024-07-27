@@ -8,7 +8,7 @@ function editCollege(editRegister){
 
 function deleteRegister(registerId, nameConst){        
     swal({
-        title: "Está seguro de eliminar el registro: " + registerId,
+        title: "Está seguro de eliminar el registro",
         text: "Si elimina el registro, ya no podrá recuperarlo de la memoria!",
         icon: "warning",
         buttons: [true, "Aceptar"],

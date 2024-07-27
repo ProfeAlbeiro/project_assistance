@@ -169,11 +169,11 @@
                     echo "<script>editCollege('editGrade');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $journe = new Grade(
+                    $grade = new Grade(
                         $_POST['grade_id'],
                         $_POST['grade_name']
                     );
-                    $journe->update_grade();
+                    $grade->update_grade();
                     header("Location: ?c=Colleges&a=gradeRead");
                 }
             } else {
@@ -217,6 +217,43 @@
                 $courses = new Course;
                 $courses = $courses->read_course();
                 require_once "views/modules/college/course_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Curso: Actualizar
+        public function courseUpdate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    $courseId = new Course;
+                    $courseId = $courseId->getcourse_bycode($_GET['idcourse']);                    
+                    $courses = new Course;
+                    $courses = $courses->read_course();
+                    require_once "views/modules/college/course_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editCollege('editCourse');</script>";
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $course = new Course(
+                        $_POST['grade_id'],
+                        $_POST['grade_name']
+                    );
+                    $course->update_course();
+                    header("Location: ?c=Colleges&a=courseRead");
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Curso: Eliminar
+        public function courseDelete(){
+            if ($this->session == 'admin') {
+                $course = new Course;
+                $course->delete_course($_GET['idcourse']);
+                header("Location: ?c=Colleges&a=courseRead");
             } else {
                 header("Location: ?c=Dashboard");
             }

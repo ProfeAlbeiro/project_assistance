@@ -49,9 +49,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="?c=Dashboard" class="logo d-flex align-items-end">
+      <a href="?c=Dashboard" class="logo d-flex align-items-center">
         <img src="assets/dashboard/img/logo.png" alt="">
-        <span class="d-none d-lg-block"><?php echo $_SESSION['collegeName'] ?></span>
+        <span class="d-none d-lg-block pt-1"><?php echo $_SESSION['collegeName'] ?></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -319,10 +319,6 @@
             </a>
           </li>
           <li>
-            <a href="?c=Colleges&a=collegeCreate">
-              <i class="bi bi-circle"></i><span>Consultar Colegio</span>
-            </a>
-          </li>
         </ul>
       </li><!-- End Components Nav -->
 

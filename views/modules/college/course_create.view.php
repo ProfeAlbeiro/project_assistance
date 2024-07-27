@@ -24,7 +24,7 @@
                     <input type="text" name="course_name" class="form-control">
                   </div>
                 </div>
-              </form><!-- End General Form Elements -->
+              </form><
 
             </div>
           </div>

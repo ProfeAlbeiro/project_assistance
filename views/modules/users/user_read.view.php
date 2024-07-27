@@ -18,7 +18,7 @@
               <h5 class="card-title">Consultar Usuarios</h5>
 
               <!-- Table with stripped rows -->
-              <table class="table datatable ajuste-tabla" id="ej-data-tables" style="width:100%">
+              <table class="table datatable ajuste-tabla" id="ej-users" style="width:100%">
                 <thead>
                   <tr>
                     <th class="text-center">Rol</th>

@@ -30,7 +30,8 @@
         }
         public function getGradeId(){
             return $this->grade_id;
-        }        
+        }
+
         # Grado: Nombre
         public function setGradeName($grade_name){
             $this->grade_name = $grade_name;
@@ -39,7 +40,7 @@
             return $this->grade_name;
         }
 
-        # Grado: Crear
+        # Grado: Registrar
         public function create_grade(){
             try {
                 $sql = 'INSERT INTO GRADES VALUES (
