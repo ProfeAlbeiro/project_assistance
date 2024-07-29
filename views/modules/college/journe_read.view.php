@@ -34,21 +34,39 @@
                       <div class="modal-body">
                           <form action="?c=Colleges&a=journeCreate" method="POST">
                             <div class="row mb-3">
-                              <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
-                              <div class="col-sm-9">
+                              <label for="inputText" class="col-sm-4 col-form-label">Nombre</label>
+                              <div class="col-sm-8">
                                 <input type="text" name="journe_name" class="form-control">
                               </div>
                             </div>
                             <div class="row mb-3">
-                              <label for="inputTime" class="col-sm-3 col-form-label">Hora Inicio</label>
-                              <div class="col-sm-9">
+                              <label for="inputTime" class="col-sm-4 col-form-label">Hora Inicio</label>
+                              <div class="col-sm-8">
                                 <input type="time" name="journe_start_time" class="form-control">
                               </div>
                             </div>
                             <div class="row mb-3">
-                              <label for="inputTime" class="col-sm-3 col-form-label">Hora Fin</label>
-                              <div class="col-sm-9">
+                              <label for="inputTime" class="col-sm-4 col-form-label">Hora Fin</label>
+                              <div class="col-sm-8">
                                 <input type="time" name="journe_end_time" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputNumber" class="col-sm-4 col-form-label">Min Antes</label>
+                              <div class="col-sm-8">
+                                <input type="number" name="journe_min_before" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputNumber" class="col-sm-4 col-form-label">Min Después</label>
+                              <div class="col-sm-8">
+                                <input type="number" name="journe_min_after" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputNumber" class="col-sm-4 col-form-label">Min Inasistencia</label>
+                              <div class="col-sm-8">
+                                <input type="number" name="journe_min_nonattend" class="form-control">
                               </div>
                             </div>
                             <div class="modal-footer pb-0 px-0 mt-4">
@@ -73,26 +91,44 @@
                           <form action="?c=Colleges&a=journeUpdate" method="POST">
                             <?php if ($journeId) : ?>
                               <div class="row">
-                                <div class="col-sm-9">
+                                <div class="col-sm-8">
                                   <input type="hidden" name="journe_id" class="form-control" value="<?php echo $journeId->getJourneId() ?>">
                                 </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
-                                <div class="col-sm-9">
+                                <label for="inputText" class="col-sm-4 col-form-label">Nombre</label>
+                                <div class="col-sm-8">
                                   <input type="text" name="journe_name" class="form-control" value="<?php echo $journeId->getJourneName() ?>">
                                 </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="inputTime" class="col-sm-3 col-form-label">Hora Inicio</label>
-                                <div class="col-sm-9">
+                                <label for="inputTime" class="col-sm-4 col-form-label">Hora Inicio</label>
+                                <div class="col-sm-8">
                                   <input type="time" name="journe_start_time" class="form-control" value="<?php echo $journeId->getJourneStartTime() ?>">
                                 </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="inputTime" class="col-sm-3 col-form-label">Hora Fin</label>
-                                <div class="col-sm-9">
+                                <label for="inputTime" class="col-sm-4 col-form-label">Hora Fin</label>
+                                <div class="col-sm-8">
                                   <input type="time" name="journe_end_time" class="form-control" value="<?php echo $journeId->getJourneEndTime() ?>">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-4 col-form-label">Min Antes</label>
+                                <div class="col-sm-8">
+                                  <input type="number" name="journe_min_before" class="form-control" value="<?php echo $journeId->getJourneMinBefore() ?>">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-4 col-form-label">Min Después</label>
+                                <div class="col-sm-8">
+                                  <input type="number" name="journe_min_after" class="form-control" value="<?php echo $journeId->getJourneMinAfter() ?>">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-4 col-form-label">Min Inasistencia</label>
+                                <div class="col-sm-8">
+                                  <input type="number" name="journe_min_nonattend" class="form-control" value="<?php echo $journeId->getJourneMinNonAttend() ?>">
                                 </div>
                               </div>
                               <div class="modal-footer pb-0 px-0 mt-4">
@@ -114,6 +150,9 @@
                     <th class="text-center">Jornada</th>
                     <th class="text-center">Hora Inicio</th>
                     <th class="text-center">Hora Fin</th>
+                    <th class="text-center">Min/Ant</th>
+                    <th class="text-center">Min/Des</th>
+                    <th class="text-center">Min/NoA</th>
                     <th class="text-center">Acciones</th>
                   </tr>
                 </thead>
@@ -123,6 +162,9 @@
                       <td class="pt-3"><?php echo $journe->getJourneName(); ?></td>
                       <td class="pt-3"><?php echo $journe->getJourneStartTime(); ?></td>
                       <td class="pt-3"><?php echo $journe->getJourneEndTime(); ?></td>
+                      <td class="pt-3"><?php echo $journe->getJourneMinBefore(); ?></td>
+                      <td class="pt-3"><?php echo $journe->getJourneMinAfter(); ?></td>
+                      <td class="pt-3"><?php echo $journe->getJourneMinNonAttend(); ?></td>
                       <td class="text-center pt-2">
                         <a href="?c=Colleges&a=journeUpdate&idjourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>

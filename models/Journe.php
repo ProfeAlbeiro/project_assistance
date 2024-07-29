@@ -5,6 +5,9 @@
         private $journe_name;
         private $journe_start_time;
         private $journe_end_time;
+        private $journe_min_before;
+        private $journe_min_after;
+        private $journe_min_nonattend;
 
         public function __construct(){
             try {
@@ -21,11 +24,14 @@
 
         public function __construct0(){}
 
-        public function __construct4($journe_id,$journe_name,$journe_start_time,$journe_end_time){
+        public function __construct7($journe_id,$journe_name,$journe_start_time,$journe_end_time,$journe_min_before,$journe_min_after,$journe_min_nonattend){
             $this->journe_id = $journe_id;
             $this->journe_name = $journe_name;
             $this->journe_start_time = $journe_start_time;
             $this->journe_end_time = $journe_end_time;
+            $this->journe_min_before = $journe_min_before;
+            $this->journe_min_after = $journe_min_after;
+            $this->journe_min_nonattend = $journe_min_nonattend;
         }
 
         # Jornada: Id
@@ -56,6 +62,27 @@
         public function getJourneEndTime(){
             return $this->journe_end_time;
         }
+        # Jornada: Minutos antes        
+        public function setJourneMinBefore($journe_min_before){
+            $this->journe_min_before = $journe_min_before;
+        }
+        public function getJourneMinBefore(){
+            return $this->journe_min_before;
+        }
+        # Jornada: Minutos después        
+        public function setJourneMinAfter($journe_min_after){
+            $this->journe_min_after = $journe_min_after;
+        }
+        public function getJourneMinAfter(){
+            return $this->journe_min_after;
+        }
+        # Jornada: Minutos No asiste        
+        public function setJourneMinNonAttend($journe_min_nonattend){
+            $this->journe_min_nonattend = $journe_min_nonattend;
+        }
+        public function getJourneMinNonAttend(){
+            return $this->journe_min_nonattend;
+        }
 
         # Jornada: Crear
         public function create_journe(){
@@ -64,13 +91,19 @@
                             :journeId,
                             :journeName,
                             :journeStartTime,
-                            :journeEndTime
+                            :journeEndTime,
+                            :journeMinBefore,
+                            :journeMinAfter,
+                            :journeMinNonAttend
                         )';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('journeId', $this->getJourneId());
                 $stmt->bindValue('journeName', $this->getJourneName());
                 $stmt->bindValue('journeStartTime', $this->getJourneStartTime());
                 $stmt->bindValue('journeEndTime', $this->getJourneEndTime());
+                $stmt->bindValue('journeMinBefore', $this->getJourneMinBefore());
+                $stmt->bindValue('journeMinAfter', $this->getJourneMinAfter());
+                $stmt->bindValue('journeMinNonAttend', $this->getJourneMinNonAttend());
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -88,7 +121,10 @@
                         $journe['journe_id'],                        
                         $journe['journe_name'],                        
                         $journe['journe_start_time'],
-                        $journe['journe_end_time']
+                        $journe['journe_end_time'],
+                        $journe['journe_min_before'],
+                        $journe['journe_min_after'],
+                        $journe['journe_min_nonattend']
                     );
                     array_push($journeList, $journeObj);
                 }
@@ -111,7 +147,10 @@
                     $journeDb['journe_id'],                    
                     $journeDb['journe_name'],                    
                     $journeDb['journe_start_time'],
-                    $journeDb['journe_end_time']
+                    $journeDb['journe_end_time'],
+                    $journeDb['journe_min_before'],
+                    $journeDb['journe_min_after'],
+                    $journeDb['journe_min_nonattend']
                 );
                 return $journe;
             } catch (Exception $e) {
@@ -126,13 +165,19 @@
                             journe_id = :journeId,
                             journe_name = :journeName,                            
                             journe_start_time = :journeStartTime,                            
-                            journe_end_time = :journeEndTime
+                            journe_end_time = :journeEndTime,
+                            journe_min_before = :journeMinBefore,
+                            journe_min_after = :journeMinAfter,
+                            journe_min_nonattend = :journeMinNonAttend
                         WHERE journe_id = :journeId';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('journeId', $this->getJourneId());                
                 $stmt->bindValue('journeName', $this->getJourneName());                
                 $stmt->bindValue('journeStartTime', $this->getJourneStartTime());                
                 $stmt->bindValue('journeEndTime', $this->getJourneEndTime());                
+                $stmt->bindValue('journeMinBefore', $this->getJourneMinBefore());                
+                $stmt->bindValue('journeMinAfter', $this->getJourneMinAfter());                
+                $stmt->bindValue('journeMinNonAttend', $this->getJourneMinNonAttend());                
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());

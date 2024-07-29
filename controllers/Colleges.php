@@ -62,7 +62,10 @@
                         null,
                         $_POST['journe_name'],
                         $_POST['journe_start_time'],
-                        $_POST['journe_end_time']
+                        $_POST['journe_end_time'],
+                        $_POST['journe_min_before'],
+                        $_POST['journe_min_after'],
+                        $_POST['journe_min_nonattend'],
                     );
                     $journe->create_journe();
                     header("Location: ?c=Colleges&a=journeRead");
@@ -101,7 +104,10 @@
                         $_POST['journe_id'],
                         $_POST['journe_name'],
                         $_POST['journe_start_time'],
-                        $_POST['journe_end_time']
+                        $_POST['journe_end_time'],
+                        $_POST['journe_min_before'],
+                        $_POST['journe_min_after'],
+                        $_POST['journe_min_nonattend']
                     );
                     $journe->update_journe();
                     header("Location: ?c=Colleges&a=journeRead");
