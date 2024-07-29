@@ -7,7 +7,9 @@ form,h5{
 ol a, ol li, ul li>ul li span{
     font-family: "Nunito", sans-serif;
 }
-
+.modal-adjust{
+    padding: 0!important;
+}
 .hidden-col{
     visibility:hidden;
     display:none!important;

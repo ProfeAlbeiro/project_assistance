@@ -37,7 +37,7 @@
                     require_once "views/modules/college/college_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editCollege('editCollege');</script>";
+                    echo "<script>editRegister('editCollege');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $college = new College(

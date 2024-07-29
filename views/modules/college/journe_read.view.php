@@ -80,8 +80,8 @@
                 </div>
 
                 <!-- Modal Actualizar Jornada -->
-                <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
-                  <div class="modal-dialog modal-dialog-centered">
+                <div class="modal fade modal-adjust" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                  <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Editar Jornada</h5>
@@ -89,7 +89,7 @@
                       </div>
                       <div class="modal-body">
                           <form action="?c=Colleges&a=journeUpdate" method="POST">
-                            <?php if ($journeId) : ?>
+                            <?php if ($journeId) : ?>                              
                               <div class="row">
                                 <div class="col-sm-8">
                                   <input type="hidden" name="journe_id" class="form-control" value="<?php echo $journeId->getJourneId() ?>">
@@ -148,8 +148,8 @@
                 <thead>
                   <tr>
                     <th class="text-center">Jornada</th>
-                    <th class="text-center">Hora_Inicio</th>
-                    <th class="text-center">Hora_Fin</th>
+                    <th class="text-center">Hora Inicio</th>
+                    <th class="text-center">Hora Fin</th>
                     <th class="text-center">Min/Ant</th>
                     <th class="text-center">Min/Des</th>
                     <th class="text-center">Min/NoA</th>
