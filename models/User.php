@@ -1,8 +1,6 @@
 <?php    
 
     class User{
-        // 1ra Parte: Atributos
-        private $dbh;
         private $rol_id;
         private $rol_name;
         private $user_id;
@@ -12,7 +10,7 @@
         private $user_pass;
         private $user_state;
 
-        // 2da Parte: Sobrecarga Constructores
+        # Sobrecarga de constructores y conexión pdo
         public function __construct(){
             try {
                 $this->dbh = DataBase::connection();
@@ -39,13 +37,14 @@
         public function __construct7($user_id, $rol_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){            
             $this->user_id = $user_id;
             $this->rol_id = $rol_id;            
-            $this->user_name = $user_name;
+            $this->user_name = $user_name;            
             $this->user_email = $user_email;
             $this->user_phone = $user_phone;
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;            
         }
         
+        # Constructor: Objeto 08 parámetros
         public function __construct8($rol_id, $rol_name, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){
             unset($this->dbh);
             $this->rol_id = $rol_id;
@@ -57,68 +56,72 @@
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;            
         }
-
-        // 3ra Parte: Setter y Getters
-        # Código Rol
+        
+        # Rol: Id
         public function setRolCode($rol_id){
             $this->rol_id = $rol_id;
         }
         public function getRolCode(){
             return $this->rol_id;
         }
-        # Nombre Rol
+
+        # Rol: Nombre
         public function setRolName($rol_name){
             $this->rol_name = $rol_name;
         }
         public function getRolName(){
             return $this->rol_name;
         }
-        # Código Usuario
+
+        # Usuario: Id
         public function setUserId($user_id){
             $this->user_id = $user_id;
         }
         public function getUserId(){
             return $this->user_id;
         }
-        # Nombre Usuario
+
+        # Usuario: Nombre
         public function setUserName($user_name){
             $this->user_name = $user_name;
         }
         public function getUserName(){
             return $this->user_name;
-        }                
-        # Email Usuario
+        }  
+
+        # Usuario: Email
         public function setUserEmail($user_email){
             $this->user_email = $user_email;
         }
         public function getUserEmail(){
             return $this->user_email;
         }
-        # Celular Usuario
+
+        # Usuario: Celular
         public function setUserPhone($user_phone){
             $this->user_phone = $user_phone;
         }
         public function getUserPhone(){
             return $this->user_phone;
         }
-        # Contraseña Usuario
+
+        # Usuario: Contraseña
         public function setUserPass($user_pass){
             $this->user_pass = $user_pass;
         }
         public function getUserPass(){
             return $this->user_pass;
         }
-        # Estado Usuario
+
+        # Usuario: Estado
         public function setUserState($user_state){
             $this->user_state = $user_state;
         }
         public function getUserState(){
             return $this->user_state;
-        }        
+        }
 
-        // 4ta Parte: Persistencia a la Base de Datos
-
-        # RF01_CU01 - Iniciar Sesión
+        # Usuario: Iniciar sesión
         public function login(){
             try {
                 $sql = 'SELECT
@@ -159,83 +162,7 @@
             }
         }
 
-        # RF03_CU03 - Registrar Rol
-        public function create_rol(){
-            try {
-                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $this->getRolCode());
-                $stmt->bindValue('rolName', $this->getRolName());
-                $stmt->execute();
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
-        }
-
-        # RF04_CU04 - Consultar Roles
-        public function read_roles(){
-            try {
-                $rolList = [];
-                $sql = 'SELECT * FROM ROLES';
-                $stmt = $this->dbh->query($sql);
-                foreach ($stmt->fetchAll() as $rol) {
-                    $rolObj = new User;
-                    $rolObj->setRolCode($rol['rol_id']);
-                    $rolObj->setRolName($rol['rol_name']);
-                    array_push($rolList, $rolObj);
-                }
-                return $rolList;
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
-        }
-
-        # RF05_CU05 - Obtener el Rol por el código
-        public function getrol_bycode($rolCode){
-            try {
-                $sql = "SELECT * FROM ROLES WHERE rol_id=:rolCode";
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $rolCode);
-                $stmt->execute();
-                $rolDb = $stmt->fetch();
-                $rol = new User;
-                $rol->setRolCode($rolDb['rol_id']);
-                $rol->setRolName($rolDb['rol_name']);
-                return $rol;
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
-        }
-
-        # RF06_CU06 - Actualizar Rol
-        public function update_rol(){
-            try {
-                $sql = 'UPDATE ROLES SET
-                            rol_id = :rolCode,
-                            rol_name = :rolName
-                        WHERE rol_id = :rolCode';
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $this->getRolCode());
-                $stmt->bindValue('rolName', $this->getRolName());
-                $stmt->execute();
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
-        }
-
-        # RF07_CU07 - Eliminar Rol
-        public function delete_rol($rolCode){
-            try {
-                $sql = 'DELETE FROM ROLES WHERE rol_id = :rolCode';
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $rolCode);
-                $stmt->execute();
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
-        }
-
-        # RF08_CU08 - Registrar Usuario
+        # Usuario: Crear
         public function create_user(){
             try {
                 $sql = 'INSERT INTO USERS VALUES (
@@ -262,7 +189,7 @@
             }
         }
 
-        // # RF09_CU09 - Consultar Usuarios
+        # Usuario: Consultar
         public function read_users(){
             try {
                 $userList = [];
@@ -298,7 +225,7 @@
             }
         }
 
-        // # RF10_CU10 - Obtener el Usuario por el código
+        # Usuario: Obtener registro
         public function getuser_bycode($userCode){
             try {
                 $sql = 'SELECT
@@ -334,7 +261,7 @@
             }
         }
 
-        //  # RF11_CU11 - Actualizar usuario
+        # Usuario: Actualizar
          public function update_user(){
             try {
                 $sql = 'UPDATE USERS SET
@@ -360,7 +287,7 @@
             }
         }
 
-        // # RF12_CU12 - Eliminar Usuario
+        # Usuario: Eliminar
         public function delete_user($userCode){
             try {
                 $sql = 'DELETE FROM USERS WHERE user_id = :userCode';
@@ -371,21 +298,7 @@
                 die($e->getMessage());
             }
         }
-
-        // PROBLEMAS A SOLUCIONAR SOBRE LA MARCHA
-        # ✓ # Incluir en la DB una tabla con Jornadas, grados y grupos
         
-        # Carga masiva de datos Usuarios - Estudiantes
-        # Disparadores de Users a Profesor, Estudiante y Acudiente.
-          // Revisar porque genera conflicto cuando se actualicen los datos
-
-        // VALIDACIONES
-        # Validaciones de todos los formularios.
-        # Cierre de DB en PDO
-        # Incluir las Alertas (SweetAlert)
-        # Pruebas Unitarias, Integración, Funcionales, Sistema
-
-    
     }
 
 ?>

@@ -97,7 +97,7 @@
                         <a href="?c=Colleges&a=courseUpdate&idcourse=<?php echo $course->getCourseId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
-                        <a href="#" onclick="deleteRegister(<?php echo $course->getCourseId(); ?>, 'course')" class="btn btn-danger p-0 ms-1">
+                        <a href="#" onclick="deleteRegister('Colleges','course',<?php echo $course->getCourseId(); ?>)" class="btn btn-danger p-0 ms-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>

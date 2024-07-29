@@ -1,9 +1,10 @@
 <?php
 
-    class Course{
+    class Course{        
         private $course_id;
         private $course_name;
 
+        # Sobrecarga de constructores y conexión pdo
         public function __construct(){
             try {
                 $this->dbh = DataBase::connection();
@@ -17,8 +18,10 @@
             }
         }
 
+        # Constructor: Objeto 00 parámetros
         public function __construct0(){}
 
+        # Constructor: Objeto 02 parámetros
         public function __construct2($course_id,$course_name){
             $this->course_id = $course_id;
             $this->course_name = $course_name;
@@ -40,7 +43,7 @@
             return $this->course_name;
         }
 
-        # Curso: Registrar
+        # Curso: Crear
         public function create_course(){
             try {
                 $sql = 'INSERT INTO COURSES VALUES (
@@ -75,7 +78,7 @@
             }
         }
 
-        # Curso: Obtener Registro
+        # Curso: Obtener registro
         public function getcourse_bycode($course_id){
             try {
                 $sql = 'SELECT * FROM COURSES
@@ -123,5 +126,4 @@
         }
 
     }
-
 ?>

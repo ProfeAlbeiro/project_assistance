@@ -328,22 +328,18 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="?c=Users&a=rolCreate">
-              <i class="bi bi-circle"></i><span>Registrar Rol</span>
-            </a>
-          </li>          <li>
-            <a href="?c=Users&a=userCreate">
-              <i class="bi bi-circle"></i><span>Registrar Usuario</span>
+            <a href="?c=Users&a=rolRead">
+              <i class="bi bi-circle"></i><span>Roles</span>
             </a>
           </li>
           <li>
-            <a href="?c=Users&a=rolRead">
-              <i class="bi bi-circle"></i><span>Consultar Roles</span>
+            <a href="?c=Users&a=userCreate">
+              <i class="bi bi-circle"></i><span>Usuarios</span>
             </a>
-          </li>
+          </li>          
           <li>
             <a href="?c=Users&a=userRead">
-              <i class="bi bi-circle"></i><span>Consultar Usuarios</span>
+              <i class="bi bi-circle"></i><span>Todos los Usuarios</span>
             </a>
           </li>
         </ul>

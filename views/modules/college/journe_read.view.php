@@ -148,8 +148,8 @@
                 <thead>
                   <tr>
                     <th class="text-center">Jornada</th>
-                    <th class="text-center">Hora Inicio</th>
-                    <th class="text-center">Hora Fin</th>
+                    <th class="text-center">Hora_Inicio</th>
+                    <th class="text-center">Hora_Fin</th>
                     <th class="text-center">Min/Ant</th>
                     <th class="text-center">Min/Des</th>
                     <th class="text-center">Min/NoA</th>
@@ -169,7 +169,7 @@
                         <a href="?c=Colleges&a=journeUpdate&idjourne=<?php echo $journe->getJourneId(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
-                        <a href="#" onclick="deleteRegister(<?php echo $journe->getJourneId(); ?>,'journe')" class="btn btn-danger p-0 ms-1">
+                        <a href="#" onclick="deleteRegister('Colleges','journe',<?php echo $journe->getJourneId(); ?>)" class="btn btn-danger p-0 ms-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>

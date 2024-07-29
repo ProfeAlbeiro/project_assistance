@@ -1,25 +1,31 @@
-    <?php 
+<?php
+    # Modelos 
+    require_once "models/Rol.php";
     require_once "models/User.php";
-    class Users{
-        private $session;
+
+    class Users{        
+
+        # Constructor: Captura la sesión
         public function __construct(){            
             $this->session = $_SESSION['session'];
         }
 
-        // Controlador Principal
+        # Principal: Envía al Dashboard
         public function main(){            
             header("Location: ?c=Dashboard");
         }
 
-        // Controlador Crear Rol
+        # Rol: Controlador Crear
         public function rolCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     require_once "views/modules/users/rol_create.view.php";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $rol = new User;
-                    $rol->setRolName($_POST['rol_name']);
+                    $rol = new Rol(
+                        null,
+                        $_POST['rol_name']
+                    );                    
                     $rol->create_rol();
                     header("Location: ?c=Users&a=rolRead");
                 }                
@@ -28,10 +34,10 @@
             }            
         }
 
-        // Controlador Consultar Roles
+        # Rol: Controlador Consultar
         public function rolRead(){
-            if ($this->session == 'admin') {
-                $roles = new User;
+            if ($this->session == 'admin') {                
+                $roles = new Rol;
                 $roles = $roles->read_roles();
                 require_once "views/modules/users/rol_read.view.php";
             } else {
@@ -39,18 +45,24 @@
             }
         }
         
-        // Controlador Actualizar Rol
+        # Rol: Controlador Actualizar
         public function rolUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $rolId = new User;
-                    $rolId = $rolId->getrol_bycode($_GET['idRol']);                
-                    require_once "views/modules/users/rol_update.view.php";                
+                    $rolId = new Rol;
+                    $rolId = $rolId->getrol_bycode($_GET['idrol']);
+                    $roles = new Rol;
+                    $roles = $roles->read_roles();
+                    require_once "views/modules/users/rol_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editRegister('editRol');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $rolUpdate = new User;
-                    $rolUpdate->setRolCode($_POST['rol_code']);
-                    $rolUpdate->setRolName($_POST['rol_name']);
+                    $rolUpdate = new Rol(
+                        $_POST['rol_code'],
+                        $_POST['rol_name']
+                    );                    
                     $rolUpdate->update_rol();
                     header("Location: ?c=Users&a=rolRead");
                 }
@@ -59,18 +71,18 @@
             }
         }
 
-        // Controlador Eliminar Rol
+        # Rol: Controlador Eliminar
         public function rolDelete(){
-            if ($this->session == 'admin') {
-                $rol = new User;
-                $rol->delete_rol($_GET['idRol']);
+            if ($this->session == 'admin') {                
+                $rol = new Rol;
+                $rol->delete_rol($_GET['idrol']);
                 header("Location: ?c=Users&a=rolRead");
             } else {
                 header("Location: ?c=Dashboard");
             }
         }
 
-        // Controlador Crear Usuario
+        # Usuario: Controlador Crear
         public function userCreate(){
             if ($this->session == 'admin' || $this->session == 'seller') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -96,7 +108,7 @@
             }
         }
 
-        // Controlador Consultar Usuarios
+        # Usuario: Controlador Consultar
         public function userRead(){
             if ($this->session == 'admin') {
                 $state = ['Inactivo', 'Activo'];
@@ -108,7 +120,7 @@
             }
         }
 
-        // Controlador Actualizar Usuario
+        # Usuario: Controlador Actualizar
         public function userUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -137,7 +149,7 @@
             }
         }
 
-        // Controlador Eliminar Usuario
+        # Usuario: Controlador Eliminar
         public function userDelete(){
             if ($this->session == 'admin') {
                 $user = new User;

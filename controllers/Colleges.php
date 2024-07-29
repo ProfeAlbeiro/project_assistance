@@ -1,21 +1,23 @@
 <?php
+    # Modelos
     require_once "models/College.php";
     require_once "models/Journe.php";
     require_once "models/Grade.php";
     require_once "models/Course.php";
+
     class Colleges{
 
-        private $session;
-
+        # Constructor: Captura la sesión
         public function __construct(){
             $this->session = $_SESSION['session'];
         }
 
+        # Principal: Envía al Dashboard
         public function main(){
             header("Location: ?c=Dashboard");
         }
 
-        # Colegio: Consultar
+        # Colegio: Controlador Consultar
         public function collegeRead(){
             if ($this->session == 'admin') {
                 $colleges = new College;
@@ -26,7 +28,7 @@
             }
         }
 
-        # Colegio: Actualizar
+        # Colegio: Controlador Actualizar
         public function collegeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -51,7 +53,7 @@
             }
         }
 
-        # Jornada: Registrar
+        # Jornada: Controlador Crear
         public function journeCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -75,7 +77,7 @@
             }
         }
 
-        # Jornada: Consultar
+        # Jornada: Controlador Consultar
          public function journeRead(){
             if ($this->session == 'admin') {
                 $journes = new Journe;
@@ -86,7 +88,7 @@
             }
         }
 
-        # Jornada: Actualizar
+        # Jornada: Controlador Actualizar
         public function journeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -117,7 +119,7 @@
             }
         }
 
-        # Jornada: Eliminar
+        # Jornada: Controlador Eliminar
         public function journeDelete(){
             if ($this->session == 'admin') {
                 $journe = new Journe;
@@ -128,7 +130,7 @@
             }
         }
 
-        # Grado: Registrar
+        # Grado: Controlador Crear
         public function gradeCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -147,7 +149,7 @@
             }
         }
 
-        # Grado: Consultar
+        # Grado: Controlador Consultar
         public function gradeRead(){
             if ($this->session == 'admin') {
                 $end_grade = new Grade;
@@ -161,7 +163,7 @@
             }
         }
 
-        # Grado: Actualizar
+        # Grado: Controlador Actualizar
         public function gradeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -187,7 +189,7 @@
             }
         }
 
-        # Grado: Eliminar
+        # Grado: Controlador Eliminar
         public function gradeDelete(){
             if ($this->session == 'admin') {
                 $grade = new Grade;
@@ -198,7 +200,7 @@
             }
         }
 
-        # Curso: Registrar
+        # Curso: Controlador Crear
         public function courseCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -217,7 +219,7 @@
             }
         }
 
-        # Curso: Consultar
+        # Curso: Controlador Consultar
         public function courseRead(){
             if ($this->session == 'admin') {
                 $courses = new Course;
@@ -228,7 +230,7 @@
             }
         }
 
-        # Curso: Actualizar
+        # Curso: Controlador Actualizar
         public function courseUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -239,7 +241,7 @@
                     require_once "views/modules/college/course_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editCollege('editCourse');</script>";
+                    echo "<script>editRegister('editCourse');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $course = new Course(
@@ -254,7 +256,7 @@
             }
         }
 
-        # Curso: Eliminar
+        # Curso: Controlador Eliminar
         public function courseDelete(){
             if ($this->session == 'admin') {
                 $course = new Course;

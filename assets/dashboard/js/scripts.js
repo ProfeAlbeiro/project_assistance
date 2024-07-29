@@ -1,4 +1,4 @@
-function editCollege(editRegister){
+function editRegister(editRegister){
     var myModal = new bootstrap.Modal(document.getElementById(editRegister), {
         keyboard: false,
         backdrop: 'static'
@@ -6,7 +6,7 @@ function editCollege(editRegister){
     myModal.show();
 }
 
-function deleteRegister(registerId, nameConst){        
+function deleteRegister(controller, action, registerId){        
     swal({
         title: "Está seguro de eliminar el registro",
         text: "Si elimina el registro, ya no podrá recuperarlo de la memoria!",
@@ -19,7 +19,7 @@ function deleteRegister(registerId, nameConst){
             swal("El registro será eliminado!", {
                 icon: "success",                
             }).then((result) => {                
-                window.location = '?c=Colleges&a='+nameConst+'Delete&id'+nameConst+'=' + registerId;                
+                window.location = '?c='+controller+'&a='+action+'Delete&id'+action+'=' + registerId;                
             });
         } else {
             swal("El registro se ha conservado en la Base de Datos");            

@@ -8,6 +8,10 @@ ol a, ol li, ul li>ul li span{
     font-family: "Nunito", sans-serif;
 }
 
+.hidden-col{
+    visibility:hidden;
+    display:none!important;
+}
 .reducir-texto{
     font-size: 1.5em!important;
 }
