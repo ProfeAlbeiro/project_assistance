@@ -86,7 +86,7 @@
         public function userCreate(){
             if ($this->session == 'admin' || $this->session == 'seller') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $roles = new User;
+                    $roles = new Rol;
                     $roles = $roles->read_roles();
                     require_once "views/modules/users/user_create.view.php";
                 }

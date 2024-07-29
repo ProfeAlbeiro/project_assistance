@@ -81,7 +81,7 @@
 
                 <!-- Modal Actualizar Jornada -->
                 <div class="modal fade" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
-                  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                  <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Editar Jornada</h5>

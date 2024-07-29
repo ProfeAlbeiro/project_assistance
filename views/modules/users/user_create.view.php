@@ -7,7 +7,7 @@
           <li class="breadcrumb-item active">Registrar Usuario</li>
         </ol>
       </nav>
-    </div><!-- End Page Title -->
+    </div>
 
 	<section class="section">
       <div class="row">
@@ -15,17 +15,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Registrar Usuario</h5>
-
-              <!-- General Form Elements -->
+              
               <form action="" method="POST">
                 
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>
-                  <div class="col-sm-9">
-                    <input type="text" name="user_id" class="form-control">
-                  </div>
-                </div>
-              
                 <div class="row mb-3">
                   <label class="col-sm-3 col-form-label">Rol</label>
                   <div class="col-sm-9">
@@ -46,6 +38,13 @@
 											<option value="1">Activo</option>
 											<option value="0">Inactivo</option>	
                     </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="user_id" class="form-control">
                   </div>
                 </div>
               
@@ -90,7 +89,7 @@
                   </div>
                 </div>
 
-              </form><!-- End General Form Elements -->
+              </form>
 
             </div>
           </div>
