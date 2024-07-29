@@ -99,7 +99,7 @@
                     require_once "views/modules/college/journe_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editCollege('editJourne');</script>";
+                    echo "<script>editRegister('editJourne');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $journe = new Journe(
@@ -174,7 +174,7 @@
                     require_once "views/modules/college/grade_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editCollege('editGrade');</script>";
+                    echo "<script>editRegister('editGrade');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $grade = new Grade(
