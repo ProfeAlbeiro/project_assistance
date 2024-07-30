@@ -1,12 +1,12 @@
 <?php
     require_once "models/User.php";
-    class Student extends User{
-        # Estudianter: Crear
-        public function create_student(){
+    class Guardian extends User{
+        # Acudiente: Crear
+        public function create_guardian(){
             try {
-                $sql = 'INSERT INTO STUDENTS VALUES (:studentId)';
+                $sql = 'INSERT INTO GUARDIANS VALUES (:guardianId)';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('studentId', $this->getUserId());                
+                $stmt->bindValue('guardianId', $this->getUserId());                
                 $stmt->execute();
                 return $stmt;
             } catch (Exception $e) {

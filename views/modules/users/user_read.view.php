@@ -18,7 +18,7 @@
               <div class ="d-flex">
                 <h5 class="card-title flex-grow-1">Usuarios</h5>
 
-                <!-- Modal Crear Curso -->
+                <!-- Modal Crear Usuario -->
                 <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createUser">
                   Crear Usuario
                 </button>
@@ -98,8 +98,8 @@
                   </div>
                 </div>
 
-                <!-- Modal Actualizar Rol -->
-                <div class="modal fade" id="editUser" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                <!-- Modal Actualizar Usuario -->
+                <div class="modal fade modal-adjust" id="editUser" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">

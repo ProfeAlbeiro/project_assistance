@@ -18,7 +18,7 @@
               <div class ="d-flex">
                 <h5 class="card-title flex-grow-1">Roles</h5>
 
-                <!-- Modal Crear Curso -->
+                <!-- Modal Crear Rol -->
                 <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createRol">
                   Crear Rol
                 </button>

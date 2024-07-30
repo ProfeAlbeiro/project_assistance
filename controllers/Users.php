@@ -2,6 +2,9 @@
     # Modelos 
     require_once "models/Rol.php";
     require_once "models/User.php";
+    require_once "models/Student.php";
+    require_once "models/Teacher.php";
+    require_once "models/Guardian.php";
 
     class Users{        
 
@@ -84,21 +87,36 @@
 
         # Usuario: Controlador Crear
         public function userCreate(){
-            if ($this->session == 'admin' || $this->session == 'seller') {
+            if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
                     header("Location: ?c=Users&a=userRead");                    
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
                     $user = new User(
                         $_POST['user_id'],
-                        $_POST['rol_code'],                        
-                        $_POST['user_name'],                        
-                        $_POST['user_email'],                        
-                        $_POST['user_phone'],                        
+                        $_POST['rol_code'],
+                        $_POST['user_name'],
+                        $_POST['user_email'],
+                        $_POST['user_phone'],
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );
-                    $user = $user->create_user();                    
+                    $user->create_user();
+                    if ($_POST['rol_code'] == 2) {
+                        $teacher = new Teacher;
+                        $teacher->setUserId($_POST['user_id']);
+                        $teacher->create_teacher();                        
+                    } elseif ($_POST['rol_code'] == 3) {
+                        $student = new Student;
+                        $student->setUserId($_POST['user_id']);
+                        $student->create_student();                        
+                    } elseif ($_POST['rol_code'] == 4) {
+                        $guardian = new Guardian;
+                        $guardian->setUserId($_POST['user_id']);
+                        $guardian->create_guardian();                        
+                    } else {
+                        header("Location: ?c=Dashboard");
+                    }                                        
                     header("Location: ?c=Users&a=userRead");
                 }
             } else {

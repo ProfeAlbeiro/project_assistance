@@ -1,14 +1,14 @@
 <?php    
 
     class User{
-        private $rol_id;
-        private $rol_name;
-        private $user_id;
-        private $user_name;        
-        private $user_email;
-        private $user_phone;
-        private $user_pass;
-        private $user_state;
+        protected $rol_id;
+        protected $rol_name;
+        protected $user_id;
+        protected $user_name;        
+        protected $user_email;
+        protected $user_phone;
+        protected $user_pass;
+        protected $user_state;
 
         # Sobrecarga de constructores y conexión pdo
         public function __construct(){
