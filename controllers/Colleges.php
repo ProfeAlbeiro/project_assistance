@@ -92,10 +92,10 @@
         public function journeUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $journeId = new Journe;
-                    $journeId = $journeId->getjourne_bycode($_GET['idjourne']);
                     $journes = new Journe;
                     $journes = $journes->read_journe();
+                    $journeId = new Journe;
+                    $journeId = $journeId->getjourne_bycode($_GET['idjourne']);
                     require_once "views/modules/college/journe_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";

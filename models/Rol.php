@@ -74,6 +74,25 @@
             }
         }
 
+         # Rol: Consultar sin acudiente
+         public function read_roles_notguardians(){
+            try {
+                $rolList = [];
+                $sql = "SELECT * FROM ROLES
+                        WHERE rol_name NOT IN ('acudiente')";
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $rol) {
+                    $rolObj = new User;
+                    $rolObj->setRolCode($rol['rol_id']);
+                    $rolObj->setRolName($rol['rol_name']);
+                    array_push($rolList, $rolObj);
+                }
+                return $rolList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
         # Rol: Obtener registro
         public function getrol_bycode($rolCode){
             try {

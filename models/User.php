@@ -175,8 +175,8 @@
                             :userState
                         )';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('userName', $this->getUserName());                
                 $stmt->bindValue('userEmail', $this->getUserEmail());
                 $stmt->bindValue('userPhone', $this->getUserPhone());

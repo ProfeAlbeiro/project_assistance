@@ -49,7 +49,7 @@ INSERT INTO `users` VALUES
 ('1031041051', 3, 'Pepito Perez', 'pepito@colegio.edu.co', null , sha1('12345'), 1),
 ('1031041052', 3, 'Marinita García', 'marinita@colegio.edu.co', "3223213241" , sha1('12345'), 1),
 ('1031041053', 3, 'Josefito Suárez', 'josefito@colegio.edu.co', null , sha1('12345'), 1),
-('1031041054', 3, 'Carlitos Duarte', 'josefito@colegio.edu.co', null , sha1('12345'), 1);
+('1031041054', 3, 'Carlitos Duarte', 'carlitos@colegio.edu.co', null , sha1('12345'), 1);
 SELECT * FROM USERS;
 
 -- Insertar Estudiantes
@@ -302,3 +302,9 @@ SELECT * FROM GUARDIANS;
 SELECT * FROM GUARDIANS_STUDENTS;
 SELECT * FROM ASSISTANCES;
 SELECT * FROM JUSTIFICATIONS;
+
+-- ------------------------------------------------------------------------------------------------------ --
+-- 04.02. Consultas Específicas. -------------------------------------------------------------------------- --
+-- ------------------------------------------------------------------------------------------------------ --
+SELECT * FROM ROLES
+WHERE rol_name NOT IN ('acudiente');

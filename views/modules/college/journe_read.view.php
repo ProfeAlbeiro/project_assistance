@@ -1,5 +1,5 @@
 	<!-- Migas de Pan -->
-  <div class="pagetitle">
+    <div class="pagetitle">
       <h1><?php echo $_SESSION['collegeName'] ?></h1>
       <nav>
         <ol class="breadcrumb">
@@ -81,7 +81,7 @@
 
                 <!-- Modal Actualizar Jornada -->
                 <div class="modal fade modal-adjust" id="editJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
-                  <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Editar Jornada</h5>
@@ -148,8 +148,8 @@
                 <thead>
                   <tr>
                     <th class="text-center">Jornada</th>
-                    <th class="text-center">Hora Inicio</th>
-                    <th class="text-center">Hora Fin</th>
+                    <th class="text-center">Hora_Inicio</th>
+                    <th class="text-center">Hora_Fin</th>
                     <th class="text-center">Min/Ant</th>
                     <th class="text-center">Min/Des</th>
                     <th class="text-center">Min/NoA</th>

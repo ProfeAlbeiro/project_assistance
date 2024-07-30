@@ -85,10 +85,8 @@
         # Usuario: Controlador Crear
         public function userCreate(){
             if ($this->session == 'admin' || $this->session == 'seller') {
-                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $roles = new Rol;
-                    $roles = $roles->read_roles();
-                    require_once "views/modules/users/user_create.view.php";
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
+                    header("Location: ?c=Users&a=userRead");                    
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
                     $user = new User(
@@ -111,9 +109,11 @@
         # Usuario: Controlador Consultar
         public function userRead(){
             if ($this->session == 'admin') {
-                $state = ['Inactivo', 'Activo'];
+                $roles = new Rol;
+                $roles = $roles->read_roles_notguardians();
+                $state = ['Pendiente', 'Activo'];
                 $users = new User;
-                $users = $users->read_users();                
+                $users = $users->read_users();
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
@@ -124,12 +124,17 @@
         public function userUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $state = ['Inactivo', 'Activo'];
-                    $roles = new User;
+                    $state = ['Pendiente', 'Activo'];
+                    $userId = new User;
+                    $userId = $userId->getuser_bycode($_GET['iduser']);
+                    $roles = new Rol;
                     $roles = $roles->read_roles();
-                    $user = new User;                
-                    $user = $user->getuser_bycode($_GET['idUser']);                
-                    require_once "views/modules/users/user_update.view.php";
+                    $users = new User;
+                    $users = $users->read_users();
+                    require_once "views/modules/users/user_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editRegister('editUser');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $userUpdate = new User(
@@ -153,7 +158,7 @@
         public function userDelete(){
             if ($this->session == 'admin') {
                 $user = new User;
-                $user->delete_user($_GET['idUser']);
+                $user->delete_user($_GET['iduser']);
                 header("Location: ?c=Users&a=userRead");
             } else {
                 header("Location: ?c=Dashboard");

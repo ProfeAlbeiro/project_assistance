@@ -333,15 +333,16 @@
             </a>
           </li>
           <li>
-            <a href="?c=Users&a=userCreate">
+            <a href="?c=Users&a=userRead">
               <i class="bi bi-circle"></i><span>Usuarios</span>
             </a>
-          </li>          
-          <li>
-            <a href="?c=Users&a=userRead">
-              <i class="bi bi-circle"></i><span>Todos los Usuarios</span>
-            </a>
           </li>
+          <li>
+            <a href="?c=Dashboard">
+              <i class="bi bi-circle"></i><span>Estudiantes</span>
+            </a>
+          </li>          
+          
         </ul>
       </li><!-- End Forms Nav -->
 

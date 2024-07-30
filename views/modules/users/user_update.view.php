@@ -17,7 +17,7 @@
               <h5 class="card-title">Actualizar Usuario</h5>
 
               <!-- General Form Elements -->
-              <form action="" method="POST">
+              <form action="?c=Users&a=userUpdate" method="POST">
                 <input type="hidden" class="form-control" name="user_id" id="user_id" value="<?php echo $user->getUserId();?>">
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>

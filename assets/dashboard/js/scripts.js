@@ -6,7 +6,7 @@ function editRegister(editRegister){
     myModal.show();
 }
 
-function deleteRegister(controller, action, registerId){        
+function deleteRegister(controller, nameClass, registerId){        
     swal({
         title: "Está seguro de eliminar el registro",
         text: "Si elimina el registro, ya no podrá recuperarlo de la memoria!",
@@ -19,7 +19,7 @@ function deleteRegister(controller, action, registerId){
             swal("El registro será eliminado!", {
                 icon: "success",                
             }).then((result) => {                
-                window.location = '?c='+controller+'&a='+action+'Delete&id'+action+'=' + registerId;                
+                window.location = '?c='+controller+'&a='+nameClass+'Delete&id'+nameClass+'=' + registerId;                
             });
         } else {
             swal("El registro se ha conservado en la Base de Datos");            

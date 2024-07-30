@@ -1,4 +1,4 @@
-<div class="pagetitle">
+    <div class="pagetitle">
       <h1><?php echo $_SESSION['collegeName'] ?></h1>
       <nav>
         <ol class="breadcrumb">

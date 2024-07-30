@@ -43,11 +43,11 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    var table = $('#ej-users').DataTable({
+    var table = $('#ej-user').DataTable({
         dom: 'Bfrtip',
         "order": [
-            [ 0, "desc" ],
             [ 5, "asc" ],
+            [ 0, "desc" ],
         ],
         buttons: [
             'copy',
