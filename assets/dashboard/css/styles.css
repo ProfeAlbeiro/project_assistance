@@ -59,4 +59,7 @@ ol a, ol li, ul li>ul li span{
     .adj-padd-btns{
         padding: 0px!important;
     }
+    .font-size-min, .dt-buttons{
+        font-size: 12px!important;
+    }    
 }

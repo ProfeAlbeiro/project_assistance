@@ -19,7 +19,7 @@
                 <h5 class="card-title col-lg-6 py-3 px-2 adj-padd-title">Estudiantes</h5>
                 <div class="col-lg-6 p-2 d-flex justify-content-center justify-content-lg-end adj-padd-btns">
                   <!-- Modal Crear Estudiante -->
-                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2" data-bs-toggle="modal" data-bs-target="#createStudent">
+                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min" data-bs-toggle="modal" data-bs-target="#createStudent">
                     Nuevo Estudiante
                   </button>
                   <div class="modal fade" id="createStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
@@ -87,7 +87,7 @@
                     </div>
                   </div>
   
-                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2" data-bs-toggle="modal" data-bs-target="#createStudent">
+                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min" data-bs-toggle="modal" data-bs-target="#createStudent">
                     Acudientes
                   </button>
                   <!-- <div class="modal fade" id="createStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
@@ -166,7 +166,7 @@
                     </div>
                   </div> -->
   
-                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2 me-0" data-bs-toggle="modal" data-bs-target="#createStudent">
+                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2 me-0 font-size-min" data-bs-toggle="modal" data-bs-target="#createStudent">
                     Matriculados
                   </button>
                   <!-- <div class="modal fade" id="createStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
