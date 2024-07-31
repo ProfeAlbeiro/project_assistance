@@ -25,7 +25,7 @@ $(document).ready(function () {
         ],
         select: true,
         responsive: true,
-        pageLength: 5,
+        pageLength: 6,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
@@ -66,7 +66,7 @@ $(document).ready(function () {
         ],
         select: true,
         responsive: true,
-        pageLength: 5,
+        pageLength: 6,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
@@ -107,7 +107,7 @@ $(document).ready(function () {
         ],
         select: true,
         responsive: true,
-        pageLength: 5,
+        pageLength: 6,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
@@ -147,7 +147,7 @@ $(document).ready(function () {
         ],
         select: true,
         responsive: true,
-        pageLength: 5,
+        pageLength: 6,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
@@ -187,7 +187,7 @@ $(document).ready(function () {
         ],
         select: true,
         responsive: true,
-        pageLength: 5,
+        pageLength: 6,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
@@ -227,7 +227,7 @@ $(document).ready(function () {
         ],
         select: true,
         responsive: true,
-        pageLength: 5,
+        pageLength: 6,
         language: {
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
