@@ -113,7 +113,7 @@
         public function userRead(){
             if ($this->session == 'admin') {
                 $roles = new Rol;
-                $roles = $roles->read_roles_notstdgrd();
+                $roles = $roles->read_roles_not();
                 $state = ['Pendiente', 'Activo'];
                 $users = new User;
                 $users = $users->read_users();
