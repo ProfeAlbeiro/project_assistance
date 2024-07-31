@@ -16,8 +16,8 @@
           <div class="card">
             <div class="card-body">
               <div class ="row p-1">
-                <h5 class="card-title col-lg-6 py-3 px-2">Estudiantes</h5>
-                <div class="col-lg-6 p-2 d-flex justify-content-center justify-content-lg-end">
+                <h5 class="card-title col-lg-6 py-3 px-2 adj-padd-title">Estudiantes</h5>
+                <div class="col-lg-6 p-2 d-flex justify-content-center justify-content-lg-end adj-padd-btns">
                   <!-- Modal Crear Estudiante -->
                   <button type="button" class="btn btn-primary btn-sm m-1 mb-2" data-bs-toggle="modal" data-bs-target="#createStudent">
                     Estudiantes

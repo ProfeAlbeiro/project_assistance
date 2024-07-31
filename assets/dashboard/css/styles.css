@@ -53,4 +53,10 @@ ol a, ol li, ul li>ul li span{
         max-height: 40px;
         margin: 0;
     }
+    .adj-padd-title{
+        padding-bottom: 0px!important;
+    }
+    .adj-padd-btns{
+        padding: 0px!important;
+    }
 }
