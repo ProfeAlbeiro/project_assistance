@@ -285,7 +285,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="?c=Dashboard">
-          <i class="bi bi-person"></i>
+          <i class="ri-user-settings-fill"></i>
           <span>Perfil</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -331,7 +331,7 @@
           </li>
           <li>
             <a href="?c=Users&a=userRead">
-              <i class="bi bi-circle"></i><span>Usuarios</span>
+              <i class="bi bi-circle"></i><span>Funcionarios</span>
             </a>
           </li>
           <li>

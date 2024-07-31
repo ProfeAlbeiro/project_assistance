@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="?c=Dashboard">Panel de Control</a></li>
           <li class="breadcrumb-item">Usuarios</li>
-          <li class="breadcrumb-item active">Usuarios</li>
+          <li class="breadcrumb-item active">Funcionarios</li>
         </ol>
       </nav>
     </div>
@@ -16,17 +16,17 @@
           <div class="card">
             <div class="card-body">
               <div class ="d-flex">
-                <h5 class="card-title flex-grow-1">Usuarios</h5>
+                <h5 class="card-title flex-grow-1">Funcionarios</h5>
 
                 <!-- Modal Crear Usuario -->
                 <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createUser">
-                  Crear Usuario
+                  Crear Funcionario
                 </button>
                 <div class="modal fade" id="createUser" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Crear Usuario</h5>
+                        <h5 class="modal-title">Crear Funcionario</h5>
                         <a href="?c=Users&a=userRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">
