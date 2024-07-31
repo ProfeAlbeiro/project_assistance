@@ -1,20 +1,20 @@
 <?php
-    # Modelos 
+    # Modelos
     require_once "models/Rol.php";
     require_once "models/User.php";
     require_once "models/Student.php";
     require_once "models/Teacher.php";
     require_once "models/Guardian.php";
 
-    class Users{        
+    class Users{
 
         # Constructor: Captura la sesión
-        public function __construct(){            
+        public function __construct(){
             $this->session = $_SESSION['session'];
         }
 
         # Principal: Envía al Dashboard
-        public function main(){            
+        public function main(){
             header("Location: ?c=Dashboard");
         }
 
@@ -28,18 +28,18 @@
                     $rol = new Rol(
                         null,
                         $_POST['rol_name']
-                    );                    
+                    );
                     $rol->create_rol();
                     header("Location: ?c=Users&a=rolRead");
-                }                
+                }
             } else {
                 header("Location: ?c=Dashboard");
-            }            
+            }
         }
 
         # Rol: Controlador Consultar
         public function rolRead(){
-            if ($this->session == 'admin') {                
+            if ($this->session == 'admin') {
                 $roles = new Rol;
                 $roles = $roles->read_roles();
                 require_once "views/modules/users/rol_read.view.php";
@@ -47,7 +47,7 @@
                 header("Location: ?c=Dashboard");
             }
         }
-        
+
         # Rol: Controlador Actualizar
         public function rolUpdate(){
             if ($this->session == 'admin') {
@@ -65,7 +65,7 @@
                     $rolUpdate = new Rol(
                         $_POST['rol_code'],
                         $_POST['rol_name']
-                    );                    
+                    );
                     $rolUpdate->update_rol();
                     header("Location: ?c=Users&a=rolRead");
                 }
@@ -76,7 +76,7 @@
 
         # Rol: Controlador Eliminar
         public function rolDelete(){
-            if ($this->session == 'admin') {                
+            if ($this->session == 'admin') {
                 $rol = new Rol;
                 $rol->delete_rol($_GET['idrol']);
                 header("Location: ?c=Users&a=rolRead");
@@ -88,10 +88,10 @@
         # Usuario: Controlador Crear
         public function userCreate(){
             if ($this->session == 'admin') {
-                if ($_SERVER['REQUEST_METHOD'] == 'GET') {                    
-                    header("Location: ?c=Users&a=userRead");                    
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    header("Location: ?c=Users&a=userRead");
                 }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {                
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $user = new User(
                         $_POST['user_id'],
                         $_POST['rol_code'],
@@ -102,21 +102,6 @@
                         $_POST['user_state']
                     );
                     $user->create_user();
-                    if ($_POST['rol_code'] == 2) {
-                        $teacher = new Teacher;
-                        $teacher->setUserId($_POST['user_id']);
-                        $teacher->create_teacher();                        
-                    } elseif ($_POST['rol_code'] == 3) {
-                        $student = new Student;
-                        $student->setUserId($_POST['user_id']);
-                        $student->create_student();                        
-                    } elseif ($_POST['rol_code'] == 4) {
-                        $guardian = new Guardian;
-                        $guardian->setUserId($_POST['user_id']);
-                        $guardian->create_guardian();                        
-                    } else {
-                        header("Location: ?c=Dashboard");
-                    }                                        
                     header("Location: ?c=Users&a=userRead");
                 }
             } else {
@@ -128,7 +113,7 @@
         public function userRead(){
             if ($this->session == 'admin') {
                 $roles = new Rol;
-                $roles = $roles->read_roles_notguardians();
+                $roles = $roles->read_roles_notstdgrd();
                 $state = ['Pendiente', 'Activo'];
                 $users = new User;
                 $users = $users->read_users();
@@ -157,8 +142,8 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $userUpdate = new User(
                         $_POST['user_id'],
-                        $_POST['rol_id'],                        
-                        $_POST['user_name'],                        
+                        $_POST['rol_id'],
+                        $_POST['user_name'],
                         $_POST['user_email'],
                         $_POST['user_phone'],
                         $_POST['user_pass'],
@@ -178,6 +163,20 @@
                 $user = new User;
                 $user->delete_user($_GET['iduser']);
                 header("Location: ?c=Users&a=userRead");
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Estudiante: Controlador Consultar
+        public function studentRead(){
+            if ($this->session == 'admin') {
+                $roles = new Rol;
+                $roles = $roles->read_roles_not();
+                $state = ['Pendiente', 'Activo'];
+                $students = new Student;
+                $students = $students->read_users();
+                require_once "views/modules/users/student_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
             }

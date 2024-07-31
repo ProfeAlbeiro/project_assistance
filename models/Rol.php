@@ -2,7 +2,7 @@
 
     class Rol{
         private $rol_id;
-        private $rol_name;        
+        private $rol_name;
 
         # Sobrecarga de constructores y conexión pdo
         public function __construct(){
@@ -75,11 +75,11 @@
         }
 
          # Rol: Consultar sin acudiente
-         public function read_roles_notguardians(){
+         public function read_roles_not(){
             try {
                 $rolList = [];
                 $sql = "SELECT * FROM ROLES
-                        WHERE rol_name NOT IN ('acudiente')";
+                        WHERE rol_name NOT IN ('acudiente','estudiante')";
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $rol) {
                     $rolObj = new User;

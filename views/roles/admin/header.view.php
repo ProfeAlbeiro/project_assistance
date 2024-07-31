@@ -31,9 +31,6 @@
   <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/select.dataTables.min.css">
   <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/rowReorder.dataTables.min.css">
   <link rel="stylesheet" href="assets/dashboard/vendor/data-tables/css/responsive.dataTables.min.css">
-  <!-- <link href="assets/dashboard/vendor/simple-datatables/style.css" rel="stylesheet"> -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-  <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"> -->
 
   <!-- Template Main CSS File -->
   <link href="assets/dashboard/css/style.css" rel="stylesheet">
@@ -54,14 +51,14 @@
         <span class="d-none d-lg-block pt-1"><?php echo $_SESSION['collegeName'] ?></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
+    </div>
 
     <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Buscar" title="Enter search keyword">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
-    </div><!-- End Search Bar -->
+    </div>
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -70,14 +67,14 @@
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-        </li><!-- End Search Icon-->
+        </li>
 
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
+          </a>
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
@@ -143,16 +140,16 @@
               <a href="#">Mostrar todas las notificaciones</a>
             </li>
 
-          </ul><!-- End Notification Dropdown Items -->
+          </ul>
 
-        </li><!-- End Notification Nav -->
+        </li>
 
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
             <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
+          </a>
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
@@ -320,7 +317,7 @@
           </li>
           <li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -338,11 +335,11 @@
             </a>
           </li>
           <li>
-            <a href="?c=Dashboard">
+            <a href="?c=Users&a=studentRead">
               <i class="bi bi-circle"></i><span>Estudiantes</span>
             </a>
-          </li>          
-          
+          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 

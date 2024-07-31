@@ -307,4 +307,4 @@ SELECT * FROM JUSTIFICATIONS;
 -- 04.02. Consultas Específicas. -------------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------------------------ --
 SELECT * FROM ROLES
-WHERE rol_name NOT IN ('acudiente');
+WHERE rol_name NOT IN ('acudiente',"estudiante");

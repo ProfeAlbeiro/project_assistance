@@ -16,7 +16,7 @@ select
 from ROLES as r
 inner join USERS as u
 on r.rol_id = u.rol_id
-WHERE user_id = 1001011021;  
+WHERE user_id = 1001011021;
   
 
 /* ************************************************************************************* */
