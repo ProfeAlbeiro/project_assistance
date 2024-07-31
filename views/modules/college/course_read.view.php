@@ -19,7 +19,7 @@
                 <h5 class="card-title flex-grow-1">Cursos</h5>
 
                 <!-- Modal Crear Curso -->
-                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createCourse">
+                <button type="button" class="btn btn-primary btn-sm my-3 font-size-min" data-bs-toggle="modal" data-bs-target="#createCourse">
                   Crear Curso
                 </button>
                 <div class="modal fade" id="createCourse" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">

@@ -21,7 +21,7 @@
                 <h5 class="card-title flex-grow-1">Jornadas</h5>
 
                 <!-- Modal Crear Jornada -->
-                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createJourne">
+                <button type="button" class="btn btn-primary btn-sm my-3 font-size-min" data-bs-toggle="modal" data-bs-target="#createJourne">
                   Crear Jornada
                 </button>
                 <div class="modal fade" id="createJourne" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">

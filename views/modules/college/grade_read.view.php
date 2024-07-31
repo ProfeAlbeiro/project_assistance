@@ -19,7 +19,7 @@
                 <h5 class="card-title flex-grow-1">Grados</h5>
 
                 <!-- Modal Crear Grado -->
-                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createGrade">
+                <button type="button" class="btn btn-primary btn-sm my-3 font-size-min" data-bs-toggle="modal" data-bs-target="#createGrade">
                   Crear Grado
                 </button>
                 <div class="modal fade" id="createGrade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">

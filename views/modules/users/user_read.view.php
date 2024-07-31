@@ -19,7 +19,7 @@
                 <h5 class="card-title flex-grow-1">Funcionarios</h5>
 
                 <!-- Modal Crear Usuario -->
-                <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createUser">
+                <button type="button" class="btn btn-primary btn-sm my-3 font-size-min" data-bs-toggle="modal" data-bs-target="#createUser">
                   Nuevo Funcionario
                 </button>
                 <div class="modal fade" id="createUser" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
