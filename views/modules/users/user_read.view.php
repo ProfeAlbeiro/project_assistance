@@ -20,13 +20,13 @@
 
                 <!-- Modal Crear Usuario -->
                 <button type="button" class="btn btn-primary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#createUser">
-                  Crear Funcionario
+                  Nuevo Funcionario
                 </button>
                 <div class="modal fade" id="createUser" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Crear Funcionario</h5>
+                        <h5 class="modal-title">Registrar Funcionario</h5>
                         <a href="?c=Users&a=userRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">
@@ -103,7 +103,7 @@
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Editar Usuario</h5>
+                        <h5 class="modal-title">Editar Funcionario</h5>
                         <a href="?c=Users&a=userRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">

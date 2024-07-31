@@ -168,15 +168,49 @@
             }
         }
 
+        # Estudiante: Controlador Crear
+        public function studentCreate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    header("Location: ?c=Users&a=studentRead");
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $student = new Student(
+                        $_POST['user_id'],
+                        3,
+                        $_POST['user_name'],
+                        $_POST['user_email'],
+                        $_POST['user_phone'],
+                        $_POST['user_pass'],
+                        $_POST['user_state']
+                    );
+                    $student->create_user();
+                    $student->create_student();
+                    header("Location: ?c=Users&a=studentRead");
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
         # Estudiante: Controlador Consultar
         public function studentRead(){
-            if ($this->session == 'admin') {
-                $roles = new Rol;
-                $roles = $roles->read_roles_not();
+            if ($this->session == 'admin') {                
                 $state = ['Pendiente', 'Activo'];
                 $students = new Student;
                 $students = $students->read_users();
                 require_once "views/modules/users/student_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Usuario: Controlador Eliminar
+        public function studentDelete(){
+            if ($this->session == 'admin') {
+                $user = new User;
+                $user->delete_user($_GET['idstudent']);
+                header("Location: ?c=Users&a=studentRead");
             } else {
                 header("Location: ?c=Dashboard");
             }

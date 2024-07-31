@@ -1,6 +1,21 @@
 <?php
     require_once "models/User.php";
     class Student extends User{
+
+        # Sobrecarga de constructores y conexión pdo
+        public function __construct(){
+            try {
+                $this->dbh = DataBase::connection();
+                $a = func_get_args();
+                $i = func_num_args();
+                if (method_exists($this, $f = '__construct' . $i)) {
+                    call_user_func_array(array($this, $f), $a);
+                }
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
         # Estudiante: Crear
         public function create_student(){
             try {
