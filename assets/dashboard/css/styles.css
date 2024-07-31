@@ -59,7 +59,10 @@ ol a, ol li, ul li>ul li span{
     .adj-padd-btns{
         padding: 0px!important;
     }
-    .font-size-min, .dt-buttons{
+    .font-size-min, .dt-buttons, .paginate_button{
         font-size: 12px!important;
-    }    
+    }
+    .dataTables_filter input{
+        width: 250px!important;
+    }
 }
