@@ -315,3 +315,6 @@ SELECT * FROM JUSTIFICATIONS;
 -- ------------------------------------------------------------------------------------------------------ --
 SELECT * FROM ROLES
 WHERE rol_name NOT IN ('acudiente',"estudiante");
+
+SELECT * FROM USERS
+WHERE rol_id = 4;

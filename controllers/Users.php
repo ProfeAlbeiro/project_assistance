@@ -3,8 +3,8 @@
     require_once "models/Rol.php";
     require_once "models/User.php";
     require_once "models/Student.php";
-    require_once "models/Teacher.php";
     require_once "models/Guardian.php";
+    require_once "models/Teacher.php";
 
     class Users{
 
@@ -205,8 +205,8 @@
             }
         }
 
-         # Usuario: Controlador Actualizar
-         public function studentUpdate(){
+        # Estudiante: Controlador Actualizar
+        public function studentUpdate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     $state = ['Pendiente', 'Activo'];
@@ -237,12 +237,24 @@
             }
         }
 
-        # Usuario: Controlador Eliminar
+        # Estudiante: Controlador Eliminar
         public function studentDelete(){
             if ($this->session == 'admin') {
                 $user = new User;
                 $user->delete_user($_GET['idstudent']);
                 header("Location: ?c=Users&a=studentRead");
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Acudiente: Controlador Consultar
+        public function guardianRead(){
+            if ($this->session == 'admin') {                
+                $state = ['Pendiente', 'Activo'];
+                $guardians = new Guardian;
+                $guardians = $guardians->read_users();
+                require_once "views/modules/users/guardian_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
             }

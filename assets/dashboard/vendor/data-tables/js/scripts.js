@@ -30,7 +30,7 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },
@@ -78,7 +78,7 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },
@@ -125,7 +125,54 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },            
+            search: 'Buscar',
+            zeroRecords: 'No hay registros para mostrar.',
+            emptyTable: 'La tabla está vacia.',
+            info: "Mostrando _START_ de _END_ de _TOTAL_ Registros.",
+            infoFiltered: "(Filtrados de _MAX_ Registros.)",
+            paginate: {                
+                first: 'Primero',
+                previous: 'Anterior',
+                next: 'Siguiente',
+                last: 'Último'
+            }
+        }        
+    });
+});
+
+$(document).ready(function () {
+    var table = $('#ej-guardian').DataTable({
+        dom: 'Bfrtip',
+        "order": [            
+            [ 4, "asc" ],
+        ],
+        buttons: [
+            'copy',
+            'csv',
+            'excel',
+            'pdf',
+            {
+                extend: 'print',
+                text: 'Imprimir Todo',
+                exportOptions: {
+                    modifier: {
+                        selected: null
+                    }
+                }
+            }
+        ],
+        select: true,
+        responsive: true,
+        pageLength: 6,
+        language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },            
@@ -173,7 +220,7 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },
@@ -220,7 +267,7 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },
@@ -267,7 +314,7 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },
@@ -314,7 +361,7 @@ $(document).ready(function () {
             select: {
                 rows: {
                     _: '\' %d Filas seleccionadas \'',
-                    0: '\' Clic fila para seleccionar \'',
+                    0: '\' Clic en la Fila para seleccionar \'',
                     1: '\' 1 Fila seleccionada \''
                 }
             },
