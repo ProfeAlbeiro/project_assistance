@@ -336,7 +336,7 @@
               </div>
 
               <!-- Tabla de Datos -->
-              <table class="table datatable ajuste-tabla mt-1" id="ej-user" style="width:100%">
+              <table class="table datatable ajuste-tabla mt-1" id="ej-student" style="width:100%">
                 <thead>
                   <tr>
                     <th class="text-center">Identificación</th>
@@ -360,6 +360,9 @@
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
                         <a href="#" class="btn btn-info p-0" title="Registrar Acudiente">
+                          <h4 class="m-0 text-white"><i class="p-1 bi bi-person-plus-fill"></i></h4>
+                        </a>
+                        <a href="#" class="btn btn-secondary p-0" title="Consultar Acudientes">
                           <h4 class="m-0 text-white"><i class="p-1 ri-group-fill"></i></h4>
                         </a>
                         <a href="#" class="btn btn-warning p-0" title="Matricular">

@@ -48,7 +48,7 @@ SELECT * FROM TEACHERS;
 INSERT INTO `users` VALUES
 ('1031041051', 3, 'Pepito Perez', 'pepito@colegio.edu.co', null , sha1('12345'), 1),
 ('1031041052', 3, 'Marinita García', 'marinita@colegio.edu.co', "3223213241" , sha1('12345'), 1),
-('1031041053', 3, 'Josefito Suárez', 'josefito@colegio.edu.co', null , sha1('12345'), 1),
+('1031041053', 3, 'Josefito García', 'josefito@colegio.edu.co', null , sha1('12345'), 1),
 ('1031041054', 3, 'Carlitos Duarte', 'carlitos@colegio.edu.co', null , sha1('12345'), 1);
 SELECT * FROM USERS;
 
@@ -62,18 +62,18 @@ SELECT * FROM STUDENTS;
 
 -- Insertar Usuarios Acudientes
 INSERT INTO `users` VALUES
-('1001011024', 4, 'Madre Pepito', 'villaramos_23@hotmail.com', "3183888421" , sha1('12345'), 1),
-('1001011025', 4, 'Madre Marinita-Josefito', 'profealbeiro2020@gmail.com', "3183888422" , sha1('12345'), 1),
-('1001011026', 4, 'Madre Carlitos', 'ramoncito029@gmail.com', "3183888423" , sha1('12345'), 1),
-('1001011027', 4, 'Padre Carlitos', 'earamos42@misena.edu.co', "3183888424" , sha1('12345'), 1);
+('1001011024', 4, 'Pedro Perez', 'villaramos_23@hotmail.com', "3183888421" , sha1('12345'), 1),
+('1001011025', 4, 'Amanda García', 'profealbeiro2020@gmail.com', "3183888422" , sha1('12345'), 1),
+('1001011026', 4, 'Andrea Galeano', 'ramoncito029@gmail.com', "3183888423" , sha1('12345'), 1),
+('1001011027', 4, 'Carlos Duarte', 'earamos42@misena.edu.co', "3183888424" , sha1('12345'), 1);
 SELECT * FROM USERS;
 
 -- Insertar Acudientes
 INSERT INTO GUARDIANS VALUES
-('1001011024'),
-('1001011025'),
-('1001011026'),
-('1001011027');
+('1001011024', 'Abuelo'),
+('1001011025', 'Madre'),
+('1001011026', 'Madre'),
+('1001011027', 'Padre');
 SELECT * FROM GUARDIANS;
 
 -- Asociar Acudientes con Estudiantes

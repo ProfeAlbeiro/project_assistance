@@ -27,6 +27,13 @@ $(document).ready(function () {
         responsive: true,
         pageLength: 6,
         language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
@@ -68,6 +75,13 @@ $(document).ready(function () {
         responsive: true,
         pageLength: 6,
         language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
@@ -80,6 +94,54 @@ $(document).ready(function () {
                 last: 'Último'
             }
         }
+    });
+});
+
+$(document).ready(function () {
+    var table = $('#ej-student').DataTable({
+        dom: 'Bfrtip',
+        "order": [
+            [ 5, "asc" ],
+            [ 0, "desc" ],
+        ],
+        buttons: [
+            'copy',
+            'csv',
+            'excel',
+            'pdf',
+            {
+                extend: 'print',
+                text: 'Imprimir Todo',
+                exportOptions: {
+                    modifier: {
+                        selected: null
+                    }
+                }
+            }
+        ],
+        select: true,
+        responsive: true,
+        pageLength: 6,
+        language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },            
+            search: 'Buscar',
+            zeroRecords: 'No hay registros para mostrar.',
+            emptyTable: 'La tabla está vacia.',
+            info: "Mostrando _START_ de _END_ de _TOTAL_ Registros.",
+            infoFiltered: "(Filtrados de _MAX_ Registros.)",
+            paginate: {                
+                first: 'Primero',
+                previous: 'Anterior',
+                next: 'Siguiente',
+                last: 'Último'
+            }
+        }        
     });
 });
 
@@ -109,6 +171,13 @@ $(document).ready(function () {
         responsive: true,
         pageLength: 6,
         language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
@@ -149,6 +218,13 @@ $(document).ready(function () {
         responsive: true,
         pageLength: 6,
         language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
@@ -189,6 +265,13 @@ $(document).ready(function () {
         responsive: true,
         pageLength: 6,
         language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
@@ -229,6 +312,13 @@ $(document).ready(function () {
         responsive: true,
         pageLength: 6,
         language: {
+            select: {
+                rows: {
+                    _: '\' %d Filas seleccionadas \'',
+                    0: '\' Clic fila para seleccionar \'',
+                    1: '\' 1 Fila seleccionada \''
+                }
+            },
             search: 'Buscar',
             zeroRecords: 'No hay registros para mostrar.',
             emptyTable: 'La tabla está vacia.',
