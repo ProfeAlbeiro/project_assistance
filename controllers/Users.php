@@ -267,12 +267,23 @@
             }
         }
 
-        # Acudiente: Controlador Consultar
+        # Parentesco: Controlador Consultar
         public function guardianTypeRead(){
             if ($this->session == 'admin') {
                 $guardiansType = new Guardian;
                 $guardiansType = $guardiansType->read_guardian_type();
                 require_once "views/modules/users/guardian_type_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Parentesco: Controlador Eliminar
+        public function guardianTypeDelete(){
+            if ($this->session == 'admin') {
+                $guardian_type = new Guardian;
+                $guardian_type->delete_guardianType($_GET['idguardiantype']);
+                header("Location: ?c=Users&a=guardianTypeRead");
             } else {
                 header("Location: ?c=Dashboard");
             }

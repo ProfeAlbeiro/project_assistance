@@ -37,7 +37,7 @@
             $this->user_state = $user_state;
         }
 
-        # Acudiente: Tipo de Acudiente
+        # Tipo Acudiente: Código
         public function setGuardianTypeId($guardian_type_id){
             $this->guardian_type_id = $guardian_type_id;
         }
@@ -45,7 +45,7 @@
             return $this->guardian_type_id;
         }
 
-        # Acudiente: Nombre Tipo de Acudiente
+        # Tipo Acudiente: Nombre
         public function setGuardianTypeName($guardian_type_name){
             $this->guardian_type_name = $guardian_type_name;
         }
@@ -53,7 +53,7 @@
             return $this->guardian_type_name;
         }
 
-        # Acudiente: Crear Tipo de Acudiente
+        # Tipo Acudiente: Crear
         public function create_guardian_type(){
             try {
                 $sql = 'INSERT INTO GUARDIANS_TYPE VALUES (
@@ -70,7 +70,7 @@
             }
         }
 
-        # Acudiente: Consultar
+        # Tipo Acudiente: Consultar
         public function read_guardian_type(){
             try {
                 $guardiansTypeList = [];
@@ -84,6 +84,18 @@
                     array_push($guardiansTypeList, $guardiansTypeObj);
                 }
                 return $guardiansTypeList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Tipo Acudiente: Eliminar
+        public function delete_guardianType($guardian_type_id){
+            try {
+                $sql = 'DELETE FROM GUARDIANS_TYPE WHERE guardian_type_id = :guardian_type_id';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('guardian_type_id', $guardian_type_id);
+                $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
             }
