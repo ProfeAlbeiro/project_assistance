@@ -23,7 +23,7 @@
                   <button type="button" class="btn btn-primary btn-sm m-1 ms-0 mb-2 font-size-min" data-bs-toggle="modal" data-bs-target="#createStudent">
                     Nuevo Estudiante
                   </button>
-                  <div class="modal fade" id="createStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">                    
+                  <div class="modal fade" id="createStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -31,7 +31,7 @@
                           <a href="?c=Users&a=studentRead" class="btn-close" aria-label="Close"></a>
                         </div>
                         <div class="modal-body">
-                            <form action="?c=Users&a=studentCreate" method="POST">                              
+                            <form action="?c=Users&a=studentCreate" method="POST">
                               <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Estado</label>
                                 <div class="col-sm-9">
@@ -92,7 +92,7 @@
                   <a href="?c=Users&a=guardianRead" type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min d-flex align-items-center">
                     Acudientes
                   </a>
-  
+
                   <button type="button" class="btn btn-primary btn-sm m-1 mb-2 me-0 font-size-min" data-bs-toggle="modal" data-bs-target="#readMatriculated">
                     Matriculados
                   </button>
@@ -171,7 +171,7 @@
                       </div>
                     </div>
                   </div> -->
-  
+
                   <!-- Modal Actualizar Estudiante -->
                   <div class="modal fade modal-adjust" id="editStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
@@ -181,7 +181,7 @@
                           <a href="?c=Users&a=studentRead" class="btn-close" aria-label="Close"></a>
                         </div>
                         <div class="modal-body">
-                            <form action="?c=Users&a=studentUpdate" method="POST">                              
+                            <form action="?c=Users&a=studentUpdate" method="POST">
                               <?php if ($studentId) : ?>
                                 <input type="hidden" name="user_id" class="form-control" value="<?php echo $studentId->getUserId() ?>">
                                 <div class="row mb-3">
@@ -204,7 +204,7 @@
                                         <?php endfor; ?>
                                     </select>
                                   </div>
-                                </div>                                
+                                </div>
                                 <div class="row mb-3">
                                   <label for="inputText" class="col-sm-3 col-form-label">Nombres</label>
                                   <div class="col-sm-9">

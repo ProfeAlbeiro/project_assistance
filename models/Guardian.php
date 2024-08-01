@@ -44,7 +44,7 @@
         public function getGuardianTypeId(){
             return $this->guardian_type_id;
         }
-        
+
         # Acudiente: Nombre Tipo de Acudiente
         public function setGuardianTypeName($guardian_type_name){
             $this->guardian_type_name = $guardian_type_name;
@@ -80,7 +80,7 @@
                     $guardiansTypeObj = new Guardian(
                         $guardiansType['guardian_type_id'],
                         $guardiansType['guardian_type_name']
-                    );                
+                    );
                     array_push($guardiansTypeList, $guardiansTypeObj);
                 }
                 return $guardiansTypeList;
@@ -110,7 +110,7 @@
                             r.rol_id,
                             r.rol_name,
                             gt.guardian_type_name,
-                            user_id,    
+                            user_id,
                             user_name,
                             user_email,
                             user_phone,

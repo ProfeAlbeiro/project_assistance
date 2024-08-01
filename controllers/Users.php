@@ -195,7 +195,7 @@
 
         # Estudiante: Controlador Consultar
         public function studentRead(){
-            if ($this->session == 'admin') {                
+            if ($this->session == 'admin') {
                 $state = ['Pendiente', 'Activo'];
                 $students = new Student;
                 $students = $students->read_users();
@@ -211,9 +211,9 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     $state = ['Pendiente', 'Activo'];
                     $studentId = new Student;
-                    $studentId = $studentId->getuser_bycode($_GET['idstudent']);                    
+                    $studentId = $studentId->getuser_bycode($_GET['idstudent']);
                     $students = new Student;
-                    $students = $students->read_users();                    
+                    $students = $students->read_users();
                     require_once "views/modules/users/student_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
@@ -256,10 +256,10 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $guardian_type = new Guardian(
-                        null,                        
+                        null,
                         $_POST['guardian_type_name']
-                    );                    
-                    $guardian_type->create_guardian_type();  
+                    );
+                    $guardian_type->create_guardian_type();
                     header("Location: ?c=Users&a=guardianRead");
                 }
             } else {
@@ -270,10 +270,9 @@
         # Acudiente: Controlador Consultar
         public function guardianTypeRead(){
             if ($this->session == 'admin') {
-                $guardians = new Guardian;
-                $guardians = $guardians->read_guardian_type();
-                print_r($guardians);
-                // require_once "views/modules/users/guardian_read.view.php";
+                $guardiansType = new Guardian;
+                $guardiansType = $guardiansType->read_guardian_type();
+                require_once "views/modules/users/guardian_type_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
             }
@@ -281,7 +280,7 @@
 
         # Acudiente: Controlador Consultar
         public function guardianRead(){
-            if ($this->session == 'admin') {                
+            if ($this->session == 'admin') {
                 $state = ['Pendiente', 'Activo'];
                 $guardians = new Guardian;
                 $guardians = $guardians->read_users();
