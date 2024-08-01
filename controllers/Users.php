@@ -248,6 +248,37 @@
             }
         }
 
+        # Parentesco: Controlador Crear
+        public function guardianTypeCreate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    header("Location: ?c=Users&a=guardianRead");
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $guardian_type = new Guardian(
+                        null,                        
+                        $_POST['guardian_type_name']
+                    );                    
+                    $guardian_type->create_guardian_type();  
+                    header("Location: ?c=Users&a=guardianRead");
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Acudiente: Controlador Consultar
+        public function guardianTypeRead(){
+            if ($this->session == 'admin') {
+                $guardians = new Guardian;
+                $guardians = $guardians->read_guardian_type();
+                print_r($guardians);
+                // require_once "views/modules/users/guardian_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
         # Acudiente: Controlador Consultar
         public function guardianRead(){
             if ($this->session == 'admin') {                

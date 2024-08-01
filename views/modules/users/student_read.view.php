@@ -89,7 +89,7 @@
                   </div>
 
                   <!-- Consultar Acudientes -->
-                  <a href="?c=Users&a=guardianRead" type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min">
+                  <a href="?c=Users&a=guardianRead" type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min d-flex align-items-center">
                     Acudientes
                   </a>
   

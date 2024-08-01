@@ -1,6 +1,7 @@
 <?php
     require_once "models/User.php";
     class Guardian extends User{
+        private $guardian_type_id;
         private $guardian_type_name;
         # Sobrecarga de constructores y conexión pdo
         public function __construct(){
@@ -14,6 +15,12 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }
+        }
+
+        # Constructor: Objeto 02 parámetros
+        public function __construct2($guardian_type_id, $guardian_type_name){
+            $this->guardian_type_id = $guardian_type_id;
+            $this->guardian_type_name = $guardian_type_name;
         }
 
         # Constructor: Objeto 09 parámetros
@@ -31,11 +38,55 @@
         }
 
         # Acudiente: Tipo de Acudiente
+        public function setGuardianTypeId($guardian_type_id){
+            $this->guardian_type_id = $guardian_type_id;
+        }
+        public function getGuardianTypeId(){
+            return $this->guardian_type_id;
+        }
+        
+        # Acudiente: Nombre Tipo de Acudiente
         public function setGuardianTypeName($guardian_type_name){
             $this->guardian_type_name = $guardian_type_name;
         }
         public function getGuardianTypeName(){
             return $this->guardian_type_name;
+        }
+
+        # Acudiente: Crear Tipo de Acudiente
+        public function create_guardian_type(){
+            try {
+                $sql = 'INSERT INTO GUARDIANS_TYPE VALUES (
+                            :guardianId,
+                            :guardianName
+                        )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('guardianId', $this->getGuardianTypeId());
+                $stmt->bindValue('guardianName', $this->getGuardianTypeName());
+                $stmt->execute();
+                return $stmt;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Acudiente: Consultar
+        public function read_guardian_type(){
+            try {
+                $guardiansTypeList = [];
+                $sql = 'SELECT * FROM GUARDIANS_TYPE';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $guardiansType) {
+                    $guardiansTypeObj = new Guardian(
+                        $guardiansType['guardian_type_id'],
+                        $guardiansType['guardian_type_name']
+                    );                
+                    array_push($guardiansTypeList, $guardiansTypeObj);
+                }
+                return $guardiansTypeList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
         }
 
         # Acudiente: Crear

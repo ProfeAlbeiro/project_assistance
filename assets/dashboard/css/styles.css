@@ -1,3 +1,4 @@
+/* Escritorio y Portátil */
 *{
     font-family: "Poppins", sans-serif;
 }
@@ -40,6 +41,23 @@ ol a, ol li, ul li>ul li span{
 .swal-modal .swal-text {
     text-align: center;
 }
+.font-size-min{
+    height: 28px!important;
+    padding-top: 0!important;
+    padding-right: 10px!important;
+    padding-bottom: 0!important;
+    padding-left: 10px!important;
+}
+.dt-buttons .dt-button, .dataTables_filter input{
+    height: 28px;
+    padding-top: 0px!important;
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+    padding-bottom: 0px!important;
+    font-size: 12px!important;    
+}
+
+/* Tablet y Celular */
 @media (max-width: 767px) {
     .main{
         padding: 10px!important;

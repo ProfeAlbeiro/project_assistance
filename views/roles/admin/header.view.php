@@ -339,6 +339,11 @@
               <i class="bi bi-circle"></i><span>Estudiantes</span>
             </a>
           </li>
+          <li>
+            <a href="?c=Users&a=guardianTypeRead">
+              <i class="bi bi-circle"></i><span>Parentesco</span>
+            </a>
+          </li>
 
         </ul>
       </li><!-- End Forms Nav -->
