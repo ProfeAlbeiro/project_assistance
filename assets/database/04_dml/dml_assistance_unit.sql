@@ -68,12 +68,19 @@ INSERT INTO `users` VALUES
 ('1001011027', 4, 'Carlos Duarte', 'earamos42@misena.edu.co', "3183888424" , sha1('12345'), 1);
 SELECT * FROM USERS;
 
+-- Insertar Categoría Acudientes
+INSERT INTO GUARDIANS_TYPE VALUES
+(1, 'Madre'),
+(2, 'Padre'),
+(3, 'Abuelo');
+SELECT * FROM GUARDIANS_TYPE;
+
 -- Insertar Acudientes
 INSERT INTO GUARDIANS VALUES
-('1001011024', 'Abuelo'),
-('1001011025', 'Madre'),
-('1001011026', 'Madre'),
-('1001011027', 'Padre');
+('1001011024', 3),
+('1001011025', 1),
+('1001011026', 1),
+('1001011027', 2);
 SELECT * FROM GUARDIANS;
 
 -- Asociar Acudientes con Estudiantes

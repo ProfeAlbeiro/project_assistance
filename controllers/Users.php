@@ -205,6 +205,38 @@
             }
         }
 
+         # Usuario: Controlador Actualizar
+         public function studentUpdate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    $state = ['Pendiente', 'Activo'];
+                    $studentId = new Student;
+                    $studentId = $studentId->getuser_bycode($_GET['idstudent']);                    
+                    $students = new Student;
+                    $students = $students->read_users();                    
+                    require_once "views/modules/users/student_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editRegister('editStudent');</script>";
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $userUpdate = new Student(
+                        $_POST['user_id'],
+                        3,
+                        $_POST['user_name'],
+                        $_POST['user_email'],
+                        $_POST['user_phone'],
+                        $_POST['user_pass'],
+                        $_POST['user_state']
+                    );
+                    $userUpdate->update_user();
+                    header("Location: ?c=Users&a=studentRead");
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
         # Usuario: Controlador Eliminar
         public function studentDelete(){
             if ($this->session == 'admin') {

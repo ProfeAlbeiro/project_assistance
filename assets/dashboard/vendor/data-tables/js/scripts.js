@@ -100,9 +100,8 @@ $(document).ready(function () {
 $(document).ready(function () {
     var table = $('#ej-student').DataTable({
         dom: 'Bfrtip',
-        "order": [
-            [ 5, "asc" ],
-            [ 0, "desc" ],
+        "order": [            
+            [ 4, "asc" ],
         ],
         buttons: [
             'copy',
