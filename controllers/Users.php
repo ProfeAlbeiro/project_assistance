@@ -150,8 +150,7 @@
                         $_POST['user_phone'],
                         $_POST['user_pass'],
                         $_POST['user_state']
-                    );
-                    print_r($userUpdate);
+                    );                    
                     $userUpdate->update_user();
                     header("Location: ?c=Users&a=userRead");
                 }
@@ -179,8 +178,9 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $student = new Student(
+                        null,
+                        2,
                         $_POST['user_id'],
-                        3,
                         $_POST['user_name'],
                         $_POST['user_email'],
                         $_POST['user_phone'],
@@ -223,16 +223,17 @@
                     echo "<script>editRegister('editStudent');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $userUpdate = new Student(
+                    $studentUpdate = new Student(
+                        $_POST['user_code'],
+                        2,
                         $_POST['user_id'],
-                        3,
                         $_POST['user_name'],
                         $_POST['user_email'],
                         $_POST['user_phone'],
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );
-                    $userUpdate->update_user();                    
+                    $studentUpdate->update_user();                    
                     header("Location: ?c=Users&a=studentRead");
                 }
             } else {

@@ -2,7 +2,7 @@
     require_once "models/User.php";
     class Student extends User{
 
-        # Sobrecarga de constructores y conexión pdo
+        # Constructor: Sobrecarga y conexión pdo
         public function __construct(){
             try {
                 $this->dbh = DataBase::connection();
@@ -34,6 +34,7 @@
             try {
                 $userList = [];
                 $sql = "SELECT
+                            u.user_code,
                             r.rol_id,
                             r.rol_name,
                             user_id,
@@ -49,6 +50,7 @@
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $user) {
                     $userObj = new User(
+                        $user['user_code'],
                         $user['rol_id'],
                         $user['rol_name'],
                         $user['user_id'],

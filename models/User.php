@@ -11,7 +11,7 @@
         protected $user_pass;
         protected $user_state;
 
-        # Sobrecarga de constructores y conexión pdo
+        # Constructor: Sobrecarga y conexión pdo
         public function __construct(){
             try {
                 $this->dbh = DataBase::connection();

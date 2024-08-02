@@ -79,7 +79,7 @@
                                 </div>
                               </div>
                               <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Users&a=studentRead" class="btn btn-secondary">Cerrar</a>
+                                <a href="?c=Users&a=studentRead" class="btn btn-secondary">Cancelar</a>
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                               </div>
                             </form>
@@ -98,7 +98,8 @@
                         </div>
                         <div class="modal-body">
                             <form action="?c=Users&a=studentUpdate" method="POST">
-                              <?php if ($studentId) : ?>                                
+                              <?php if ($studentId) : ?>
+                                <input type="hidden" name="user_code" class="form-control" value="<?php echo $studentId->getUserCode() ?>">
                                 <div class="row mb-3">
                                   <label for="inputText" class="col-sm-3 col-form-label">Identificación</label>
                                   <div class="col-sm-9">
@@ -108,7 +109,7 @@
                                 <div class="row mb-3">
                                   <label class="col-sm-3 col-form-label">Estado</label>
                                   <div class="col-sm-9">
-                                    <select class="form-select" name="user_state">
+                                  <select class="form-select" name="user_state">
                                         <?php for ($i = 0; $i <= 1; $i++) : ?>
                                             <?php if ($studentId->getUserState() == $i) : ?>
                                                 <option selected="" value="<?php echo $i ?>"><?php echo $state[$i] ?></option>
@@ -118,23 +119,23 @@
                                         <?php endfor; ?>
                                     </select>
                                   </div>
-                                </div>
+                                </div>                            
                                 <div class="row mb-3">
                                   <label for="inputText" class="col-sm-3 col-form-label">Nombres</label>
                                   <div class="col-sm-9">
-                                    <input type="text" name="user_name" class="form-control" value="<?php echo $studentId->getUserName() ?>">
+                                    <input type="text" name="user_name" class="form-control" value="<?php echo $studentId->getUserName();?>">
                                   </div>
                                 </div>
                                 <div class="row mb-3">
                                   <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                                   <div class="col-sm-9">
-                                    <input type="email" name="user_email" class="form-control" value="<?php echo $studentId->getUserEmail() ?>">
+                                    <input type="email" name="user_email" class="form-control" value="<?php echo $studentId->getUserEmail();?>">
                                   </div>
-                                </div>
+                                </div>                              
                                 <div class="row mb-3">
                                   <label for="inputEmail" class="col-sm-3 col-form-label">Celular</label>
                                   <div class="col-sm-9">
-                                    <input type="text" name="user_phone" class="form-control" value="<?php echo $studentId->getUserPhone() ?>">
+                                    <input type="text" name="user_phone" class="form-control" value="<?php echo $studentId->getUserPhone();?>">
                                   </div>
                                 </div>
                                 <div class="row mb-3">
@@ -142,7 +143,7 @@
                                   <div class="col-sm-9">
                                     <input type="password" name="user_pass" class="form-control">
                                   </div>
-                                </div>
+                                </div>                                              
                                 <div class="row mb-3">
                                   <label for="inputPasswordRepet" class="col-sm-3 col-form-label">Repetir Contraseña</label>
                                   <div class="col-sm-9">
@@ -150,7 +151,7 @@
                                   </div>
                                 </div>
                                 <div class="modal-footer pb-0 px-0 mt-4">
-                                  <a href="?c=Users&a=studentRead" class="btn btn-secondary">Cerrar</a>
+                                  <a href="?c=Users&a=studentRead" class="btn btn-secondary">Cancelar</a>
                                   <button type="submit" class="btn btn-primary">Actualizar</button>
                                 </div>
                               <?php endif; ?>
@@ -193,10 +194,10 @@
                       <td class="pt-3"><?php echo $student->getUserPhone(); ?></td>
                       <td class="pt-3"><?php echo $state[$student->getUserState()]; ?></td>
                       <td class="text-center pt-2">
-                        <a href="?c=Users&a=studentUpdate&idstudent=<?php echo $student->getUserId(); ?>" class="btn btn-success p-0" title="Editar">
+                        <a href="?c=Users&a=studentUpdate&idstudent=<?php echo $student->getUserCode(); ?>" class="btn btn-success p-0" title="Editar">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
-                        <a href="?c=Users&a=guardianCreate&idstudent=<?php echo $student->getUserId(); ?>" class="btn btn-warning p-0" title="Registrar Acudiente">
+                        <a href="?c=Users&a=guardianCreate&idstudent=<?php echo $student->getUserCode(); ?>" class="btn btn-warning p-0" title="Registrar Acudiente">
                           <h4 class="m-0 text-white"><i class="p-1 bi bi-person-plus-fill"></i></h4>
                         </a>
                         <a href="#" class="btn btn-secondary p-0" title="Consultar Acudientes">
@@ -205,7 +206,7 @@
                         <a href="#" class="btn btn-info p-0" title="Matricular">
                           <h4 class="m-0 text-white"><i class="p-1 bi bi-bank2"></i></h4>
                         </a>
-                        <a href="#" onclick="deleteRegister('Users','student',<?php echo $student->getUserId(); ?>)" class="btn btn-danger p-0" title="Eliminar">
+                        <a href="#" onclick="deleteRegister('Users','student',<?php echo $student->getUserCode(); ?>)" class="btn btn-danger p-0" title="Eliminar">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>
