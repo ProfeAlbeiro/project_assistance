@@ -18,6 +18,45 @@
               <div class ="d-flex">
                 <h5 class="card-title flex-grow-1">Acudientes</h5>
 
+                <!-- Modal Consultar Acudiente -->
+                <div class="modal fade modal-adjust" id="readGuardian" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
+                  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Consultar Acudiente</h5>
+                        <a href="?c=Users&a=guardianRead" class="btn-close" aria-label="Close"></a>
+                      </div>
+                      <div class="modal-body">
+                          <form action="?c=Users&a=guardianReadById" method="POST">
+                            <?php if ($studentId) : ?>
+                              <input type="hidden" name="student_id" class="form-control" value="<?php echo $studentId->getUserId() ?>">
+                              <div class="row mb-3 border-bottom pb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label pe-0"><strong>Id Estudiante:</strong></label>
+                                <div class="col-sm-2">
+                                  <label for="inputText" class="col-form-label"><?php echo $studentId->getUserId() ?></label>
+                                </div>
+                                <label for="inputText" class="col-sm-2 col-form-label"><strong>Estudiante:</strong></label>
+                                <div class="col-sm-6">
+                                  <label for="inputText" class="col-form-label"><?php echo $studentId->getUserName() ?></label>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="guardian_id" class="form-control">
+                                </div>
+                              </div>
+                              <div class="modal-footer pb-0 px-0 mt-4">
+                                <a href="?c=Users&a=guardianRead" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Consultar</button>
+                              </div>
+                            <?php endif; ?>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Modal Crear Acudiente -->
                 <div class="modal fade modal-adjust" id="createGuardian" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
@@ -98,7 +137,7 @@
                                 </div>
                               </div>
                               <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Users&a=guardianRead" class="btn btn-secondary">Cerrar</a>
+                                <a href="?c=Users&a=guardianRead" class="btn btn-secondary">Cancelar</a>
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                               </div>
                             <?php endif; ?>

@@ -334,7 +334,8 @@
                     require_once "views/modules/users/guardian_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
                     echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editRegister('createGuardian');</script>";
+                    echo "<script>editRegister('readGuardian');</script>";
+                    // echo "<script>editRegister('createGuardian');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $guardian = new Guardian(
@@ -368,6 +369,19 @@
             } else {
                 header("Location: ?c=Dashboard");
             }
+        }
+
+        # Acudiente: Controlador Consultar Id del Acudiente
+        public function guardianReadById(){
+            echo "Controlador Consultar Id del Acudiente: " . $_POST['guardian_id'];
+            // if ($this->session == 'admin') {
+                //     $state = ['Pendiente', 'Activo'];
+                //     $guardians = new Guardian;
+                //     $guardians = $guardians->read_users();
+            //     require_once "views/modules/users/guardian_read.view.php";
+            // } else {
+            //     header("Location: ?c=Dashboard");
+            // }
         }
 
         # Acudiente: Controlador Eliminar
