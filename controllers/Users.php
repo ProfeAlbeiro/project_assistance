@@ -93,8 +93,9 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $user = new User(
-                        $_POST['user_id'],
+                        null,
                         $_POST['rol_code'],
+                        $_POST['user_id'],
                         $_POST['user_name'],
                         $_POST['user_email'],
                         $_POST['user_phone'],
@@ -116,7 +117,7 @@
                 $roles = $roles->read_roles_not();
                 $state = ['Pendiente', 'Activo'];
                 $users = new User;
-                $users = $users->read_users();
+                $users = $users->read_users();                
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
@@ -129,9 +130,9 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     $state = ['Pendiente', 'Activo'];
                     $userId = new User;
-                    $userId = $userId->getuser_bycode($_GET['iduser']);
+                    $userId = $userId->getuser_bycode($_GET['iduser']);                    
                     $roles = new Rol;
-                    $roles = $roles->read_roles();
+                    $roles = $roles->read_roles_not();
                     $users = new User;
                     $users = $users->read_users();
                     require_once "views/modules/users/user_read.view.php";
@@ -141,14 +142,16 @@
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $userUpdate = new User(
-                        $_POST['user_id'],
+                        $_POST['user_code'],
                         $_POST['rol_id'],
+                        $_POST['user_id'],
                         $_POST['user_name'],
                         $_POST['user_email'],
                         $_POST['user_phone'],
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );
+                    print_r($userUpdate);
                     $userUpdate->update_user();
                     header("Location: ?c=Users&a=userRead");
                 }
@@ -229,7 +232,7 @@
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );
-                    $userUpdate->update_user();
+                    $userUpdate->update_user();                    
                     header("Location: ?c=Users&a=studentRead");
                 }
             } else {
@@ -311,6 +314,33 @@
                 $guardian_type = new Guardian;
                 $guardian_type->delete_guardianType($_GET['idguardiantype']);
                 header("Location: ?c=Users&a=guardianTypeRead");
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Acudiente: Controlador Crear
+        public function guardianCreate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    $state = ['Pendiente', 'Activo'];
+                    $studentId = new Student;
+                    $studentId = $studentId->getuser_bycode($_GET['idstudent']);
+                    $guardians = new Guardian;
+                    $guardians = $guardians->read_users();
+                    require_once "views/modules/users/guardian_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editRegister('createGuardian');</script>";
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $guardianUpdate = new Guardian(
+                        $_POST['guardian_type_id'],
+                        $_POST['guardian_type_name']
+                    );
+                    $guardianUpdate->update_guardian_type();
+                    header("Location: ?c=Users&a=guardianTypeRead");
+                }
             } else {
                 header("Location: ?c=Dashboard");
             }

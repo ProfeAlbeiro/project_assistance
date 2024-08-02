@@ -89,7 +89,7 @@
                               </div>
                             </div>
                             <div class="modal-footer pb-0 px-0 mt-4">
-                              <a href="?c=Users&a=userRead" class="btn btn-secondary">Cerrar</a>
+                              <a href="?c=Users&a=userRead" class="btn btn-secondary">Cancelar</a>
                               <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                           </form>
@@ -109,13 +109,13 @@
                       <div class="modal-body">
                           <form action="?c=Users&a=userUpdate" method="POST">
                             <?php if ($userId) : ?>
-                              <input type="hidden" class="form-control" name="user_id" id="user_id" value="<?php echo $userId->getUserId();?>">
+                              <input type="hidden" name="user_code" class="form-control" value="<?php echo $userId->getUserCode() ?>">
                               <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>
+                                <label for="inputText" class="col-sm-3 col-form-label">Identificación</label>
                                 <div class="col-sm-9">
-                                  <label for="inputNumber" class="col-sm-3 col-form-label"><?php echo $userId->getUserId();?></label>                    
+                                  <input type="text" name="user_id" class="form-control" value="<?php echo $userId->getUserId() ?>">
                                 </div>
-                              </div>                            
+                              </div>                           
                               <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Rol</label>
                                 <div class="col-sm-9">
@@ -175,7 +175,7 @@
                                 </div>
                               </div>
                               <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Users&a=userRead" class="btn btn-secondary">Cerrar</a>
+                                <a href="?c=Users&a=userRead" class="btn btn-secondary">Cancelar</a>
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                               </div>
                             <?php endif; ?>
@@ -209,10 +209,10 @@
                       <td class="pt-3"><?php echo $user->getUserPhone(); ?></td>
                       <td class="pt-3"><?php echo $state[$user->getUserState()]; ?></td>
                       <td class="text-center pt-2">
-                        <a href="?c=Users&a=userUpdate&iduser=<?php echo $user->getUserId(); ?>" class="btn btn-success p-0">
+                        <a href="?c=Users&a=userUpdate&iduser=<?php echo $user->getUserCode(); ?>" class="btn btn-success p-0">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
-                        <a href="#" onclick="deleteRegister('Users','user',<?php echo $user->getUserId(); ?>)" class="btn btn-danger p-0 ms-1">
+                        <a href="#" onclick="deleteRegister('Users','user',<?php echo $user->getUserCode(); ?>)" class="btn btn-danger p-0 ms-1">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>
                       </td>

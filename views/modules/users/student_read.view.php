@@ -88,90 +88,6 @@
                     </div>
                   </div>
 
-                  <!-- Consultar Acudientes -->
-                  <a href="?c=Users&a=guardianRead" type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min d-flex align-items-center">
-                    Acudientes
-                  </a>
-
-                  <button type="button" class="btn btn-primary btn-sm m-1 mb-2 me-0 font-size-min" data-bs-toggle="modal" data-bs-target="#readMatriculated">
-                    Matriculados
-                  </button>
-                  <!-- <div class="modal fade" id="readMatriculated" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
-                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Crear Estudiante</h5>
-                          <a href="?c=Users&a=userRead" class="btn-close" aria-label="Close"></a>
-                        </div>
-                        <div class="modal-body">
-                            <form action="?c=Users&a=userCreate" method="POST">
-                              <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Rol</label>
-                                <div class="col-sm-9">
-                                  <select class="form-select" name="rol_code" aria-label="Default select example">
-                                  <option value="" selected="" disabled="">Seleccione una opción</option>
-                                    <?php foreach ($roles as $rol) : ?>
-                                      <option value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
-                                    <?php endforeach; ?>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Estado</label>
-                                <div class="col-sm-9">
-                                  <select class="form-select" name="user_state" aria-label="Default select example">
-                                    <option value="" selected="" disabled="">Seleccione una opción</option>
-                                    <option value="1">Activo</option>
-                                    <option value="0">Pendiente</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-3 col-form-label">Identificación</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="user_id" class="form-control">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-3 col-form-label">Nombres</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="user_name" class="form-control">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                  <input type="email" name="user_email" class="form-control">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputEmail" class="col-sm-3 col-form-label">Celular</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="user_phone" class="form-control">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputPassword" class="col-sm-3 col-form-label">Contraseña</label>
-                                <div class="col-sm-9">
-                                  <input type="password" name="user_pass" class="form-control">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputPasswordRepet" class="col-sm-3 col-form-label">Repetir Contraseña</label>
-                                <div class="col-sm-9">
-                                  <input type="password" name="user_pass_rep" id="inputPasswordRepet" class="form-control">
-                                </div>
-                              </div>
-                              <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Users&a=userRead" class="btn btn-secondary">Cerrar</a>
-                                <button type="submit" class="btn btn-primary">Enviar</button>
-                              </div>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-
                   <!-- Modal Actualizar Estudiante -->
                   <div class="modal fade modal-adjust" id="editStudent" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
@@ -182,13 +98,11 @@
                         </div>
                         <div class="modal-body">
                             <form action="?c=Users&a=studentUpdate" method="POST">
-                              <?php if ($studentId) : ?>
-                                <input type="hidden" name="user_id" class="form-control" value="<?php echo $studentId->getUserId() ?>">
+                              <?php if ($studentId) : ?>                                
                                 <div class="row mb-3">
                                   <label for="inputText" class="col-sm-3 col-form-label">Identificación</label>
                                   <div class="col-sm-9">
-                                    <label for="inputText" class="col-sm-3 col-form-label ps-3"><?php echo $studentId->getUserId() ?></label>
-                                    <!-- <input type="text" name="user_name" class="form-control" value="<?php echo $studentId->getUserName() ?>"> -->
+                                    <input type="text" name="user_id" class="form-control" value="<?php echo $studentId->getUserId() ?>">
                                   </div>
                                 </div>
                                 <div class="row mb-3">
@@ -245,8 +159,17 @@
                       </div>
                     </div>
                   </div>
-                </div>
 
+                  <!-- Consultar Acudientes -->
+                  <a href="?c=Users&a=guardianRead" type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min d-flex align-items-center">
+                    Acudientes
+                  </a>
+
+                  <!-- Consultar Matriculados -->
+                  <a href="?c=Users&a=guardianRead" type="button" class="btn btn-primary btn-sm m-1 mb-2 font-size-min d-flex align-items-center">
+                    Matriculados
+                  </a>
+                </div>
               </div>
 
               <!-- Tabla de Datos -->
@@ -273,7 +196,7 @@
                         <a href="?c=Users&a=studentUpdate&idstudent=<?php echo $student->getUserId(); ?>" class="btn btn-success p-0" title="Editar">
                           <h4 class="m-0"><i class="p-1 ri-edit-circle-fill"></i></h4>
                         </a>
-                        <a href="#" class="btn btn-warning p-0" title="Registrar Acudiente">
+                        <a href="?c=Users&a=guardianCreate&idstudent=<?php echo $student->getUserId(); ?>" class="btn btn-warning p-0" title="Registrar Acudiente">
                           <h4 class="m-0 text-white"><i class="p-1 bi bi-person-plus-fill"></i></h4>
                         </a>
                         <a href="#" class="btn btn-secondary p-0" title="Consultar Acudientes">

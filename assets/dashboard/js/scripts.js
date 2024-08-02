@@ -10,8 +10,8 @@ function deleteRegister(controller, nameClass, registerId){
     swal({
         title: "Está seguro de eliminar el registro",
         text: "Si elimina el registro, ya no podrá recuperarlo de la memoria!",
-        icon: "warning",
-        buttons: [true, "Aceptar"],
+        icon: "warning",        
+        buttons: ["Cancelar", "Aceptar"],
         dangerMode: true,
     })
     .then((willDelete) => {

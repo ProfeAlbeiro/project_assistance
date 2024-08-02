@@ -5,18 +5,35 @@
 -- ------------------------------------------------------------------------------------- --
 -- 01.01. Consultar Roles y Usuarios. -------------------------------------------------- --
 -- ------------------------------------------------------------------------------------- --
-select    
+SELECT
+	u.user_code,
     r.rol_id,
-    r.rol_name,
-    u.user_id,
-    u.user_name,
-    u.user_email,
-    u.user_pass,
-    u.user_state
-from ROLES as r
-inner join USERS as u
+	r.rol_name,
+	user_id,
+	user_name,
+	user_email,
+	user_phone,
+	user_pass,
+	user_state
+FROM ROLES AS r
+INNER JOIN USERS AS u
 on r.rol_id = u.rol_id
-WHERE user_id = 1001011021;
+WHERE r.rol_name NOT IN ('acudiente','estudiante');
+
+SELECT
+	u.user_code,
+	r.rol_id,
+	r.rol_name,
+	u.user_id,
+	u.user_name,
+	u.user_email,
+	u.user_phone,
+	u.user_pass,
+	u.user_state
+FROM ROLES AS r
+INNER JOIN USERS AS u
+on r.rol_id = u.rol_id
+WHERE u.user_code = 2;
 
 SELECT
 	r.rol_id,
@@ -35,7 +52,7 @@ INNER JOIN GUARDIANS AS g
 on u.user_id = g.guardian_id
 INNER JOIN GUARDIANS_TYPE AS gt
 on gt.guardian_type_id = g.guardian_type_id
-WHERE r.rol_name IN ('acudiente');
+WHERE r.rol_name IN ('estudiante','acudiente');
   
 
 /* ************************************************************************************* */

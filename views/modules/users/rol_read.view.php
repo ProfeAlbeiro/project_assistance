@@ -38,7 +38,7 @@
                               </div>
                             </div>
                             <div class="modal-footer pb-0 px-0 mt-4">
-                              <a href="?c=Users&a=rolRead" class="btn btn-secondary">Cerrar</a>
+                              <a href="?c=Users&a=rolRead" class="btn btn-secondary">Cancelar</a>
                               <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                           </form>
@@ -70,7 +70,7 @@
                                 </div>
                               </div>
                               <div class="modal-footer pb-0 px-0 mt-4">
-                                <a href="?c=Users&a=rolRead" class="btn btn-secondary">Cerrar</a>
+                                <a href="?c=Users&a=rolRead" class="btn btn-secondary">Cancelar</a>
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                               </div>
                             <?php endif; ?>
