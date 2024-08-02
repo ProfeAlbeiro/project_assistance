@@ -117,7 +117,7 @@
                 $roles = $roles->read_roles_not();
                 $state = ['Pendiente', 'Activo'];
                 $users = new User;
-                $users = $users->read_users();                
+                $users = $users->read_users();
                 require_once "views/modules/users/user_read.view.php";
             } else {
                 header("Location: ?c=Dashboard");
@@ -130,7 +130,7 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     $state = ['Pendiente', 'Activo'];
                     $userId = new User;
-                    $userId = $userId->getuser_bycode($_GET['iduser']);                    
+                    $userId = $userId->getuser_bycode($_GET['iduser']);
                     $roles = new Rol;
                     $roles = $roles->read_roles_not();
                     $users = new User;
@@ -150,7 +150,7 @@
                         $_POST['user_phone'],
                         $_POST['user_pass'],
                         $_POST['user_state']
-                    );                    
+                    );
                     $userUpdate->update_user();
                     header("Location: ?c=Users&a=userRead");
                 }
@@ -233,7 +233,7 @@
                         $_POST['user_pass'],
                         $_POST['user_state']
                     );
-                    $studentUpdate->update_user();                    
+                    $studentUpdate->update_user();
                     header("Location: ?c=Users&a=studentRead");
                 }
             } else {
@@ -339,7 +339,7 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $guardian = new Guardian(
                         null,
-                        3,                       
+                        3,
                         $_POST['guardian_type_name'],
                         $_POST['user_id'],
                         $_POST['user_name'],
@@ -350,7 +350,7 @@
                     );
                     $guardian->create_user();
                     $guardian->create_guardian();
-                    $guardian->create_guardian_student();
+                    $guardian->create_guardian_student($_POST['student_id'], $_POST['user_id']);
                     header("Location: ?c=Users&a=guardianRead");
                 }
             } else {
@@ -370,7 +370,7 @@
             }
         }
 
-        # Estudiante: Controlador Eliminar
+        # Acudiente: Controlador Eliminar
         public function guardianDelete(){
             if ($this->session == 'admin') {
                 $user = new Guardian;

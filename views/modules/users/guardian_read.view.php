@@ -18,7 +18,7 @@
               <div class ="d-flex">
                 <h5 class="card-title flex-grow-1">Acudientes</h5>
 
-                <!-- Modal Crear Acudiente -->                
+                <!-- Modal Crear Acudiente -->
                 <div class="modal fade modal-adjust" id="createGuardian" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
                   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                     <div class="modal-content">
@@ -33,7 +33,7 @@
                               <div class="row mb-3 border-bottom pb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label pe-0"><strong>Id Estudiante:</strong></label>
                                 <div class="col-sm-2">
-                                  <label for="inputText" class="col-form-label"><?php echo $studentId->getUserId() ?></label>                                    
+                                  <label for="inputText" class="col-form-label"><?php echo $studentId->getUserId() ?></label>
                                 </div>
                                 <label for="inputText" class="col-sm-2 col-form-label"><strong>Estudiante:</strong></label>
                                 <div class="col-sm-6">
@@ -45,7 +45,7 @@
                                 <div class="col-sm-9">
                                   <input type="text" name="user_id" class="form-control">
                                 </div>
-                              </div>                              
+                              </div>
                               <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Estado</label>
                                 <div class="col-sm-9">
@@ -63,7 +63,7 @@
                                 <option value="" selected="" disabled="">Seleccione una opción</option>
                                   <?php foreach ($guardiansType as $guardianType) : ?>
                                     <option value="<?php echo $guardianType->getGuardianTypeId() ?>"><?php echo $guardianType->getGuardianTypeName() ?></option>
-                                  <?php endforeach; ?>                      
+                                  <?php endforeach; ?>
                                 </select>
                               </div>
                             </div>
@@ -142,7 +142,7 @@
                         </a>
                         <a href="#" class="btn btn-secondary p-0" title="Consultar Estudiantes">
                           <h4 class="m-0 text-white"><i class="p-1 ri-group-fill"></i></h4>
-                        </a>                        
+                        </a>
                         <a href="#" onclick="deleteRegister('Users','guardian',<?php echo $guardian->getUserCode(); ?>)" class="btn btn-danger p-0" title="Eliminar">
                           <h4 class="m-0"><i class="p-1 ri-delete-bin-5-line"></i></h4>
                         </a>

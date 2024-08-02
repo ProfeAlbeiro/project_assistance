@@ -30,7 +30,7 @@
                         <a href="?c=Users&a=userRead" class="btn-close" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">
-                          <form action="?c=Users&a=userCreate" method="POST">                            
+                          <form action="?c=Users&a=userCreate" method="POST">
                             <div class="row mb-3">
                               <label class="col-sm-3 col-form-label">Rol</label>
                               <div class="col-sm-9">
@@ -38,7 +38,7 @@
                                 <option value="" selected="" disabled="">Seleccione una opción</option>
                                   <?php foreach ($roles as $rol) : ?>
                                     <option value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
-                                  <?php endforeach; ?>                      
+                                  <?php endforeach; ?>
                                 </select>
                               </div>
                             </div>
@@ -48,7 +48,7 @@
                                 <select class="form-select" name="user_state" aria-label="Default select example">
                                   <option value="" selected="" disabled="">Seleccione una opción</option>
                                   <option value="1">Activo</option>
-                                  <option value="0">Pendiente</option>	
+                                  <option value="0">Pendiente</option>
                                 </select>
                               </div>
                             </div>
@@ -57,7 +57,7 @@
                               <div class="col-sm-9">
                                 <input type="text" name="user_id" class="form-control">
                               </div>
-                            </div>                          
+                            </div>
                             <div class="row mb-3">
                               <label for="inputText" class="col-sm-3 col-form-label">Nombres</label>
                               <div class="col-sm-9">
@@ -69,7 +69,7 @@
                               <div class="col-sm-9">
                                 <input type="email" name="user_email" class="form-control">
                               </div>
-                            </div>                            
+                            </div>
                             <div class="row mb-3">
                               <label for="inputEmail" class="col-sm-3 col-form-label">Celular</label>
                               <div class="col-sm-9">
@@ -81,7 +81,7 @@
                               <div class="col-sm-9">
                                 <input type="password" name="user_pass" class="form-control">
                               </div>
-                            </div>                                            
+                            </div>
                             <div class="row mb-3">
                               <label for="inputPasswordRepet" class="col-sm-3 col-form-label">Repetir Contraseña</label>
                               <div class="col-sm-9">
@@ -115,11 +115,11 @@
                                 <div class="col-sm-9">
                                   <input type="text" name="user_id" class="form-control" value="<?php echo $userId->getUserId() ?>">
                                 </div>
-                              </div>                           
+                              </div>
                               <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Rol</label>
                                 <div class="col-sm-9">
-                                <select class="form-select" name="rol_id">                                            											
+                                <select class="form-select" name="rol_id">
                                     <?php foreach ($roles as $rol) : ?>
                                           <?php if ($rol->getRolCode() == $userId->getRolCode()) : ?>
                                               <option selected="" value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
@@ -143,7 +143,7 @@
                                       <?php endfor; ?>
                                   </select>
                                 </div>
-                              </div>                            
+                              </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Nombres</label>
                                 <div class="col-sm-9">
@@ -155,7 +155,7 @@
                                 <div class="col-sm-9">
                                   <input type="email" name="user_email" class="form-control" value="<?php echo $userId->getUserEmail();?>">
                                 </div>
-                              </div>                              
+                              </div>
                               <div class="row mb-3">
                                 <label for="inputEmail" class="col-sm-3 col-form-label">Celular</label>
                                 <div class="col-sm-9">
@@ -167,7 +167,7 @@
                                 <div class="col-sm-9">
                                   <input type="password" name="user_pass" class="form-control">
                                 </div>
-                              </div>                                              
+                              </div>
                               <div class="row mb-3">
                                 <label for="inputPasswordRepet" class="col-sm-3 col-form-label">Repetir Contraseña</label>
                                 <div class="col-sm-9">
@@ -189,7 +189,7 @@
               <!-- Tabla de Datos -->
               <table class="table datatable ajuste-tabla" id="ej-user" style="width:100%">
                 <thead>
-                  <tr>                    
+                  <tr>
                     <th class="text-center">Rol</th>
                     <th class="text-center">Identificación</th>
                     <th class="text-center">Nombre</th>
@@ -201,7 +201,7 @@
                 </thead>
                 <tbody>
                   <?php foreach ($users as $user) : ?>
-                    <tr class="text-center">                      
+                    <tr class="text-center">
                       <td class="pt-3"><?php echo $user->getRolName(); ?></td>
                       <td class="pt-3"><?php echo $user->getUserId(); ?></td>
                       <td class="pt-3"><?php echo $user->getUserName(); ?></td>

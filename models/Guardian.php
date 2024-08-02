@@ -1,11 +1,11 @@
 <?php
     require_once "models/User.php";
     class Guardian extends User{
-        
+
         # Atributos
         private $guardian_type_id;
         private $guardian_type_name;
-        
+
         # Constructor: Sobrecarga y conexión pdo
         public function __construct(){
             try {
@@ -27,9 +27,9 @@
         }
 
         # Constructor: Objeto 09 parámetros
-        public function __construct9($user_code, $rol_id, $guardian_type_id, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){            
+        public function __construct9($user_code, $rol_id, $guardian_type_id, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){
             $this->user_code = $user_code;
-            $this->rol_id = $rol_id;            
+            $this->rol_id = $rol_id;
             $this->guardian_type_id = $guardian_type_id;
             $this->user_id = $user_id;
             $this->user_name = $user_name;
@@ -38,7 +38,7 @@
             $this->user_pass = $user_pass;
             $this->user_state = $user_state;
         }
-        
+
         # Constructor: Objeto 10 parámetros
         public function __construct10($user_code, $rol_id, $rol_name, $guardian_type_name, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){
             unset($this->dbh);
@@ -117,7 +117,7 @@
                 $guardianType = new Guardian(
                     $guardianTypeDb['guardian_type_id'],
                     $guardianTypeDb['guardian_type_name']
-                );                
+                );
                 return $guardianType;
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -170,15 +170,15 @@
         }
 
          # Acudiente: Crear
-         public function create_guardian_student(){
+         public function create_guardian_student($studentId, $guardianId){
             try {
                 $sql = 'INSERT INTO GUARDIANS_STUDENTS VALUES (
                             :studentId,
                             :guardianId
                         )';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('studentId', $this->getGuardianTypeId());
-                $stmt->bindValue('guardianId', $this->getUserId());
+                $stmt->bindValue('studentId', $studentId);
+                $stmt->bindValue('guardianId', $guardianId);
                 $stmt->execute();
                 return $stmt;
             } catch (Exception $e) {
