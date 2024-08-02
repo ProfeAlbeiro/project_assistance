@@ -62,7 +62,7 @@ SELECT * FROM STUDENTS;
 
 -- Insertar Usuarios Acudientes
 INSERT INTO `users` VALUES
-('1001011024', 4, 'Pedro Perez', 'villaramos_23@hotmail.com', "3183888421" , sha1('12345'), 1),
+('1001011024', 4, 'Georgina Perez', 'villaramos_23@hotmail.com', "3183888421" , sha1('12345'), 1),
 ('1001011025', 4, 'Amanda García', 'profealbeiro2020@gmail.com', "3183888422" , sha1('12345'), 1),
 ('1001011026', 4, 'Andrea Galeano', 'ramoncito029@gmail.com', "3183888423" , sha1('12345'), 1),
 ('1001011027', 4, 'Carlos Duarte', 'earamos42@misena.edu.co', "3183888424" , sha1('12345'), 1);
@@ -72,7 +72,7 @@ SELECT * FROM USERS;
 INSERT INTO GUARDIANS_TYPE VALUES
 (1, 'Madre'),
 (2, 'Padre'),
-(3, 'Abuelo');
+(3, 'Abuela');
 SELECT * FROM GUARDIANS_TYPE;
 
 -- Insertar Acudientes
@@ -306,6 +306,7 @@ SELECT * FROM USERS;
 SELECT * FROM TEACHERS;
 SELECT * FROM STUDENTS;
 SELECT * FROM GUARDIANS;
+SELECT * FROM GUARDIANS_TYPE;
 SELECT * FROM GUARDIANS_STUDENTS;
 SELECT * FROM ASSISTANCES;
 SELECT * FROM JUSTIFICATIONS;

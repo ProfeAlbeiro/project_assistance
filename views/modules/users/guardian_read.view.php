@@ -16,37 +16,8 @@
           <div class="card">
             <div class="card-body">
               <div class ="d-flex">
-                <h5 class="card-title flex-grow-1">Acudientes</h5>               
+                <h5 class="card-title flex-grow-1">Acudientes</h5>
 
-                <!-- Consultar Estudiantes -->
-                <!-- Modal Crear Rol -->
-                <button type="button" class="btn btn-primary btn-sm my-3 font-size-min" data-bs-toggle="modal" data-bs-target="#createGuardianType">
-                  Nueva Relación
-                </button>
-                <div class="modal fade" id="createGuardianType" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog">
-                  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Crear Relación</h5>
-                        <a href="?c=Users&a=guardianRead" class="btn-close" aria-label="Close"></a>
-                      </div>
-                      <div class="modal-body">
-                          <form action="?c=Users&a=guardianTypeCreate" method="POST">                            
-                            <div class="row mb-3">
-                              <label for="inputText" class="col-sm-3 col-form-label">Nombre</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="guardian_type_name" class="form-control">
-                              </div>
-                            </div>
-                            <div class="modal-footer pb-0 px-0 mt-4">
-                              <a href="?c=Users&a=guardianRead" class="btn btn-secondary">Cerrar</a>
-                              <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>
-                          </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <a href="?c=Users&a=studentRead" type="button" class="btn btn-primary btn-sm my-3 ms-1 font-size-min d-flex align-items-center">
                   Estudiantes
                 </a>

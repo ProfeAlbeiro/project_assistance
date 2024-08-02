@@ -252,7 +252,7 @@
         public function guardianTypeCreate(){
             if ($this->session == 'admin') {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    header("Location: ?c=Users&a=guardianRead");
+                    header("Location: ?c=Users&a=guardianTypeRead");
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $guardian_type = new Guardian(
@@ -260,7 +260,7 @@
                         $_POST['guardian_type_name']
                     );
                     $guardian_type->create_guardian_type();
-                    header("Location: ?c=Users&a=guardianRead");
+                    header("Location: ?c=Users&a=guardianTypeRead");
                 }
             } else {
                 header("Location: ?c=Dashboard");
@@ -273,6 +273,33 @@
                 $guardiansType = new Guardian;
                 $guardiansType = $guardiansType->read_guardian_type();
                 require_once "views/modules/users/guardian_type_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Parentesco: Controlador Actualizar
+        public function guardianTypeUpdate(){
+            if ($this->session == 'admin') {
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    $state = ['Pendiente', 'Activo'];
+                    $guardianTypeId = new Guardian;
+                    $guardianTypeId = $guardianTypeId->getguardiantype_bycode($_GET['idguardian']);
+                    $guardiansType = new Guardian;
+                    $guardiansType = $guardiansType->read_guardian_type();
+                    require_once "views/modules/users/guardian_type_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editRegister('editGuardianType');</script>";
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $guardianUpdate = new Guardian(
+                        $_POST['guardian_type_id'],
+                        $_POST['guardian_type_name']
+                    );
+                    $guardianUpdate->update_guardian_type();
+                    header("Location: ?c=Users&a=guardianTypeRead");
+                }
             } else {
                 header("Location: ?c=Dashboard");
             }

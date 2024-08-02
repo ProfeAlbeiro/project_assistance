@@ -206,16 +206,16 @@
               <a href="#">Mostrar todas los mensajes</a>
             </li>
 
-          </ul><!-- End Messages Dropdown Items -->
+          </ul>
 
-        </li><!-- End Messages Nav -->
+        </li>
 
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/dashboard/img/profile-img.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $profile->getUserName() ?></span>
-          </a><!-- End Profile Iamge Icon -->
+          </a>
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
@@ -228,7 +228,7 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="?c=Dashboard">
-                <i class="bi bi-person"></i>
+                <i class="ri-user-settings-line"></i>
                 <span>Perfil</span>
               </a>
             </li>
@@ -263,13 +263,13 @@
               </a>
             </li>
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
+          </ul>
+        </li>
 
       </ul>
-    </nav><!-- End Icons Navigation -->
+    </nav>
 
-  </header><!-- End Header -->
+  </header>
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
@@ -281,14 +281,14 @@
           <i class="bi bi-grid"></i>
           <span>Panel de Control</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="?c=Dashboard">
-          <i class="ri-user-settings-fill"></i>
+          <i class="ri-user-settings-line"></i>
           <span>Perfil</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -345,7 +345,7 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Forms Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
@@ -354,58 +354,42 @@
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="?c=Assistances&a=assistanceCreate">
-              <i class="bi bi-circle"></i><span>Registrar Asistencia</span>
+              <i class="bi bi-circle"></i><span>Registrar</span>
             </a>
           </li>
           <li>
             <a href="?c=Assistances&a=assistanceRead">
-              <i class="bi bi-circle"></i><span>Consultar Asistencias</span>
+              <i class="bi bi-circle"></i><span>Consultar</span>
             </a>
           </li>
         </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Reportes Gráficos</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Crear Reporte General</span>
-            </a>
-            <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#print-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-file-earmark"></i><span>Reportes Impresos</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Reportes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="print-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Crear Reporte General</span>
+              <i class="bi bi-circle"></i><span>Gráficos</span>
             </a>
             <a href="?c=Dashboard">
-              <i class="bi bi-circle"></i><span>Crear Reporte Específico</span>
+              <i class="bi bi-circle"></i><span>Impresos</span>
             </a>
           </li>
         </ul>
-      </li><!-- End Charts Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="?c=Logout">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Cerrar Sesión</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li>
 
     </ul>
 
-  </aside><!-- End Sidebar-->
+  </aside>
 
   <main id="main" class="main captura-id">

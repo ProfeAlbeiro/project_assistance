@@ -1,9 +1,12 @@
 <?php
     require_once "models/User.php";
     class Guardian extends User{
+        
+        # Atributos
         private $guardian_type_id;
         private $guardian_type_name;
-        # Sobrecarga de constructores y conexión pdo
+        
+        # Constructor: Sobrecarga y conexión pdo
         public function __construct(){
             try {
                 $this->dbh = DataBase::connection();
@@ -37,7 +40,7 @@
             $this->user_state = $user_state;
         }
 
-        # Tipo Acudiente: Código
+        # Parentesco: Código
         public function setGuardianTypeId($guardian_type_id){
             $this->guardian_type_id = $guardian_type_id;
         }
@@ -45,7 +48,7 @@
             return $this->guardian_type_id;
         }
 
-        # Tipo Acudiente: Nombre
+        # Parentesco: Nombre
         public function setGuardianTypeName($guardian_type_name){
             $this->guardian_type_name = $guardian_type_name;
         }
@@ -53,7 +56,7 @@
             return $this->guardian_type_name;
         }
 
-        # Tipo Acudiente: Crear
+        # Parentesco: Crear
         public function create_guardian_type(){
             try {
                 $sql = 'INSERT INTO GUARDIANS_TYPE VALUES (
@@ -70,7 +73,7 @@
             }
         }
 
-        # Tipo Acudiente: Consultar
+        # Parentesco: Consultar
         public function read_guardian_type(){
             try {
                 $guardiansTypeList = [];
@@ -89,7 +92,41 @@
             }
         }
 
-        # Tipo Acudiente: Eliminar
+        # Parentesco: Obtener registro
+        public function getguardiantype_bycode($guardianTypeId){
+            try {
+                $sql = "SELECT * FROM GUARDIANS_TYPE WHERE guardian_type_id=:guardianTypeId";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('guardianTypeId', $guardianTypeId);
+                $stmt->execute();
+                $guardianTypeDb = $stmt->fetch();
+                $guardianType = new Guardian(
+                    $guardianTypeDb['guardian_type_id'],
+                    $guardianTypeDb['guardian_type_name']
+                );                
+                return $guardianType;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Parentesco: Actualizar
+        public function update_guardian_type(){
+            try {
+                $sql = 'UPDATE GUARDIANS_TYPE SET
+                            guardian_type_id = :guardian_type_id,
+                            guardian_type_name = :guardian_type_name
+                        WHERE guardian_type_id = :guardian_type_id';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('guardian_type_id', $this->getGuardianTypeId());
+                $stmt->bindValue('guardian_type_name', $this->getGuardianTypeName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Parentesco: Eliminar
         public function delete_guardianType($guardian_type_id){
             try {
                 $sql = 'DELETE FROM GUARDIANS_TYPE WHERE guardian_type_id = :guardian_type_id';
