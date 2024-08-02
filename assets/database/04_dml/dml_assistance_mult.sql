@@ -36,10 +36,11 @@ on r.rol_id = u.rol_id
 WHERE u.user_code = 2;
 
 SELECT
+	u.user_code,
 	r.rol_id,
 	r.rol_name,
-    gt.guardian_type_name,
-	user_id,    
+	gt.guardian_type_name,
+	user_id,
 	user_name,
 	user_email,
 	user_phone,
@@ -52,7 +53,7 @@ INNER JOIN GUARDIANS AS g
 on u.user_id = g.guardian_id
 INNER JOIN GUARDIANS_TYPE AS gt
 on gt.guardian_type_id = g.guardian_type_id
-WHERE r.rol_name IN ('estudiante','acudiente');
+WHERE r.rol_name IN ('acudiente');
   
 
 /* ************************************************************************************* */

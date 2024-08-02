@@ -327,6 +327,8 @@
                     $state = ['Pendiente', 'Activo'];
                     $studentId = new Student;
                     $studentId = $studentId->getuser_bycode($_GET['idstudent']);
+                    $guardiansType = new Guardian;
+                    $guardiansType = $guardiansType->read_guardian_type();
                     $guardians = new Guardian;
                     $guardians = $guardians->read_users();
                     require_once "views/modules/users/guardian_read.view.php";
@@ -335,12 +337,21 @@
                     echo "<script>editRegister('createGuardian');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $guardianUpdate = new Guardian(
-                        $_POST['guardian_type_id'],
-                        $_POST['guardian_type_name']
+                    $guardian = new Guardian(
+                        null,
+                        3,                       
+                        $_POST['guardian_type_name'],
+                        $_POST['user_id'],
+                        $_POST['user_name'],
+                        $_POST['user_email'],
+                        $_POST['user_phone'],
+                        $_POST['user_pass'],
+                        $_POST['user_state']
                     );
-                    $guardianUpdate->update_guardian_type();
-                    header("Location: ?c=Users&a=guardianTypeRead");
+                    $guardian->create_user();
+                    $guardian->create_guardian();
+                    $guardian->create_guardian_student();
+                    header("Location: ?c=Users&a=guardianRead");
                 }
             } else {
                 header("Location: ?c=Dashboard");
@@ -354,6 +365,17 @@
                 $guardians = new Guardian;
                 $guardians = $guardians->read_users();
                 require_once "views/modules/users/guardian_read.view.php";
+            } else {
+                header("Location: ?c=Dashboard");
+            }
+        }
+
+        # Estudiante: Controlador Eliminar
+        public function guardianDelete(){
+            if ($this->session == 'admin') {
+                $user = new Guardian;
+                $user->delete_user($_GET['idguardian']);
+                header("Location: ?c=Users&a=guardianRead");
             } else {
                 header("Location: ?c=Dashboard");
             }

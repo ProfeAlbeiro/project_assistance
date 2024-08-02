@@ -27,8 +27,22 @@
         }
 
         # Constructor: Objeto 09 parámetros
-        public function __construct9($rol_id, $rol_name, $guardian_type_name, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){
+        public function __construct9($user_code, $rol_id, $guardian_type_id, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){            
+            $this->user_code = $user_code;
+            $this->rol_id = $rol_id;            
+            $this->guardian_type_id = $guardian_type_id;
+            $this->user_id = $user_id;
+            $this->user_name = $user_name;
+            $this->user_email = $user_email;
+            $this->user_phone = $user_phone;
+            $this->user_pass = $user_pass;
+            $this->user_state = $user_state;
+        }
+        
+        # Constructor: Objeto 10 parámetros
+        public function __construct10($user_code, $rol_id, $rol_name, $guardian_type_name, $user_id, $user_name, $user_email, $user_phone, $user_pass, $user_state){
             unset($this->dbh);
+            $this->user_code = $user_code;
             $this->rol_id = $rol_id;
             $this->rol_name = $rol_name;
             $this->guardian_type_name = $guardian_type_name;
@@ -141,8 +155,29 @@
         # Acudiente: Crear
         public function create_guardian(){
             try {
-                $sql = 'INSERT INTO GUARDIANS VALUES (:guardianId)';
+                $sql = 'INSERT INTO GUARDIANS VALUES (
+                            :guardianId,
+                            :guardianTypeId
+                        )';
                 $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('guardianId', $this->getUserId());
+                $stmt->bindValue('guardianTypeId', $this->getGuardianTypeId());
+                $stmt->execute();
+                return $stmt;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+         # Acudiente: Crear
+         public function create_guardian_student(){
+            try {
+                $sql = 'INSERT INTO GUARDIANS_STUDENTS VALUES (
+                            :studentId,
+                            :guardianId
+                        )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('studentId', $this->getGuardianTypeId());
                 $stmt->bindValue('guardianId', $this->getUserId());
                 $stmt->execute();
                 return $stmt;
@@ -156,6 +191,7 @@
             try {
                 $userList = [];
                 $sql = "SELECT
+                            u.user_code,
                             r.rol_id,
                             r.rol_name,
                             gt.guardian_type_name,
@@ -176,6 +212,7 @@
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $user) {
                     $userObj = new Guardian(
+                        $user['user_code'],
                         $user['rol_id'],
                         $user['rol_name'],
                         $user['guardian_type_name'],
