@@ -322,20 +322,22 @@
 
         # Acudiente: Controlador Crear
         public function guardianCreate(){
-            if ($this->session == 'admin') {
+            if ($this->session == 'admin') {                
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $state = ['Pendiente', 'Activo'];
+                    $state = ['Pendiente', 'Activo'];                    
                     $studentId = new Student;
-                    $studentId = $studentId->getuser_bycode($_GET['idstudent']);
+                    $studentId = $studentId->getuser_bycode($_GET['code_student']);
+                    $guardianId = $_GET['id_guardian'];
                     $guardiansType = new Guardian;
                     $guardiansType = $guardiansType->read_guardian_type();
+                    $students = new Student;
+                    $students = $students->read_users();
                     $guardians = new Guardian;
                     $guardians = $guardians->read_users();
-                    require_once "views/modules/users/guardian_read.view.php";
+                    require_once "views/modules/users/student_read.view.php";
                     echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
-                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
-                    echo "<script>editRegister('readGuardian');</script>";
-                    // echo "<script>editRegister('createGuardian');</script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";                    
+                    echo "<script>editRegister('createGuardian');</script>";
                 }
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $guardian = new Guardian(
@@ -352,7 +354,7 @@
                     $guardian->create_user();
                     $guardian->create_guardian();
                     $guardian->create_guardian_student($_POST['student_id'], $_POST['user_id']);
-                    header("Location: ?c=Users&a=guardianRead");
+                    header("Location: ?c=Users&a=studentRead");
                 }
             } else {
                 header("Location: ?c=Dashboard");
@@ -373,17 +375,33 @@
 
         # Acudiente: Controlador Consultar Id del Acudiente
         public function guardianReadById(){
-            echo "Controlador Consultar Id del Acudiente: " . $_POST['guardian_id'];
-            // if ($this->session == 'admin') {
-                //     $state = ['Pendiente', 'Activo'];
-                //     $guardians = new Guardian;
-                //     $guardians = $guardians->read_users();
-            //     require_once "views/modules/users/guardian_read.view.php";
-            // } else {
-            //     header("Location: ?c=Dashboard");
-            // }
+            if ($this->session == 'admin') {                                
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    $state = ['Pendiente', 'Activo'];
+                    $studentId = new Student;
+                    $studentId = $studentId->getuser_bycode($_GET['idstudent']);
+                    $students = new Student;
+                    $students = $students->read_users();
+                    require_once "views/modules/users/student_read.view.php";
+                    echo "<script src='assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>";
+                    echo "<script src='assets/dashboard/js/scripts.js'></script>";
+                    echo "<script>editRegister('readGuardianById');</script>";
+                }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $guardian = new Guardian;
+                    $guardian_exist = $guardian->getguardian_exist($_POST['guardian_id']);
+                    if ($guardian_exist) {                                                
+                        $guardian->create_guardian_student($_POST['student_id'], $_POST['guardian_id']);
+                        header("Location: ?c=Users&a=studentRead");
+                    } else {
+                        header("Location: ?c=Users&a=guardianCreate&code_student=".$_POST['student_code']."&id_guardian=".$_POST['guardian_id']); 
+                    }
+                }
+            } else {
+                header("Location: ?c=Dashboard");
+            }
         }
-
+                
         # Acudiente: Controlador Eliminar
         public function guardianDelete(){
             if ($this->session == 'admin') {

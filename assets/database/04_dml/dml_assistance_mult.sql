@@ -170,3 +170,19 @@ INNER JOIN ATTENDS AS t
 ON a.attend_id = t.attend_id
 WHERE st.user_id = 1031041054 AND (t.attend_id = 2 OR t.attend_id = 3)
 ORDER BY a.assistance_date DESC, a.assistance_start_time DESC LIMIT 1;
+
+
+SELECT
+	u.user_code,
+	r.rol_id,
+	r.rol_name,
+	u.user_id,
+	u.user_name,
+	u.user_email,
+	u.user_phone,
+	u.user_pass,
+	u.user_state
+FROM ROLES AS r
+INNER JOIN USERS AS u
+on r.rol_id = u.rol_id
+WHERE u.user_code = :userCode;

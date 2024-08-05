@@ -169,8 +169,26 @@
             }
         }
 
-         # Acudiente: Crear
-         public function create_guardian_student($studentId, $guardianId){
+        # Acudiente: consultar existencia por Id
+        public function getguardian_exist($guardianId){
+            try {
+                $sql = "SELECT * FROM GUARDIANS WHERE guardian_id=:guardianId";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('guardianId', $guardianId);
+                $stmt->execute();
+                $guardianDb = $stmt->fetch();
+                if ($guardianDb) {                    
+                    return true;
+                } else {
+                    return false;
+                }                
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # Acudiente: Relacionar Estudiante y Acudiente
+        public function create_guardian_student($studentId, $guardianId){
             try {
                 $sql = 'INSERT INTO GUARDIANS_STUDENTS VALUES (
                             :studentId,
